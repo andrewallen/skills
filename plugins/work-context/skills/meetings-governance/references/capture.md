@@ -1,6 +1,6 @@
 # Capture rules
 
-Load when capturing or reconciling an occurrence's evidence. Frontmatter schemas are in `assets/evidence-frontmatter.md`.
+Load when capturing or reconciling an occurrence's evidence. Frontmatter schemas are in [evidence-frontmatter.md](../assets/evidence-frontmatter.md).
 
 ## Contents
 
