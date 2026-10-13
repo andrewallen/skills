@@ -1,0 +1,74 @@
+# Work Context
+
+Work Context packages three personal governance skills as one Agent Plugins 1.0 plugin, distributed through a GitHub Copilot CLI marketplace.
+
+## Layout
+
+```text
+.github\plugin\marketplace.json
+plugins
+└── work-context
+    ├── plugin.json
+    ├── Common Architecture.md
+    └── skills
+        ├── workspace-governance
+        ├── meetings-governance
+        └── stakeholder-governance
+```
+
+The portable manifest lives at the plugin root. Clients discover each skill from an immediate child of `skills` containing `SKILL.md`. References and templates stay inside the package. There are no bundled MCP servers, hooks or executable components.
+
+The marketplace is a Copilot-specific distribution catalogue, separate from the portable plugin specification. Its source points to `plugins/work-context`, relative to the repository root.
+
+## Included skills
+
+| Skill | Use |
+|---|---|
+| `workspace-governance` | Create or repair the common workspace, route material, review duplicates and register issued outputs. |
+| `meetings-governance` | Capture named meetings or refresh new and changed meeting evidence. |
+| `stakeholder-governance` | Create or refresh evidence-backed profiles of relevant people and organisations. |
+
+The skills operate on the target workspace supplied by the user, not on this repository or the installed plugin directory. No parent folder name is required: `Active Work` and `Current Matters` are optional personal organisational choices, not assumptions made by the skills. They can operate independently. Ordinary reading, reasoning, drafting and editing do not require these governance skills.
+
+## GitHub installation with Copilot CLI
+
+```powershell
+copilot plugin marketplace add andrewallen/skills
+copilot plugin install work-context@andrewallen-personal-skills
+```
+
+## Local installation with Copilot CLI
+
+From this repository's root, install the package directly:
+
+```powershell
+copilot plugin install ".\plugins\work-context"
+```
+
+Or register this repository as a local marketplace and install from it:
+
+```powershell
+copilot plugin marketplace add "."
+copilot plugin install work-context@andrewallen-personal-skills
+```
+
+These commands change your local plugin configuration; they are instructions, not actions performed by repository setup. After installation, start a new session and check `/skills list` for the three skills. Reinstall the package after editing a local cached installation.
+
+If you previously installed the plugin as `workspace-governance`, install `work-context` and uninstall the old plugin before starting a new session to avoid loading duplicate skills. The individual skill names have not changed.
+
+## Maintenance
+
+- Add future plugins under `plugins` and add their relative source to the marketplace.
+- Keep component discovery at the fixed `skills` location. Do not add configurable skill paths to `plugin.json`.
+- Keep optional dependencies absent: these skills need filesystem access and, for remote evidence retrieval, suitable authorised tools supplied by the client.
+- Update a skill's own metadata version when its behaviour changes. Update the plugin version when distributing an updated package. The marketplace does not pin duplicate version numbers.
+- Keep governed-file template versions separate from skill and plugin versions.
+- Do not commit workspace evidence, customer documents, generated outputs, credentials or local caches here.
+
+No reuse license has been configured. Issued-output registration remains part of the existing workspace skill; packaging has not changed that policy.
+
+## Format references
+
+- [Agent Plugins specification](https://agent-plugins.org/specification)
+- [Agent Skills specification](https://agentskills.io/specification)
+- [Copilot CLI marketplace format](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-marketplace)

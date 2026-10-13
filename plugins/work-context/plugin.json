@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "work-context",
+  "version": "1.0.0",
+  "description": "Personal workspace structure, meeting evidence capture, and stakeholder profiles for people and organisations.",
+  "author": {
+    "name": "andrewallen"
+  },
+  "keywords": [
+    "workspace",
+    "meetings",
+    "stakeholders",
+    "skills"
+  ]
+}

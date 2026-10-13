@@ -1,0 +1,16 @@
+{
+  "name": "andrewallen-personal-skills",
+  "owner": {
+    "name": "andrewallen"
+  },
+  "metadata": {
+    "description": "Personal agent plugins for everyday workspace activities."
+  },
+  "plugins": [
+    {
+      "name": "work-context",
+      "description": "Common workspace structure, latest-meeting refresh, and evidence-backed stakeholder profiles.",
+      "source": "./plugins/work-context"
+    }
+  ]
+}
