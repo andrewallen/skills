@@ -63,6 +63,7 @@ If you previously installed the plugin as `workspace-governance`, install `work-
 - Keep optional dependencies absent: these skills need filesystem access and, for remote evidence retrieval, suitable authorised tools supplied by the client.
 - Update a skill's own metadata version when its behaviour changes. Update the plugin version when distributing an updated package. The marketplace does not pin duplicate version numbers.
 - Keep governed-file template versions separate from skill and plugin versions.
+- Follow [GOVERNANCE.md](GOVERNANCE.md) and record significant decisions in [docs/adr](docs/adr/README.md).
 - Do not commit workspace evidence, customer documents, generated outputs, credentials or local caches here.
 
 No reuse license has been configured. Issued-output registration remains part of the existing workspace skill; packaging has not changed that policy.
