@@ -3,7 +3,7 @@ name: stakeholder-governance
 description: Create or refresh evidence-backed profiles of relevant people and organisations. Use after new meeting or source evidence, for named profile creation, bounded stakeholder discovery or evidence-based content review. Do not create a CRM, personality model, account plan or second meeting archive.
 metadata:
   version: "4.1"
-  architecture: common-workspace-architecture v1.1
+  architecture: common-workspace-architecture v1.2
   runtime-dependencies: none
   predecessor: stakeholders-governance v2.7
 ---

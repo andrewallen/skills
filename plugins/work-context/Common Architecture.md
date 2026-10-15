@@ -1,7 +1,7 @@
 ---
 document_role: common-workspace-architecture
-architecture_version: "1.1"
-effective_date: "2026-10-09"
+architecture_version: "1.2"
+effective_date: "2026-10-15"
 ---
 
 # Common Workspace Architecture
@@ -17,7 +17,7 @@ Use the same structure for an event, engagement, initiative, research activity, 
 50 People and Organisations
 60 Media and Recordings
 70 Governance and Administration
-90 Archive
+99 Archive
 ```
 
 ## Everyday work
@@ -43,7 +43,7 @@ Governance is not required for ordinary reading, reasoning, drafting or editing.
 | `50 People and Organisations` | Evidence-backed profiles of relevant people and organisations. |
 | `60 Media and Recordings` | Standalone media not tied to a governed meeting. |
 | `70 Governance and Administration` | Architecture, controls and local governance skills. |
-| `90 Archive` | Superseded, withdrawn or inactive retained material. |
+| `99 Archive` | Superseded, withdrawn or inactive retained material. |
 
 ## Routing
 
@@ -55,7 +55,7 @@ Use the first applicable rule:
 4. Original or received evidence goes to `30 Source Material`.
 5. New analysis, drafts and AI-assisted work go to `20 Working Material`.
 6. Standalone media goes to `60 Media and Recordings`.
-7. Material moves to `90 Archive` only with explicit approval.
+7. Material moves to `99 Archive` only with explicit approval.
 
 Filenames such as `Final`, `Official`, `Clean` or `Customer-Ready` do not establish lifecycle state.
 

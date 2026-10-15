@@ -2,8 +2,8 @@
 name: workspace-governance
 description: Create, explain, assess and safely maintain the common workspace structure. Use for initial setup, structural repair, routing ambiguous material, registering issued outputs, duplicate review or approval-ready reorganisation proposals. Do not use for ordinary reading, reasoning, drafting or editing.
 metadata:
-  version: "2.1"
-  architecture: common-workspace-architecture v1.1
+  version: "2.2"
+  architecture: common-workspace-architecture v1.2
   runtime-dependencies: none
 ---
 
@@ -57,7 +57,7 @@ workspace_root
 |-- 50 People and Organisations
 |-- 60 Media and Recordings
 |-- 70 Governance and Administration
-`-- 90 Archive
+`-- 99 Archive
 ```
 
 Create only missing items and preserve everything present. Empty fixed roots are valid. Do not create meeting controls, stakeholder profiles, evidence folders or copies of specialist skills unless separately requested.

@@ -52,9 +52,25 @@ copilot plugin marketplace add "."
 copilot plugin install work-context@andrewallen-personal-skills
 ```
 
-These commands change your local plugin configuration; they are instructions, not actions performed by repository setup. After installation, start a new session and check `/skills list` for the three skills. Reinstall the package after editing a local cached installation.
+These commands change your local plugin configuration; they are instructions, not actions performed by repository setup. After installation, start a new session and check `/skills list` for the three skills.
 
 If you previously installed the plugin as `workspace-governance`, install `work-context` and uninstall the old plugin before starting a new session to avoid loading duplicate skills. The individual skill names have not changed.
+
+## Updating an installed plugin
+
+For a GitHub marketplace installation:
+
+```powershell
+copilot plugin marketplace update andrewallen-personal-skills
+copilot plugin update work-context
+copilot plugin list
+```
+
+Start a new session and check the installed version and changed behaviour. These commands retrieve the ref the marketplace tracks, normally `main`, not an unpublished feature branch. A custom marketplace does not automatically enable client-side auto-updates.
+
+Path-sourced plugins in a local directory marketplace load from that directory; restart or start a new session after edits. For other installation sources, use the client's plugin update command.
+
+The archive-folder correction is packaged as `work-context` 1.0.1, with Workspace Governance 2.2 and Common Architecture 1.2. Newly initialised workspaces use `99 Archive`; existing legacy structures are preserved unless a migration is explicitly approved.
 
 ## Maintenance
 
@@ -63,6 +79,7 @@ If you previously installed the plugin as `workspace-governance`, install `work-
 - Keep optional dependencies absent: these skills need filesystem access and, for remote evidence retrieval, suitable authorised tools supplied by the client.
 - Update a skill's own metadata version when its behaviour changes. Update the plugin version when distributing an updated package. The marketplace does not pin duplicate version numbers.
 - Keep governed-file template versions separate from skill and plugin versions.
+- Follow [GOVERNANCE.md](GOVERNANCE.md) and record significant decisions in [docs/adr](docs/adr/README.md).
 - Do not commit workspace evidence, customer documents, generated outputs, credentials or local caches here.
 
 No reuse license has been configured. Issued-output registration remains part of the existing workspace skill; packaging has not changed that policy.
