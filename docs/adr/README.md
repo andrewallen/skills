@@ -11,3 +11,5 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0003](0003-independent-skills-with-fixed-ownership.md) | Keep skills independent with fixed ownership boundaries | Accepted |
 | [0004](0004-licence-not-yet-chosen.md) | No reuse licence yet | Accepted |
 | [0005](0005-safeguards-for-meeting-evidence-capture.md) | Apply safeguards to meeting-evidence capture | Proposed |
+| [0006](0006-version-and-publish-plugin-changes-together.md) | Version and publish plugin changes together | Accepted |
+| [0007](0007-use-99-archive-for-new-workspaces.md) | Use 99 Archive for new workspaces | Accepted |

@@ -2,8 +2,8 @@
 name: workspace-governance
 description: Create, explain, assess and safely maintain the common workspace structure. Use for initial setup, structural repair, routing ambiguous material, registering issued outputs, duplicate review or approval-ready reorganisation proposals. Do not use for ordinary reading, reasoning, drafting or editing.
 metadata:
-  version: "2.1"
-  architecture: common-workspace-architecture v1.1
+  version: "2.2"
+  architecture: common-workspace-architecture v1.2
   runtime-dependencies: none
 ---
 

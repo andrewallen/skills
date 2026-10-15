@@ -1,7 +1,7 @@
 ---
 document_role: common-workspace-architecture
-architecture_version: "1.1"
-effective_date: "2026-10-09"
+architecture_version: "1.2"
+effective_date: "2026-10-15"
 ---
 
 # Common Workspace Architecture

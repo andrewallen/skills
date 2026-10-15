@@ -14,10 +14,41 @@ This is a personal repository. It governs how the `work-context` plugin and any 
 
 ## Changes
 
-- Work on a branch and merge to `main` by pull request where practical.
-- Update a skill's `metadata.version` when its behaviour changes, and the plugin version in `plugin.json` when distributing an update.
-- Keep governed-file template versions separate from skill and plugin versions.
-- Update the README when layout, installation or maintenance steps change.
+Use a branch and a pull request to `main` for repository changes. The owner reviews and merges; coding agents may prepare changes but must not infer permission to publish or merge.
+
+Before a change is ready for review:
+
+1. Identify the affected skills, shared references, templates and installation instructions. Search the whole repository for references to changed names, paths and rules.
+2. Add or update an ADR for a significant decision. A Proposed ADR is not authority to change behaviour; the owner must explicitly accept it. Keep the ADR index and status in sync.
+3. Make the change and the relevant version updates together, following the rules below.
+4. Validate JSON manifests, local links and cross-file consistency as applicable. Check the diff for whitespace errors, unintended changes and private content. For behavioural changes, record the expected result and check that the instructions produce it without conflicting with existing safeguards.
+5. In the pull request, describe the change, affected versions, validation and any migration or compatibility implications. Use the [pull request checklist](.github/pull_request_template.md).
+
+## Versioning
+
+| Version | When to change it |
+|---|---|
+| Plugin `version` in `plugins/<plugin>/plugin.json` | Whenever the distributed package changes, including bundled skills, references or templates. Use semantic versioning: patch for corrections, minor for compatible additions, major for incompatible changes. |
+| Skill `metadata.version` in `SKILL.md` | When that skill's behaviour changes, including changes made through references it consumes. Keep the existing major.minor format: increment minor for compatible changes or corrections, major for incompatible changes. |
+| `architecture_version` in Common Architecture | When shared folder structure, routing or ownership rules change. Update its effective date and every skill's `metadata.architecture` reference together. |
+| Governed-file `template` version | When the generated file's schema or required structure changes. Keep it separate from skill, architecture and plugin versions. |
+
+Metadata-only updates to an architecture reference do not themselves require a skill version bump. Repository-only documentation or process changes outside a plugin do not require a plugin bump. Evaluate each skill if a shared reference changes its behaviour.
+
+Do not add duplicate plugin versions to the marketplace catalogue; the plugin manifest is the version source. Do not change `created_by` in existing governed files, or migrate user workspaces merely because a version advanced. A folder rename must explain the treatment of existing workspaces and obtain approval before moving established content.
+
+## Publishing and updates
+
+The published source is the repository ref used when registering the marketplace. With `copilot plugin marketplace add andrewallen/skills`, this is the default branch, `main`; a feature-branch push is not publication to that source.
+
+1. Confirm the package and version changes have been reviewed together.
+2. Merge to the tracked ref only with owner approval.
+3. Check that the remote ref contains the intended plugin version and files. A successful push to a different branch does not satisfy this check.
+4. Refresh the catalogue and update the installed plugin in an authorised test installation, then start a new session and check its installed version and affected behaviour. Report an unperformed installation check as a gap, not a successful release check.
+
+See [README update instructions](README.md#updating-an-installed-plugin). Marketplace registration and a version bump do not guarantee automatic installation: that depends on the client's update configuration. GitHub tags and Releases are optional release records, not substitutes for updating the ref the marketplace consumes.
+
+These are contributor checklists, not automated enforcement. Branch protection and CI are separate repository settings and are not enabled by this document.
 
 ## Content rules
 
