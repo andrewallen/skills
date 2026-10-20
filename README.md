@@ -2,6 +2,20 @@
 
 Work Context packages three personal governance skills as one Agent Plugins 1.0 plugin, distributed through a GitHub Copilot CLI marketplace.
 
+## Documentation
+
+For repository maintenance and skill authoring, read in this order:
+
+| Read | Purpose |
+|---|---|
+| [Governance](GOVERNANCE.md) | Change authority, versioning, compatibility and publication rules. |
+| [Current architecture](docs/architecture.md) | Package boundaries, skill ownership and how information is shared today. |
+| [Skill authoring](docs/skill-authoring.md) | Decide what to extend, define boundaries and check completion. |
+| [Validation](docs/validation.md) | Run repeatable repository checks and identify what still needs manual review. |
+| [ADR index](docs/adr/README.md) | Accepted decisions and proposals; Proposed does not mean implemented. |
+
+The [current information model inventory](docs/current-information-model.md) maps today's terms, records, relationships and unresolved definitions. It is descriptive, not an accepted shared-model specification.
+
 ## Layout
 
 ```text
@@ -81,6 +95,15 @@ The archive-folder correction is packaged as `work-context` 1.0.1, with Workspac
 - Keep governed-file template versions separate from skill and plugin versions.
 - Follow [GOVERNANCE.md](GOVERNANCE.md) and record significant decisions in [docs/adr](docs/adr/README.md).
 - Do not commit workspace evidence, customer documents, generated outputs, credentials or local caches here.
+
+From the repository root, run the dependency-free checks with PowerShell 7:
+
+```powershell
+pwsh -NoProfile -File .\scripts\validate-repository.ps1
+git diff --check
+```
+
+See [validation scope and gaps](docs/validation.md) before treating these checks as review evidence.
 
 No reuse license has been configured. Issued-output registration remains part of the existing workspace skill; packaging has not changed that policy.
 
