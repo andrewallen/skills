@@ -13,3 +13,6 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0005](0005-safeguards-for-meeting-evidence-capture.md) | Apply safeguards to meeting-evidence capture | Proposed |
 | [0006](0006-version-and-publish-plugin-changes-together.md) | Version and publish plugin changes together | Accepted |
 | [0007](0007-use-99-archive-for-new-workspaces.md) | Use 99 Archive for new workspaces | Accepted |
+| [0008](0008-define-independent-skill-contracts.md) | Define independent skill contracts and interoperability | Proposed |
+| [0009](0009-establish-a-shared-information-model.md) | Establish a shared information model | Proposed |
+| [0010](0010-define-evidence-retrieval-semantics.md) | Define evidence retrieval and interpretation semantics | Proposed |
