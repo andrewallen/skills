@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "work-actions",
+  "version": "1.0.1",
+  "description": "A shared human-agent action ledger with bounded delegation, evidence-backed handoffs and deterministic attention views.",
+  "author": {
+    "name": "andrewallen"
+  },
+  "keywords": [
+    "actions",
+    "ledger",
+    "delegation",
+    "skills"
+  ]
+}

@@ -1,6 +1,6 @@
 # Work Context
 
-Work Context packages three personal governance skills as one Agent Plugins 1.0 plugin, distributed through a GitHub Copilot CLI marketplace.
+This repository packages personal agent plugins as Agent Plugins 1.0 packages, distributed through a GitHub Copilot CLI marketplace: `work-context` (three workspace governance skills, below) and `work-actions` (the action-ledger skill and manual helpers; see [Work Actions plugin](docs/work-actions-plugin.md)).
 
 ## Documentation
 
@@ -21,6 +21,10 @@ The [current information model inventory](docs/current-information-model.md) map
 ```text
 .github\plugin\marketplace.json
 plugins
+├── work-actions
+│   ├── plugin.json
+│   └── skills
+│       └── action-ledger
 └── work-context
     ├── plugin.json
     ├── Common Architecture.md
@@ -89,6 +93,7 @@ The archive-folder correction is packaged as `work-context` 1.0.1, with Workspac
 ## Maintenance
 
 - Add future plugins under `plugins` and add their relative source to the marketplace.
+- `work-actions` ([documentation](docs/work-actions-plugin.md)) is the second plugin; its helpers are the only executable components, are manual, and are covered by `scripts\test-work-actions-plugin.ps1`.
 - Keep component discovery at the fixed `skills` location. Do not add configurable skill paths to `plugin.json`.
 - Keep optional dependencies absent: these skills need filesystem access and, for remote evidence retrieval, suitable authorised tools supplied by the client.
 - Update a skill's own metadata version when its behaviour changes. Update the plugin version when distributing an updated package. The marketplace does not pin duplicate version numbers.
@@ -100,10 +105,9 @@ From the repository root, run the dependency-free checks with PowerShell 7:
 
 ```powershell
 pwsh -NoProfile -File .\scripts\validate-repository.ps1
+pwsh -NoProfile -File .\scripts\test-work-actions-plugin.ps1
 git diff --check
-```
-
-See [validation scope and gaps](docs/validation.md) before treating these checks as review evidence.
+``` scope and gaps](docs/validation.md) before treating these checks as review evidence.
 
 No reuse license has been configured. Issued-output registration remains part of the existing workspace skill; packaging has not changed that policy.
 
