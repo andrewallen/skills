@@ -1,0 +1,28 @@
+{
+  "repository": "example/ledger",
+  "timeZone": "Europe/London",
+  "project": {
+    "owner": "example",
+    "number": 7,
+    "id": "TEST_PROJECT",
+    "allActionsViewId": "TEST_VIEW",
+    "url": "https://github.com/users/example/projects/7"
+  },
+  "validationLabel": "automation:needs-fix",
+  "views": [
+    { "key": "capture", "name": "Capture", "label": "view:capture" },
+    { "key": "now", "name": "Do - Now", "label": "view:do-now" },
+    { "key": "next", "name": "Plan - Next", "label": "view:plan-next" },
+    { "key": "soon", "name": "Review - Soon", "label": "view:review-soon" },
+    { "key": "later", "name": "Review - Later", "label": "view:review-later" },
+    { "key": "someday", "name": "Someday", "label": "view:someday" },
+    { "key": "waiting", "name": "Blocked - Waiting", "label": "view:waiting" },
+    { "key": "projects", "name": "Projects", "label": "view:projects" }
+  ],
+  "extraViews": [
+    { "name": "Needs your decision", "label": "state:review" },
+    { "name": "Agents running", "label": "state:running" },
+    { "name": "Failed - needs attention", "label": "state:failed" },
+    { "name": "Metadata to fix", "label": "automation:needs-fix" }
+  ]
+}

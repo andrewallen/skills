@@ -1,6 +1,6 @@
 # Governance
 
-This is a personal repository. It governs how the `work-context` plugin and any future plugins are changed and distributed. It does not govern the workspaces the skills operate on; those rules live in the plugin's [Common Architecture](plugins/work-context/Common%20Architecture.md).
+This is a personal repository. It governs how the `work-context` and `work-actions` plugins and any future plugins are changed and distributed. It does not govern the workspaces the skills operate on; those rules live in the plugin's [Common Architecture](plugins/work-context/Common%20Architecture.md).
 
 ## Roles
 

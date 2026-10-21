@@ -12,7 +12,7 @@ This is a description of the current package, not a new workspace architecture o
 | Skill | Each immediate child of `plugins/work-context/skills` has a `SKILL.md`; its `references` and `assets` supply task-specific instructions and templates. No configurable skill path is declared. |
 | Runtime and target | The client supplies filesystem access and suitable authorised retrieval tools. The user supplies the target workspace or collection; skills never derive it from their installed location. |
 
-There are no bundled MCP servers, hooks, executables, search services or background synchronisation. See accepted [ADR-0002](adr/0002-package-skills-as-agent-plugin.md) for packaging and [README](../README.md#github-installation-with-copilot-cli) for installation.
+There are no bundled MCP servers, hooks, executables, search services or background synchronisation in `work-context`. The separate `work-actions` plugin ([documentation](work-actions-plugin.md), [ADR-0011](adr/0011-maintain-work-actions-plugin-here.md)) bundles manual, preview-by-default PowerShell helpers and is otherwise outside this description of `work-context`. See accepted [ADR-0002](adr/0002-package-skills-as-agent-plugin.md) for packaging and [README](../README.md#github-installation-with-copilot-cli) for installation.
 
 ## Ownership and standalone operation
 

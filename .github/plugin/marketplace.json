@@ -11,6 +11,11 @@
       "name": "work-context",
       "description": "Common workspace structure, latest-meeting refresh, and evidence-backed stakeholder profiles.",
       "source": "./plugins/work-context"
+    },
+    {
+      "name": "work-actions",
+      "description": "Capture, clarify, delegate, review and hand off actions on one GitHub issue ledger.",
+      "source": "./plugins/work-actions"
     }
   ]
 }

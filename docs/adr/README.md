@@ -16,3 +16,4 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0008](0008-define-independent-skill-contracts.md) | Define independent skill contracts and interoperability | Proposed |
 | [0009](0009-establish-a-shared-information-model.md) | Establish a shared information model | Proposed |
 | [0010](0010-define-evidence-retrieval-semantics.md) | Define evidence retrieval and interpretation semantics | Proposed |
+| [0011](0011-maintain-work-actions-plugin-here.md) | Maintain the work-actions plugin in this repository | Proposed |

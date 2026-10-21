@@ -7,6 +7,8 @@ pwsh -NoProfile -File .\scripts\validate-repository.ps1
 git diff --check
 ```
 
+Package-specific helper isolation checks for `work-actions` run separately with `pwsh -NoProfile -File .\scripts\test-work-actions-plugin.ps1` (synthetic fixtures, faked `gh`, no live GitHub access).
+
 The script is read-only, uses no downloaded modules or services, and resolves the repository from its own location. It checks tracked and non-ignored untracked files, so newly added documentation is included before staging. It prints failures and exits nonzero; it does not repair files, install the plugin or publish anything.
 
 ## Automated scope
@@ -14,7 +16,7 @@ The script is read-only, uses no downloaded modules or services, and resolves th
 | Check | Coverage |
 |---|---|
 | JSON and package discovery | Parse catalogue and plugin JSON; check required identity fields, plugin semantic versions, unique catalogue names/sources, in-repository sources, manifest/name agreement and catalogue coverage of plugin manifests. Reject duplicate version declarations in catalogue plugin entries and configurable skill paths. |
-| Skills and architecture | Check immediate skill discovery, directory/name agreement, current scalar metadata conventions, shared architecture role/version agreement and the Common Architecture ownership table's skill names. |
+| Skills and architecture | Check immediate skill discovery, directory/name agreement, current scalar metadata conventions (`runtime-dependencies` must be `none` unless the skill bundles `scripts`, then it must name PowerShell 7.2+ and `gh`), shared architecture role/version agreement and the Common Architecture ownership table's skill names. |
 | Governed templates | For assets that already declare `template`, check its identifier/version and the owning skill in both provenance placeholders. Assets without that field are not assigned a new schema. |
 | Markdown | Check inline link/image destinations and reference-definition destinations outside fenced or inline code. Resolve URI-encoded relative or repository-root paths, check file-name case and simple ATX heading fragments (including duplicate heading suffixes). Fenced examples are not expected to exist as repository files. |
 | ADR index | Check that every numbered ADR is listed once, has a matching number/title/status and uses a documented status. No acceptance or rejection is inferred. |
