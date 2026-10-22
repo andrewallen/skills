@@ -21,7 +21,7 @@ Before a change is ready for review:
 1. Identify the affected skills, shared references, templates and installation instructions. Search the whole repository for references to changed names, paths and rules.
 2. Add or update an ADR for a significant decision. A Proposed ADR is not authority to change behaviour; the owner must explicitly accept it. Keep the ADR index and status in sync.
 3. Make the change and the relevant version updates together, following the rules below.
-4. Validate JSON manifests, local links and cross-file consistency as applicable using the [repository checks](docs/validation.md). Check the diff for whitespace errors, unintended changes and private content. For behavioural changes, record the expected result and check that the instructions produce it without conflicting with existing safeguards.
+4. Validate JSON manifests, local links and cross-file consistency as applicable using the [repository checks](docs/validation.md). Check the diff for whitespace errors, unintended changes and private content. For behavioural changes, record the expected result, trace it through every reference and template the skill consumes, and check that the instructions produce it without conflicting with existing safeguards. Review partial outcomes (unread, inaccessible or unretained sources) as well as complete ones; a file's presence or a metadata check is not evidence that its content was reviewed.
 5. In the pull request, describe the change, affected versions, validation and any migration or compatibility implications. Use the [pull request checklist](.github/pull_request_template.md).
 
 ## Versioning

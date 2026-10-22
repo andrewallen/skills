@@ -1,6 +1,6 @@
 ---
 document_role: common-workspace-architecture
-architecture_version: "2.1"
+architecture_version: "2.2"
 effective_date: "2026-10-22"
 ---
 
@@ -83,7 +83,7 @@ Keep paths shallow. Do not repeat the project name or automatically add year, mo
 
 Project documents created or materially updated should visibly state purpose, lifecycle, relevant date/version, material provenance and source limitations in their native format. Do not rewrite received originals to add a banner. Optional `AI Exploration` under Working is for speculative material, not every AI-assisted record.
 
-Start Here is a short front door. Indexes, contexts and profiles lead to relevant source passages; they do not corroborate them independently. Summaries support orientation; quotations, contested claims and stakeholder characterisations require source grounding. Do not load the whole collection merely because it is available. Record evidence cutoffs and freshness gaps: refreshed meetings do not automatically refresh profiles or orientation.
+Start Here is a short front door. Indexes, contexts and profiles lead to relevant source passages; they do not corroborate them independently. Summaries support orientation; quotations, contested claims and stakeholder characterisations require source grounding. Do not load the whole collection merely because it is available. Record evidence cutoffs and freshness gaps: refreshed meetings do not automatically refresh profiles or orientation, and new profiles do not automatically refresh Start Here. Check the actual local records before describing a collection as empty or lagging.
 
 ## Existing projects and migration
 
@@ -109,7 +109,7 @@ Before resolving a filename conflict, compare identity, version and hashes. Pres
 | `meetings-governance` | Meeting discovery, capture, contexts, index and reconciliation. |
 | `stakeholder-governance` | Evidence-backed person and organisation profiles and research maps. |
 
-The skills have no runtime dependency on one another. Handoffs are optional and bounded. One skill does not create or repair another skill's files.
+The skills have no runtime dependency on one another. Handoffs are optional and bounded. One skill does not create or repair another skill's files; when its work leaves another owner's navigation stale, it reports the gap to that owner and does not edit the file.
 
 ## Generated-file provenance
 

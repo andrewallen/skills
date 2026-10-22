@@ -26,9 +26,9 @@ Required sections:
 7. Principal source material and gaps.
 8. Systems of record.
 9. Key meetings.
-10. Key people and organisations.
+10. Key people and organisations, linked to the profiles that exist in `50 Stakeholders`.
 11. Known gaps and decisions needed, including incomplete migration and the actual evidence/review dates of current context.
 
 Keep it concise and navigational. Do not reproduce meeting indexes, entity profiles, task systems or detailed operating packs.
 
-Explain the difference between source evidence, AI-assisted synthesis, working proposals and issued versions. Folder placement does not establish truth or approval. Identify which linked contexts or profiles may lag new evidence. Use links rather than copying their content; material claims require source grounding.
+Explain the difference between source evidence, AI-assisted synthesis, working proposals and issued versions. Folder placement does not establish truth or approval. Check the actual local records before describing a collection as empty or lagging, and identify which linked contexts or profiles may lag new evidence. Record when Start Here was last reviewed separately from the evidence cutoff it reflects. Use links rather than copying their content; material claims require source grounding.

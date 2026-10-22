@@ -23,3 +23,4 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0015](0015-standardise-project-folders-and-navigation.md) | Standardise project folders and navigation | Accepted |
 | [0016](0016-migrate-projects-through-approved-plans.md) | Migrate projects through approved plans | Superseded by ADR-0017 |
 | [0017](0017-use-direct-filesystem-operations.md) | Use direct filesystem operations | Accepted |
+| [0018](0018-ground-stakeholder-profiles-in-project-evidence.md) | Ground stakeholder profiles in project evidence | Accepted |

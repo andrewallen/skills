@@ -2,8 +2,8 @@
 name: workspace-governance
 description: Create, assess, repair or migrate projects into the seven-folder structure. Plan unfamiliar layouts before approved moves; register issued outputs and review duplicates. Not required for ordinary reading or drafting.
 metadata:
-  version: "3.1"
-  architecture: common-workspace-architecture v2.1
+  version: "3.2"
+  architecture: common-workspace-architecture v2.2
   runtime-dependencies: Direct filesystem or shell access; PowerShell 7.2+ for the optional local migration helper; authorised provider tools when cloud preservation requires them
 ---
 
@@ -73,10 +73,10 @@ Prefer a direct folder rename or move. Where the approved layout needs a new or 
 
 An incompatible layout is not the final arrangement. Protected items, uncertain issue state, link limitations and legacy roots are explicit migration gaps, not permanent path aliases.
 
-Update orientation from reviewed evidence, recording dates and freshness gaps. A project-context refresh may coordinate separately authorised owners; it is not background synchronisation or a dependency on the other skills.
+Update orientation from reviewed evidence. Check the local records, such as the Meetings Index and `50 Stakeholders`, before describing a collection as empty or lagging, and link the profiles and contexts that exist. Record the orientation review date separately from the evidence cutoff, with any freshness gaps. When another owner reports that its work left Start Here stale, refresh the navigation from the reviewed records; do not edit that owner's files. A project-context refresh may coordinate separately authorised owners; it is not background synchronisation or a dependency on the other skills.
 
 ## Completion
 
-Check seven roots, owned links, canonical issued records and preservation of evidence, identities, owner notes and `created_by`. Unchanged bootstrap/repair makes no changes. Migration also accounts for every scoped item, reference repair and retired root; otherwise report partial completion with concrete blockers.
+Check seven roots, owned links, Start Here statements about specialist collections against the local records, canonical issued records and preservation of evidence, identities, owner notes and `created_by`. Unchanged bootstrap/repair makes no changes. Migration also accounts for every scoped item, reference repair and retired root; otherwise report partial completion with concrete blockers.
 
 No unapproved specialist work, overwrite, deletion or move may occur. Report actual errors. Helper verification covers local file operations, not full conformity or cloud behaviour.

@@ -35,7 +35,7 @@ Owner decisions, 23 and 28 September 2026, established the earlier guidance. ADR
 | Owner | Responsibility |
 | --- | --- |
 | `meetings-governance` | Meeting discovery, exact occurrence resolution, transcript/chat retrieval and pagination, recording/media checks, meeting-linked correspondence and resources, reconciliation. Supplies the Meetings Index, contexts, source companions, resource pointers and coverage limitations. |
-| `stakeholder-governance` | Reads those records, extracts attributed contributions, distinguishes personal statements from evidenced organisational positions, compares them across sources and produces person profiles, organisation profiles, research maps and content-review recommendations. Researches only supplementary non-meeting evidence. |
+| `stakeholder-governance` | Reads those records, extracts attributed contributions, distinguishes personal statements from evidenced organisational positions, compares them across sources and produces person profiles, organisation profiles, research maps and content-review recommendations. Reads the project's other files for non-meeting evidence and researches beyond the project only when separately authorised. |
 | `workspace-governance` | Owns the fixed common folders, Start Here, Issued Outputs Index, routing and duplicate-candidate review. It is not an evidence producer and does not capture meetings or write entity analysis. |
 
 **Handoff to meetings** (entity evidence gap): workspace/archive path, known occurrence or bounded date range, existing source links, the specific gap and the affected claims. Batch gaps affecting several entities so each meeting is reconciled once.

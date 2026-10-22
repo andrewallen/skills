@@ -64,9 +64,9 @@ The context helps you locate topics, attributed points and historical follow-ups
 
 ### Stakeholder Governance
 
-Use this to create or refresh evidence-backed profiles of relevant people and organisations, or review a draft against their recorded positions.
+Use this to create or refresh evidence-backed profiles of relevant people and organisations from the project's own files, or review a draft against their recorded positions. Microsoft and Microsoft employees are not profiled.
 
-**Reads:** supplied evidence, existing profiles and relevant primary passages linked from an archive when one exists. **Produces:** supported profile updates or an explicit evidence gap, with attribution, dates and source links.
+**Reads:** the project's own files, including the relevant content of documents and presentations, existing profiles and relevant primary passages linked from an archive when one exists. **Produces:** supported profile updates, compact provisional profiles where evidence is thin, or an explicit evidence gap, with attribution, dates and source links.
 
 Example request:
 
@@ -74,11 +74,13 @@ Example request:
 
 A meeting archive is not a prerequisite. Missing meeting collection is a bounded gap or an explicitly authorised handoff, not permission to build another archive. A profile does not simulate personal or organisational approval.
 
+A profile review is not described as complete while relevant available content remains unread; unread or inaccessible sources are named. Live Microsoft 365, directory or public research happens only when you separately authorise it for a stated question.
+
 [Read the skill](../plugins/work-context/skills/stakeholder-governance/SKILL.md) | [Source coverage rules](../plugins/work-context/skills/stakeholder-governance/references/sources.md) | [Profile templates](../plugins/work-context/skills/stakeholder-governance/assets)
 
 ## Prerequisites and limits
 
-The client must support skills and provide direct filesystem or shell access for workspace operations. Live Microsoft 365 capture or research needs **WorkIQ MCP**, or equivalent authorised tools for the required Outlook, Teams, directory, SharePoint and OneDrive sources. Local-only work with supplied evidence does not require WorkIQ.
+The client must support skills and provide direct filesystem or shell access for workspace operations. Live Microsoft 365 capture, or research you have separately authorised, needs **WorkIQ MCP**, or equivalent authorised tools for the required Outlook, Teams, directory, SharePoint and OneDrive sources. Local-only work with the project's own files does not require WorkIQ.
 
 The client supplies and authenticates those tools separately; this plugin does not bundle MCP servers or grant source access. Check exact reads, pagination and download capabilities for the requested operation rather than assuming that search access supplies them. Missing capabilities are explicit coverage gaps, not empty search results. See [dependencies by operation](installation.md#dependencies-by-operation).
 

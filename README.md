@@ -16,7 +16,7 @@ If you arrived here from a talk or presentation, start with a workflow. You can 
 
 - [Workspace Governance](docs/work-context-plugin.md#workspace-governance): initialise the seven-folder baseline, assess unfamiliar projects and plan approved physical migration.
 - [Meetings Governance](docs/work-context-plugin.md#meetings-governance): turn meeting sources into retained evidence and an anchored context you can revisit.
-- [Stakeholder Governance](docs/work-context-plugin.md#stakeholder-governance): refresh profiles from dated, attributed evidence rather than assumptions.
+- [Stakeholder Governance](docs/work-context-plugin.md#stakeholder-governance): refresh profiles from the project's own dated, attributed evidence rather than assumptions.
 
 [Explore Work Context](docs/work-context-plugin.md) | [Inspect its skills](plugins/work-context/skills)
 
@@ -30,7 +30,7 @@ If you arrived here from a talk or presentation, start with a workflow. You can 
 
 The plugins are separate installation units; choose either or both. They do not automatically run one another.
 
-**Dependencies:** Work Context needs direct filesystem or shell access. Live Microsoft 365 discovery and retrieval need **WorkIQ MCP**, or equivalent authorised tools with the required source access; local-only work does not. Work Actions needs approved GitHub access, with PowerShell and `gh` for its optional helpers. Plugins do not install MCP servers or grant access. See the [dependency guide](docs/installation.md#dependencies-by-operation).
+**Dependencies:** Work Context needs direct filesystem or shell access. Live Microsoft 365 discovery and retrieval, or research you separately authorise, need **WorkIQ MCP**, or equivalent authorised tools with the required source access; local-only work does not. Work Actions needs approved GitHub access, with PowerShell and `gh` for its optional helpers. Plugins do not install MCP servers or grant access. See the [dependency guide](docs/installation.md#dependencies-by-operation).
 
 ## See a workflow before reading the instructions
 
