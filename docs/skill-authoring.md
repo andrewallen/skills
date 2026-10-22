@@ -47,7 +47,7 @@ For the operation being authored or changed, make the following clear without in
 | Can it finish alone? | Do not require another skill to bootstrap the workspace or run first. Use the currently supported standalone path; report gaps when that path cannot satisfy the requested result. |
 | What can be handed off? | Pass the exact gap, bounded scope and source links. Another skill runs only if authorised; otherwise report the next step. No automatic synchronisation or second system of record. |
 
-Suitable supplied evidence may come from a person or another tool without requiring that producer. Domain input requirements still apply: missing identity, attribution or coverage is a gap, not permission to invent it. [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md) accepts this narrow scope; [ADR-0008](adr/0008-define-independent-skill-contracts.md) remains a broader proposal.
+Suitable supplied evidence may come from a person or another tool without requiring that producer. Domain input requirements still apply: missing identity, attribution or coverage is a gap, not permission to invent it. [ADR-0020](adr/0020-deploy-stable-versioned-workspace-signposts.md) retains this bounded scope from ADR-0015; [ADR-0008](adr/0008-define-independent-skill-contracts.md) remains a broader proposal.
 
 ## Completion and review
 

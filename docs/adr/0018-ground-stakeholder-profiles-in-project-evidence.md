@@ -1,6 +1,6 @@
 # ADR-0018: Ground stakeholder profiles in project evidence
 
-- Status: Accepted
+- Status: Superseded by ADR-0020
 - Date: 2026-10-22
 
 ## Context
@@ -16,7 +16,7 @@ This decision complements [ADR-0013](0013-minimal-shared-evidence-model.md) and 
 - **Read the relevant documents.** A profile review is complete only when the relevant available content has been read. File presence, titles, metadata, search snippets and links are not review. If content is unreadable or no local reader is available, say so rather than skipping it or adding a dependency without approval. A partial review remains useful when labelled partial, with the material unread sources and their reasons named.
 - **Lead with project-relevant evidence.** Include wider relationship context found in the project, but lead with evidence relevant to the project's purpose and keep adjacent contributions distinct from project requirements. Ordering is qualitative; there is no scoring.
 - **Scale profiles to the evidence.** The person and organisation templates permit a compact provisional form for thin evidence, expanded as evidence warrants. There remains one template per entity type and no separate provisional template family.
-- **Keep orientation honest without cross-writing.** A specialist that finds another owner's orientation stale reports it through a bounded handoff and does not edit that owner's files. Workspace Governance checks the actual local records before stating that a collection is empty or lagging, and separates the orientation's review date from the evidence cutoff.
+- **Keep orientation honest without cross-writing.** A specialist that finds another owner's orientation stale reports it through a bounded handoff and does not edit that owner's files. Workspace Governance checks the actual local records before stating that a collection is empty or lagging, and separates the orientation's review date from the evidence cutoff. This navigation-specific rule is superseded by ADR-0020; all other decisions in this ADR remain in force.
 - **Leave meeting capture unchanged.** Retaining a resource original continues to record retention, not that its content was read, as under ADR-0014. A consumer that relies on a document reads it.
 - **Add no new machinery.** No new schema, database, stakeholder index, scoring system, extraction service or mandatory research map. Existing workspaces are not migrated or edited retroactively.
 

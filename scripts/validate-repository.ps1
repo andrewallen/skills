@@ -235,6 +235,14 @@ $common = Get-Content -LiteralPath (Join-Path $root 'plugins\work-context\Common
 $core = @('00 Start Here', '10 Issued Outputs', '20 Working', '30 Sources', '40 Meetings', '50 Stakeholders', '99 Archive')
 $tree = [regex]::Match($common, '(?s)```text\r?\n(.*?)```').Groups[1].Value.Trim() -split '\r?\n'
 Assert-Repository (($tree -join '|') -ceq ($core -join '|')) 'Common Architecture: expected exact seven-root baseline.'
+$workspaceAssets = Join-Path $root 'plugins\work-context\skills\workspace-governance\assets'
+$startHereAsset = Get-Content -LiteralPath (Join-Path $workspaceAssets 'start-here.md') -Raw
+$agentsAsset = Get-Content -LiteralPath (Join-Path $workspaceAssets 'agents.md') -Raw
+Assert-Repository ((Get-Scalar $startHereAsset 'template') -ceq 'workspace-start-here@3.0') 'Start Here asset: unexpected template version.'
+Assert-Repository ((Get-Scalar $agentsAsset 'template') -ceq 'workspace-agent-guidance@1.0') 'AGENTS.md asset: unexpected template version.'
+Assert-Repository ($startHereAsset -match '(?is)Do not include current position or status, file inventories.*evidence cutoffs, review dates') 'Start Here asset: dynamic project content is not explicitly excluded.'
+Assert-Repository ($agentsAsset -match '(?is)inspect the relevant current project files.*do not treat this file or Start Here as a project summary') 'AGENTS.md asset: current information must come from workspace contents.'
+Assert-Repository ($common -match '(?is)Start Here and root `AGENTS\.md` are stable structural signposts, not project summaries') 'Common Architecture: stable signpost invariant is missing.'
 $helper = Get-Content -LiteralPath (Join-Path $root 'plugins\work-context\skills\workspace-governance\scripts\Invoke-WorkspaceMigration.ps1') -Raw
 $helperRoots = @([regex]::Matches($helper, "'(\d{2} [^']+)'") | ForEach-Object { $_.Groups[1].Value } | Select-Object -Unique)
 Assert-Repository (@(Compare-Object $core $helperRoots -CaseSensitive).Count -eq 0) 'Migration helper: core roots differ from architecture.'

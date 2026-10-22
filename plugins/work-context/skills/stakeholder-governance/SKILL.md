@@ -2,8 +2,8 @@
 name: stakeholder-governance
 description: Create or refresh evidence-backed profiles of relevant people and organisations from the project's own files. Use after new meeting or source evidence, for named profile creation, bounded stakeholder discovery or evidence-based content review. Do not profile Microsoft or Microsoft employees. Do not create a CRM, personality model, account plan or second meeting archive.
 metadata:
-  version: "6.0"
-  architecture: common-workspace-architecture v2.2
+  version: "6.1"
+  architecture: common-workspace-architecture v2.3
   runtime-dependencies: Direct filesystem or shell access; any local readers available for the document formats in scope; WorkIQ MCP or equivalent authorised Microsoft 365 tools only for separately authorised live research
   predecessor: stakeholders-governance v2.7
 ---
@@ -165,4 +165,4 @@ Check that:
 - no CRM, personality model, task system, duplicate profile or unrelated root was created;
 - repeating the operation without new evidence creates no new files.
 
-Report the profiles created or refreshed, the material change, any excluded entities and the remaining evidence and review gaps. If a profile change leaves Start Here or another owner's navigation stale, report that to Workspace Governance as a bounded handoff; do not edit its files.
+Report the profiles created or refreshed, the material change, any excluded entities and the remaining evidence and review gaps. Specialist records provide their own navigation; profile changes do not require updating or handing off common signposts.

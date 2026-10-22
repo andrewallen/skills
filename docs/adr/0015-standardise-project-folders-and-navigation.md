@@ -1,6 +1,6 @@
 # ADR-0015: Standardise project folders and navigation
 
-- Status: Accepted
+- Status: Superseded by ADR-0020
 - Date: 2026-10-22
 
 ## Context

@@ -1,34 +1,40 @@
 # Start Here asset
 
-Create `00 Start Here\Start Here.md` when absent.
+Create `00 Start Here\Start Here.md` when absent during explicitly authorised initialisation or repair.
 
 Start the generated file with:
 
 ```yaml
 ---
-document_role: workspace-start-here
-template: workspace-start-here@2.0
+document_role: workspace-navigation
+template: workspace-start-here@3.0
 created_by: workspace-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: workspace-governance@<CURRENT_SKILL_VERSION>
 ---
 ```
 
-Replace `<CURRENT_SKILL_VERSION>` when creating the file. Preserve `created_by`. Update `last_governed_by` only after a material update or validation. A later skill version does not by itself require migration.
+Replace `<CURRENT_SKILL_VERSION>` when creating the file. Preserve `created_by`. Update `last_governed_by` only after a material update or validation. A later skill or template version does not by itself require migration.
 
-Required sections:
+Use this reusable body and link each root using relative links:
 
-1. Purpose and intended outcome.
-2. Scope, adjacent scope and exclusions.
-3. Current position, separating facts, proposals, decisions and approvals.
-4. Links to all seven core roots, plus useful supplementary collections.
-5. Current issued outputs.
-6. Current working material.
-7. Principal source material and gaps.
-8. Systems of record.
-9. Key meetings.
-10. Key people and organisations, linked to the profiles that exist in `50 Stakeholders`.
-11. Known gaps and decisions needed, including incomplete migration and the actual evidence/review dates of current context.
+```markdown
+# Start Here
 
-Keep it concise and navigational. Do not reproduce meeting indexes, entity profiles, task systems or detailed operating packs.
+This page is a map of the project folders. The project folder name identifies the project; use the files in the relevant folder for its current information.
 
-Explain the difference between source evidence, AI-assisted synthesis, working proposals and issued versions. Folder placement does not establish truth or approval. Check the actual local records before describing a collection as empty or lagging, and identify which linked contexts or profiles may lag new evidence. Record when Start Here was last reviewed separately from the evidence cutoff it reflects. Use links rather than copying their content; material claims require source grounding.
+| Folder | What belongs here |
+|---|---|
+| [00 Start Here](./) | This stable folder map. |
+| [10 Issued Outputs](../10%20Issued%20Outputs/) | Exact versions deliberately issued and their distribution record. |
+| [20 Working](../20%20Working/) | Drafts, analysis, synthesis and AI-assisted work. |
+| [30 Sources](../30%20Sources/) | Original or received evidence and reference material. |
+| [40 Meetings](../40%20Meetings/) | Meeting occurrence evidence and its specialist navigation. |
+| [50 Stakeholders](../50%20Stakeholders/) | Evidence-backed person and organisation records. |
+| [99 Archive](../99%20Archive/) | Superseded, withdrawn or inactive material retained in the project. |
+```
+
+The map covers only the seven stable core roots; do not list optional supplementary folders or files. The project folder name supplies project identity; do not add a project narrative.
+
+Do not include current position or status, file inventories, issued or working file lists, principal sources, systems of record, named meetings, people or organisations, evidence cutoffs, review dates, outstanding gaps, decisions needed or claims that a collection is empty or current. Do not duplicate the Meetings Index, meeting contexts, stakeholder profiles, task records or an agent instruction file.
+
+The generated navigation should remain accurate when arbitrary project files are added, changed or removed, provided the common folder roles themselves do not change.

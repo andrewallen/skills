@@ -92,6 +92,6 @@ New common workspaces use `99 Archive`. The correction was introduced in Work Co
 
 Legacy folder structures, record identities, source evidence and provenance are preserved unless an appropriate change is explicitly approved. Ordinary reading, reasoning, drafting and editing do not require a governance skill.
 
-The current baseline and approved physical migration are defined by [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md) and [ADR-0017](adr/0017-use-direct-filesystem-operations.md). Legacy evidence remains readable, but legacy folder locations are not permanent compliant writing destinations. A simple migration needs an approved before/after mapping, not a mandatory helper plan file; do not rename folders just because the package version changed.
+The current baseline and approved physical migration are defined by [ADR-0020](adr/0020-deploy-stable-versioned-workspace-signposts.md) and [ADR-0017](adr/0017-use-direct-filesystem-operations.md). Legacy evidence remains readable, but legacy folder locations are not permanent compliant writing destinations. A simple migration needs an approved before/after mapping, not a mandatory helper plan file; do not rename folders just because the package version changed.
 
 Repository consistency and parser checks do not establish helper execution, client compatibility or shared-link preservation. Verify those separately through an authorised exercise before claiming operational validation.
