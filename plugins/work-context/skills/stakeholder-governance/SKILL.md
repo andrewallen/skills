@@ -1,22 +1,24 @@
 ---
 name: stakeholder-governance
-description: Create or refresh evidence-backed profiles of relevant people and organisations. Use after new meeting or source evidence, for named profile creation, bounded stakeholder discovery or evidence-based content review. Do not create a CRM, personality model, account plan or second meeting archive.
+description: Create or refresh evidence-backed profiles of relevant people and organisations from the project's own files. Use after new meeting or source evidence, for named profile creation, bounded stakeholder discovery or evidence-based content review. Do not profile Microsoft or Microsoft employees. Do not create a CRM, personality model, account plan or second meeting archive.
 metadata:
-  version: "5.1"
-  architecture: common-workspace-architecture v2.1
-  runtime-dependencies: Direct filesystem or shell access; WorkIQ MCP or equivalent authorised Microsoft 365 tools for supplementary live research
+  version: "6.0"
+  architecture: common-workspace-architecture v2.2
+  runtime-dependencies: Direct filesystem or shell access; any local readers available for the document formats in scope; WorkIQ MCP or equivalent authorised Microsoft 365 tools only for separately authorised live research
   predecessor: stakeholders-governance v2.7
 ---
 
 # Stakeholder Governance
 
-A stakeholder is a relevant person or organisation. Store both entity types directly under `50 Stakeholders`, with one canonical profile per entity.
+A stakeholder is a relevant person or organisation other than Microsoft and its employees. Store both entity types directly under `50 Stakeholders`, with one canonical profile per entity.
 
 The normal operation is to refresh only the profiles affected by new evidence.
 
 ## Dependencies
 
-Use direct filesystem or shell access for supplied/local evidence and profiles. Supplementary live Microsoft 365 research requires WorkIQ MCP or equivalent authorised tools for the relevant email, Teams, directory, SharePoint or OneDrive sources, configured separately by the client. WorkIQ is not required when supplied/local evidence suffices. Check exact source access before relying on search results; disclose unavailable sources and permissions rather than claiming no evidence exists. This dependency does not permit parallel meeting capture or broaden the authorised research scope.
+Use direct filesystem or shell access for the project's local files, supplied evidence and profiles. Read relevant documents, reports and presentations with the local readers available; disclose content that cannot be read rather than omitting it, and do not add a dependency without approval.
+
+Live Microsoft 365, directory or public research is a separate operation that needs explicit authorisation for a stated question. It is not part of ordinary profile creation or refresh. When authorised, it requires WorkIQ MCP or equivalent tools, configured separately by the client; check exact source access before relying on search results, and disclose unavailable sources and permissions rather than claiming no evidence exists. This dependency does not permit parallel meeting capture or broaden the authorised research scope.
 
 ## Files
 
@@ -24,7 +26,7 @@ Use direct filesystem or shell access for supplied/local evidence and profiles. 
 |---|---|
 | [../../Common Architecture.md](../../Common%20Architecture.md) | Every run: shared structure, provenance, navigation and migration boundaries. |
 | [references/evidence-guidance.md](references/evidence-guidance.md) | Every profile creation, refresh or content review. |
-| [references/sources.md](references/sources.md) | Discovery, full-profile research or supplementary source research. |
+| [references/sources.md](references/sources.md) | Discovery, full-profile research, document review or authorised supplementary research. |
 | [assets/person-profile.md](assets/person-profile.md) | Creating or repairing a person profile. |
 | [assets/organisation-profile.md](assets/organisation-profile.md) | Creating or repairing an organisation profile. |
 | [assets/research-map.md](assets/research-map.md) | Only when a separate source map adds navigation value. |
@@ -34,11 +36,11 @@ Use direct filesystem or shell access for supplied/local evidence and profiles. 
 Unless the user asks for discovery, named creation, content review or repair:
 
 1. Resolve the stakeholder root and the evidence added or changed since the previous profile update.
-2. Identify only the people and organisations materially affected.
-3. Read the exact source passages and the current canonical profiles.
+2. Identify only the eligible people and organisations materially affected.
+3. Read the exact source passages, including the relevant content of changed documents and presentations, and the current canonical profiles.
 4. Update the affected sections, citations, coverage and review date.
 5. Preserve prior positions, role changes, disagreements and unresolved gaps.
-6. Report the profiles changed and any missing evidence.
+6. Report the profiles changed, any excluded entities, and the remaining evidence and review gaps.
 
 Do not refresh every profile merely because one meeting or document changed.
 
@@ -53,13 +55,30 @@ Never infer the target from this skill's location.
 - A blank or absent named target is valid when the user asked to create or discover profiles.
 - If the entity, entity type or target is ambiguous, ask one focused question.
 
+## Work from project files
+
+Work from the project's own files and supplied material: `30 Sources`, `40 Meetings`, `20 Working`, `10 Issued Outputs` and any relevant retained history, without treating every version as current authority. Screen the inventory for relevance; do not load everything because it is available.
+
+- Read relevant primary content, including documents, reports and presentations, with surrounding passages, corrections and counter-evidence. A file's presence, title, metadata, search snippet or retained pointer is not review.
+- A link or pointer to material outside the project is a lead, not reviewed content. Do not follow it, search Microsoft 365, verify directory roles or research public sources unless the user separately authorises that research for a stated question.
+- Include relevant wider relationship context found in the project, but lead with evidence relevant to the project's purpose. Do not turn adjacent contributions into project requirements. Order qualitatively; do not score.
+- If relevant content cannot be read, no local reader is available or a source was only partly reviewed, name it and the reason in the existing coverage table. A partial profile is useful when labelled partial; do not describe a review as complete while relevant available content remains unread.
+
+## Eligibility
+
+Do not create profiles for Microsoft or Microsoft employees. This applies equally to the workspace owner and colleagues when they work for Microsoft.
+
+- Check the project evidence for affiliation before creating or refreshing a profile, for example a stated organisation, signature or email domain. If it is unclear, report it or ask one focused question; do not infer it from a name or title.
+- Keep their attributed contributions in source evidence, and use them where relevant to analyse a counterpart.
+- If an excluded entity already has a profile, flag the conflict in the report. Do not delete, move, archive or rewrite it without approval.
+
 ## Operations
 
 | Operation | Use |
 |---|---|
 | `refresh-affected` | Default. Update profiles affected by new or corrected evidence. |
 | `targeted-create` | Create profiles for named people or organisations. |
-| `discover` | Identify relevant stakeholders within a bounded workspace question and source range. |
+| `discover` | Identify relevant, eligible stakeholders within a bounded workspace question and source range. |
 | `content-review` | Review a draft against evidenced stakeholder positions without simulating approval. |
 | `repair` | Restore missing profile structure, provenance or links without broad rewriting. |
 
@@ -79,13 +98,14 @@ If `stakeholder_root` was supplied directly, do not add another `50 Stakeholders
 
 Compatible supplied evidence may come from people or other tools; no producer skill is required. Preserve source limitations and report missing required information instead of inventing provenance. Existing entity folders outside the baseline require an approved transition before maintenance there.
 
-Create only named entities, entities approved through bounded discovery or entities supported by sufficient evidence. Do not create empty placeholders, mandatory `People` and `Organisations` containers, a permanent entity index or a copy of this skill.
+Create only named entities, entities approved through bounded discovery or eligible entities supported by sufficient evidence. Do not create empty placeholders, mandatory `People` and `Organisations` containers, a permanent entity index or a copy of this skill.
 
 ## Identity and evidence
 
 Resolve entity identity and type before creating or merging a folder.
 
 - Use the evidenced display name and the smallest stable qualifier for genuine namesakes.
+- Do not infer or merge identity from name similarity. A provisional profile may record the uncertainty, labelled with its sources.
 - Keep dated role, remit and relationship inside the profile.
 - A person speaking in a meeting does not automatically establish an organisation's position.
 - Attendance, seniority, directory membership, copied correspondence and silence do not establish endorsement.
@@ -96,7 +116,7 @@ Meetings Governance owns meeting retrieval and capture. Use an available Meeting
 
 ## Profiles
 
-Use the person or organisation asset and keep the profile proportionate to the evidence.
+Use the person or organisation asset and keep the profile proportionate to the evidence. Where evidence is thin, use the compact provisional form: identity or uncertainty, purpose, review range and cutoff, a short source-backed perspective, practical implications and material gaps. Expand to the fuller form only as evidence supports it, and do not pad it with placeholder sections or repeated limitation statements. Preserve attribution and relevant counter-evidence in either form.
 
 A person profile covers:
 
@@ -112,6 +132,8 @@ An organisation profile covers:
 3. engagement and contribution timeline;
 4. connected people and roles;
 5. implications for the work.
+
+The compact form needs only the summary paragraph, the implications and the gaps; the fuller form adds the remaining sections as evidence supports them.
 
 Profiles are Synthesised. Label interpretation as Inferred and advice as Proposed. Keep exact quotations, attributed statements, institutional positions and recommendations distinguishable.
 
@@ -133,11 +155,14 @@ Say that the draft addresses or conflicts with recorded evidence. Do not predict
 Check that:
 
 - each requested entity has the correct type and one canonical profile, or an explicit partial outcome;
+- no profile was created for Microsoft or a Microsoft employee, and any existing one was flagged rather than changed;
+- relevant available document content was read, or each material unread source is named with its reason, and no partial review is described as complete;
 - material claims have source anchors and attribution limits;
 - organisation claims are not inferred from one unauthorised person;
 - only affected profiles changed;
 - meeting evidence was consumed rather than recollected;
+- no external research or link-following occurred without separate authorisation;
 - no CRM, personality model, task system, duplicate profile or unrelated root was created;
 - repeating the operation without new evidence creates no new files.
 
-Report the profiles created or refreshed, the material change and the remaining evidence gaps.
+Report the profiles created or refreshed, the material change, any excluded entities and the remaining evidence and review gaps. If a profile change leaves Start Here or another owner's navigation stale, report that to Workspace Governance as a bounded handoff; do not edit its files.

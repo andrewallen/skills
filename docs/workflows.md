@@ -88,15 +88,17 @@ The owner controls project scope and keeps their own notes. A follow-up mention 
 
 ### The friction
 
-A person or organisation has a profile, but new evidence has arrived. Rewriting the whole profile can erase earlier positions, flatten disagreement or mistake one person's remarks for an organisation's formal view.
+A person or organisation has a profile, but new evidence has arrived, including a presentation the profile has not absorbed. Rewriting the whole profile can erase earlier positions, flatten disagreement or mistake one person's remarks for an organisation's formal view. Linking the presentation without reading it would leave the profile looking current when it is not.
 
 ### The request
 
-> Use Stakeholder Governance to refresh only the Example Partner organisation profile from the supplied new evidence. Preserve dated prior positions, cite the source passages and show what remains uncertain. Do not infer endorsement.
+> Use Stakeholder Governance to refresh only the Example Partner organisation profile from the new files in the project. Read the changed presentation, preserve dated prior positions, cite the source passages and show what remains uncertain. Do not infer endorsement.
 
 ### What the agent does
 
-It resolves the entity, reads the affected profile and the relevant primary passages, and updates only supported sections. An existing meeting index and context help locate passages; they are not independent corroboration of the underlying source.
+It resolves the entity and checks that it is eligible for a profile, because Microsoft and Microsoft employees are not profiled. It reads the affected profile and the relevant primary passages, including the content of the changed presentation, and updates only supported sections. Evidence that bears on the project's purpose leads; wider relationship context found in the project sits lower down. An existing meeting index and context help locate passages; they are not independent corroboration of the underlying source.
+
+Where evidence is thin, the profile stays compact and provisional and grows only as evidence supports it. A report that could not be read, or a link to material outside the project, is named as a gap rather than skipped or followed; Microsoft 365 or public research happens only when separately authorised. If the update leaves Start Here stale, the agent reports that to Workspace Governance instead of editing it.
 
 A meeting archive is optional: supplied evidence can support a standalone profile pass. Missing meeting collection remains a bounded gap or an explicitly authorised handoff, not permission for the profile skill to collect meetings.
 
@@ -104,14 +106,15 @@ A meeting archive is optional: supplied evidence can support a standalone profil
 
 ```text
 Earlier position: retained with its original date and source
-New contribution: a participant raised a delivery constraint
-Organisation position: not established by that participant's remark alone
+New contribution: a presentation slide set out a delivery constraint
+Organisation position: not established by one participant's remark alone
+Not reviewed: an attached report, retained but not yet read; the reason is recorded
 Implication: a question for follow-up, labelled as proposed rather than agreed
 ```
 
 ### What stays human
 
-The owner decides the relevant entities and research scope. The profile records evidenced positions; it does not predict approval, assign motives or create a personality model.
+The owner decides the relevant entities, the research scope and whether to authorise research beyond the project's files. The profile records evidenced positions; it does not predict approval, assign motives or create a personality model.
 
 ### The design choice
 

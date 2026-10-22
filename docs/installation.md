@@ -18,9 +18,9 @@ Installation does not supply credentials, adopt a ledger policy, grant access, r
 
 | Operation | Required client capability or dependency |
 |---|---|
-| Local workspace assessment, folder operations, reading supplied evidence and writing controls/profiles | Direct filesystem tools or shell access. No MCP server is required for local-only work; Computer Use is not a substitute. |
+| Local workspace assessment, folder operations, reading supplied evidence and writing controls/profiles | Direct filesystem tools or shell access, plus any local readers for the document formats in scope. No MCP server is required for local-only work; Computer Use is not a substitute. Content that cannot be read is reported as a gap, not skipped. |
 | Meetings Governance: live Microsoft 365 calendar/meeting discovery and retrieval of Teams transcripts/chats, tied Outlook email and shared resources | **WorkIQ MCP**, or equivalent authorised Microsoft 365 tools exposing the required sources and exact reads. The signed-in account must have access to the requested records. |
-| Stakeholder Governance: supplementary live Microsoft 365 email, Teams, directory, SharePoint or OneDrive research | **WorkIQ MCP**, or equivalent authorised tools for the scoped sources. Not needed when supplied/local evidence is sufficient; this does not authorise parallel meeting capture. |
+| Stakeholder Governance: separately authorised live Microsoft 365 email, Teams, directory, SharePoint or OneDrive research for a stated question | **WorkIQ MCP**, or equivalent authorised tools for the scoped sources. Not part of ordinary profile creation or refresh, which use the project's own files; this does not authorise parallel meeting capture. |
 | Workspace migration requiring cloud identity, history or shared-link guarantees beyond supported filesystem operations | An authorised provider tool/API supporting the specific move and preservation requirements. Do not assume WorkIQ search/read access includes cloud move capabilities. |
 | Workspace Governance's optional independent-local-file helper | PowerShell 7.2+; no `gh`. Not required for ordinary folder operations. |
 | Action Ledger and its bundled helpers | Approved GitHub access; PowerShell 7.2+ and authenticated `gh` for the helpers, plus the explicitly configured ledger and any required GitHub Project permissions. |
