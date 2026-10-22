@@ -48,7 +48,7 @@ The published source is the repository ref used when registering the marketplace
 
 See [README update instructions](README.md#updating-an-installed-plugin). Marketplace registration and a version bump do not guarantee automatic installation: that depends on the client's update configuration. GitHub tags and Releases are optional release records, not substitutes for updating the ref the marketplace consumes.
 
-These are contributor checklists, not automated enforcement. Branch protection and CI are separate repository settings and are not enabled by this document.
+These are contributor checklists, not automated enforcement. A GitHub ruleset protects `main` by requiring pull requests and blocking deletion and force pushes; CI and required status checks are not configured.
 
 ## Migration and validation boundaries
 
@@ -66,4 +66,4 @@ Declare actual helper prerequisites and update repository checks with packaging 
 
 ## Licensing
 
-No reuse licence is currently configured; all rights are reserved until the owner chooses one (see [ADR-0004](docs/adr/0004-licence-not-yet-chosen.md)).
+The repository's original content is licensed under the [MIT License](LICENSE), as recorded in [ADR-0019](docs/adr/0019-license-repository-content-under-mit.md).
