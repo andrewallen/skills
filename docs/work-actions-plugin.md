@@ -34,7 +34,7 @@ This repository is the canonical plugin source ([ADR-0011](adr/0011-maintain-wor
 
 Follow [GitHub installation](../README.md#github-installation-with-copilot-cli) or the [local installation guide](installation.md#local-installation), selecting `work-actions`. Start with the read-only review request above against a ledger you are authorised to access.
 
-If installed as `work-actions@anallen-work-actions`, uninstall that older installation before installing `work-actions@andrewallen-personal-skills` to avoid duplicate skills. See [older installation names](installation.md#older-installation-names).
+If installed from an earlier marketplace, uninstall that older installation before installing `work-actions@andrewallen-personal-skills` to avoid duplicate skills. See [older installation names](installation.md#older-installation-names).
 
 ## Source and design
 
