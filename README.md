@@ -1,4 +1,4 @@
-# Andrew Allen's agent skills
+# Andrew Allen's Agent skills
 
 **Practical agent skills, built in the flow of work.**
 
