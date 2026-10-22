@@ -9,7 +9,7 @@ This is a personal repository. It governs how the `work-context` and `work-actio
 ## Decisions
 
 - Significant decisions are recorded as Architecture Decision Records in [docs/adr](docs/adr/README.md).
-- A decision is significant if it changes plugin structure, skill ownership boundaries, the manifest or marketplace format, distribution, or data-handling rules.
+- A decision is significant if it changes plugin structure, skill ownership boundaries, the manifest or marketplace format, distribution, data-handling rules, or consequential GitHub repository controls such as protected branches, review/merge gates, workflow authority or security settings.
 - Superseded ADRs are kept and marked, never deleted.
 
 ## Changes
@@ -48,7 +48,13 @@ The published source is the repository ref used when registering the marketplace
 
 See [README update instructions](README.md#updating-an-installed-plugin). Marketplace registration and a version bump do not guarantee automatic installation: that depends on the client's update configuration. GitHub tags and Releases are optional release records, not substitutes for updating the ref the marketplace consumes.
 
-These are contributor checklists, not automated enforcement. A GitHub ruleset protects `main` by requiring pull requests and blocking deletion and force pushes; CI and required status checks are not configured.
+These are contributor checklists, not proof of automated enforcement. The intended GitHub baseline and its trade-offs are recorded in [ADR-0021](docs/adr/0021-record-github-repository-governance-baseline.md); the [repository configuration guide](docs/repository-configuration.md) separates dated observations from live verification. A PR requirement does not itself enforce independent review, successful validation or owner authorisation.
+
+## GitHub repository configuration
+
+Treat consequential settings changes as governance changes, even when they are made directly in GitHub rather than through a file. Document the intended before/after values, rationale and authority; inspect the existing state; apply only the approved scope; then verify the effective configuration and record the actual result with the documentation change. Follow the configuration guide for target-specific inspection, adaptation and partial outcomes.
+
+Repository documents express intent; GitHub is authoritative for active enforcement. A dated observation is not a change-actor history or a promise that settings remain unchanged. Revisit the record when intentionally changing policy or configuration, not through routine snapshot maintenance. Documentation, available auto-merge and permission to configure do not authorise a merge or bypass. Repository-only configuration documentation does not require package version bumps.
 
 ## Migration and validation boundaries
 

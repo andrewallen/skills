@@ -24,6 +24,8 @@ Read these in order when changing the repository:
 4. [Validation](validation.md): repository checks, behavioural scenarios and known validation gaps.
 5. [ADR index](adr/README.md): accepted decisions and proposals; Proposed does not mean implemented.
 
+For GitHub-side operating controls, use [Repository configuration](repository-configuration.md): intended policy, dated observations, read-only verification and adaptation to another repository. These controls are separate from packaged skills and target workspace governance.
+
 The [current information model inventory](current-information-model.md) describes existing terms, relationships and open definitions. The accepted [minimal shared evidence model](adr/0013-minimal-shared-evidence-model.md) provides conceptual consistency without a universal schema.
 
 ## Keep discovery useful as the collection grows
