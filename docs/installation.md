@@ -82,7 +82,7 @@ Plugin versions live in the [Work Context manifest](../plugins/work-context/plug
 
 If Work Context was previously installed as `workspace-governance`, install `work-context` and uninstall the old plugin before starting a new session. The individual skill names are unchanged.
 
-If Work Actions was installed as `work-actions@anallen-work-actions`, uninstall that installation before installing `work-actions@andrewallen-personal-skills`. The plugin's source moved; ledger records do not need migration.
+If Work Actions was installed from an earlier marketplace, uninstall that installation before installing `work-actions@andrewallen-personal-skills`; `copilot plugin list` shows what is installed. The plugin's source moved; ledger records do not need migration.
 
 These are deliberate local configuration changes, not automatic cleanup performed by this repository.
 

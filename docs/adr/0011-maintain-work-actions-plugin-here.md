@@ -19,6 +19,6 @@ This does not change action workflow authority, handoff or acceptance semantics,
 
 ## Consequences
 
-Helper or reference changes are made and versioned here (patch/minor/major per [Governance](../../GOVERNANCE.md)); a ledger repository updates its pinned snapshot deliberately. Skill runtime-dependency metadata may now name helper prerequisites instead of `none`, and the repository check enforces that. Existing `work-actions@anallen-work-actions` installations must be replaced by `work-actions@andrewallen-personal-skills`; ledger records need no migration.
+Helper or reference changes are made and versioned here (patch/minor/major per [Governance](../../GOVERNANCE.md)); a ledger repository updates its pinned snapshot deliberately. Skill runtime-dependency metadata may now name helper prerequisites instead of `none`, and the repository check enforces that. Existing Work Actions installations from an earlier marketplace must be replaced by `work-actions@andrewallen-personal-skills`; ledger records need no migration.
 
 The owner accepted this decision on 2026-10-22. This ADR records repository ownership; it does not authorize publication or migration of operational ledger data.
