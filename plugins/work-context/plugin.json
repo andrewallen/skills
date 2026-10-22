@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "work-context",
-  "version": "2.0.0",
-  "description": "Personal workspace structure, meeting evidence capture, and stakeholder profiles for people and organisations.",
+  "version": "3.0.0",
+  "description": "Consistent project folders, approved migration, meeting evidence and stakeholder profiles.",
   "author": {
     "name": "andrewallen"
   },

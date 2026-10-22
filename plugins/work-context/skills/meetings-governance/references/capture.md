@@ -26,7 +26,7 @@ Recognise official Teams transcript objects, recording-backed transcripts, custo
 - Never replace an existing transcript because another attendee cannot retrieve it.
 - `time_bounds` holds the first and last evidence timestamps. With only relative timestamps, keep relative bounds; add absolute bounds only when transcript, recording or lifecycle metadata supplies an explicit anchor. Never add relative offsets to the scheduled start.
 - Do not infer a platform-specific `source_type` from a generic export; use `local-transcript-export` or `local-chat-export` unless the source establishes the platform.
-- Retain transcript DOCX files under the matching audience `docx` folder. Other formats may sit beside the meeting evidence with a typed suffix.
+- Retain original transcript files beside the companions in the occurrence folder, using short distinguishable names. Do not add format or audience layers. Preserve existing filenames until an approved migration changes them.
 
 **Semantic review.** Start with modest text pages (typically 50–100 segments), shrinking as needed; read every returned segment in each claimed range. Use small structured boundary/anchor reads for exact timestamps, speaker metadata and citations that text mode omits. Count unique source segments, not repeated anchor reads or result-arrival order. Record reviewed ranges and the anchors behind content-dependent conclusions in the evidence table, separately from retrieved and retained coverage.
 
@@ -91,7 +91,7 @@ For each resource:
 
 1. Preserve the exact observed URL.
 2. Resolve stable drive, item or document identity where possible.
-3. Determine provenance from content attribution and source evidence. Original or received reusable resources belong in `source_material_root`, regardless of whether they were externally or owner-organisation authored; record that provenance explicitly. New meeting contexts and recaps stay under `meetings_root`; broader analysis, drafts and AI-assisted material belong in `working_material_root`. Exact versions intentionally circulated are referenced and registered in `issued_outputs_root`, not copied by this skill. Meeting audience and resource provenance are independent.
+3. Determine provenance from content attribution and source evidence. Original or received reusable resources belong in `sources_root`, regardless of whether they were externally or owner-organisation authored; record that provenance explicitly. New meeting contexts and recaps stay under `meetings_root`; broader analysis, drafts and AI-assisted material belong in `working_root`. Exact versions intentionally circulated are referenced and registered in `issued_outputs_root`, not copied by this skill. Meeting audience and resource provenance are independent.
 4. Check for an existing equivalent by identity, version or hash; deduplicate payloads while keeping per-meeting provenance. One file set per source: later meetings link to it. Create a new set only when a meeting used a materially different version, with the same descriptor, a version tag and that version's first-seen date.
 5. Save or retain the original file and a `.url` pointer where available, subject to the authorised storage boundary. Do not create a Markdown rendering of the resource or move an existing source without approval.
 6. Link each meeting that used or referenced it.

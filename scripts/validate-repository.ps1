@@ -171,7 +171,10 @@ if ($null -ne $catalogue) {
             Assert-Repository ($metadata -match '(?m)^metadata:\s*$' -and (Get-Scalar $metadata 'version' 2) -match '^\d+\.\d+$') "${skillName}: invalid skill metadata/version."
             $runtime = Get-Scalar $metadata 'runtime-dependencies' 2
             if (Test-Path -LiteralPath (Join-Path $directory.FullName 'scripts') -PathType Container) {
-                Assert-Repository ($runtime -match 'PowerShell 7\.2\+' -and $runtime -match '\bgh\b') "${skillName}: bundled helpers must declare their PowerShell and gh prerequisites."
+                Assert-Repository ($runtime -match 'PowerShell 7\.2\+') "${skillName}: bundled helpers must declare PowerShell prerequisites."
+                if ($skillName -ceq 'action-ledger') {
+                    Assert-Repository ($runtime -match '\bgh\b') "${skillName}: action helpers require gh."
+                }
             } else {
                 Assert-Repository ($runtime -ceq 'none') "${skillName}: expected independent runtime-dependencies metadata."
             }
@@ -188,6 +191,7 @@ if ($null -ne $catalogue) {
                     foreach ($field in 'created_by', 'last_governed_by') {
                         Assert-Repository ((Get-Scalar $text $field) -ceq "$skillName@<CURRENT_SKILL_VERSION>") "$($asset.Name): $field differs from owning skill."
                     }
+
                 }
             }
         }
@@ -219,6 +223,25 @@ foreach ($file in $adrFiles) {
     $title = [regex]::Match($record, "^# ADR-${id}: ([^\r\n]+)").Groups[1].Value
     Assert-Repository ($status -cmatch '^(Proposed|Accepted|Rejected|Superseded by ADR-\d{4})$') "${file}: invalid ADR status."
     Assert-Repository ($row.Groups[2].Value -ceq (Split-Path $file -Leaf) -and $row.Groups[3].Value -ceq $title -and $row.Groups[4].Value -ceq $status) "${file}: ADR index path, title or status differs."
+}
+
+# Parse source only: never import or execute migration/action helpers.
+foreach ($file in $files | Where-Object { $_ -match '\.(ps1|psm1)$' }) {
+    $tokens = $null
+    $errors = $null
+    [void] [System.Management.Automation.Language.Parser]::ParseFile((Join-Path $root $file), [ref] $tokens, [ref] $errors)
+    foreach ($error in $errors) { $failures.Add("${file}: PowerShell syntax: $($error.Message)") }
+}
+$common = Get-Content -LiteralPath (Join-Path $root 'plugins\work-context\Common Architecture.md') -Raw
+$core = @('00 Start Here', '10 Issued Outputs', '20 Working', '30 Sources', '40 Meetings', '50 Stakeholders', '99 Archive')
+$tree = [regex]::Match($common, '(?s)```text\r?\n(.*?)```').Groups[1].Value.Trim() -split '\r?\n'
+Assert-Repository (($tree -join '|') -ceq ($core -join '|')) 'Common Architecture: expected exact seven-root baseline.'
+$helper = Get-Content -LiteralPath (Join-Path $root 'plugins\work-context\skills\workspace-governance\scripts\Invoke-WorkspaceMigration.ps1') -Raw
+$helperRoots = @([regex]::Matches($helper, "'(\d{2} [^']+)'") | ForEach-Object { $_.Groups[1].Value } | Select-Object -Unique)
+Assert-Repository (@(Compare-Object $core $helperRoots -CaseSensitive).Count -eq 0) 'Migration helper: core roots differ from architecture.'
+foreach ($file in $files | Where-Object { $_ -like 'plugins/work-context/*.md' }) {
+    $text = Get-Content -LiteralPath (Join-Path $root $file) -Raw
+    Assert-Repository ($text -notmatch '20 Working Material|30 Source Material|50 People and Organisations|60 Media and Recordings|70 Governance and Administration') "${file}: stale active folder name."
 }
 
 if ($failures.Count) {

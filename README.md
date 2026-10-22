@@ -14,7 +14,7 @@ If you arrived here from a talk or presentation, start with a workflow. You can 
 
 **Keep project evidence and context usable.** Organise a workspace, capture meeting evidence and maintain evidence-backed profiles of relevant people and organisations.
 
-- [Workspace Governance](docs/work-context-plugin.md#workspace-governance): give project material a consistent home and assess or repair its structure.
+- [Workspace Governance](docs/work-context-plugin.md#workspace-governance): initialise the seven-folder baseline, assess unfamiliar projects and plan approved physical migration.
 - [Meetings Governance](docs/work-context-plugin.md#meetings-governance): turn meeting sources into retained evidence and an anchored context you can revisit.
 - [Stakeholder Governance](docs/work-context-plugin.md#stakeholder-governance): refresh profiles from dated, attributed evidence rather than assumptions.
 
@@ -37,6 +37,8 @@ The plugins are separate installation units; choose either or both. They do not 
 - [From a captured action to a human-agent handoff](docs/workflows.md#from-a-captured-action-to-a-human-agent-handoff): separate recording work, authorising execution and accepting the result.
 
 These are fictional illustrations of the intended workflows, not customer records, live execution results or performance claims.
+
+For existing projects, start with the [migration workflow](docs/workflows.md#from-an-existing-project-to-the-standard-structure). It produces an approval-ready plan before moves; installing or updating the plugin does not migrate anything. The public package contains no real project evidence.
 
 ## What is in this collection?
 

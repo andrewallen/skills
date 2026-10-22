@@ -8,7 +8,9 @@ The documented client is GitHub Copilot CLI. The packages use Agent Plugins 1.0,
 
 Choose the plugin for the work you want to do. Work Context provides three workspace/evidence skills; Work Actions provides Action Ledger and manual helpers. Neither requires the other.
 
-Work Context needs filesystem access for workspace operations and suitable authorised client tools for remote retrieval. Work Actions needs approved GitHub access; its helpers additionally require PowerShell 7.2+ and authenticated `gh` for github.com, plus an explicitly named, configured ledger checkout. The current action-ledger pilot's capture flow also requires its configured GitHub Project and appropriate permissions.
+Work Context needs filesystem access for workspace operations and suitable authorised client tools for remote retrieval. Its optional ordinary-local-file migration helper additionally requires PowerShell 7.2+, but not `gh`; it previews by default and does not migrate cloud storage.
+
+Work Actions needs approved GitHub access; its helpers additionally require PowerShell 7.2+ and authenticated `gh` for github.com, plus an explicitly named, configured ledger checkout. The current action-ledger pilot's capture flow also requires its configured GitHub Project and appropriate permissions.
 
 Installation does not supply credentials, adopt a ledger policy, grant access, run a helper or authorise a workspace migration.
 
@@ -73,3 +75,7 @@ These are deliberate local configuration changes, not automatic cleanup performe
 New common workspaces use `99 Archive`. The correction was introduced in Work Context 1.0.1 with Workspace Governance 2.2 and Common Architecture 1.2; those are historical introduction versions, not the current package version.
 
 Legacy folder structures, record identities, source evidence and provenance are preserved unless an appropriate change is explicitly approved. Ordinary reading, reasoning, drafting and editing do not require a governance skill.
+
+The current baseline and approved physical migration are defined by [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md) and [ADR-0016](adr/0016-migrate-projects-through-approved-plans.md). Legacy evidence remains readable, but legacy folder locations are not permanent compliant writing destinations. Use an explicit migration plan; do not rename folders just because the package version changed.
+
+Repository consistency and parser checks do not establish helper execution, client compatibility or shared-link preservation. Verify those separately through an authorised exercise before claiming operational validation.

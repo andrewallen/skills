@@ -44,7 +44,7 @@ Meetings governance checks existing capture first and fetches only missing or st
 
 **Return from meetings:** context/source/resource links, resolved identities, what changed, actual evidence cutoff and remaining access or attribution gaps.
 
-**Handoff to stakeholder governance** (source change): the corrected wording, person attribution, organisation representation, occurrence or qualified decision and the affected profile citation. After a `recalibrate`, also the list of meetings whose class changed: a class change does not alter what the meeting recorded, so citations stay valid, but reasoning that depended on scope is re-checked.
+**Handoff to stakeholder governance** (source change): the corrected wording, person attribution, organisation representation, occurrence or qualified decision and the affected profile citation. After a `recalibrate`, identify changed scope relationships: source citations stay valid, but reasoning that depended on scope is re-checked. Preserve legacy class values without using them for routing.
 
 - Use existing archive files and the conversation. No registry, packet or manifest is required.
 - A handoff never implies automatic synchronisation or permission to widen scope. Run the other skill only when the user's request authorises that work; otherwise report the bounded next step.

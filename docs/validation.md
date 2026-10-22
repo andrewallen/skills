@@ -16,10 +16,11 @@ The script is read-only, uses no downloaded modules or services, and resolves th
 | Check | Coverage |
 |---|---|
 | JSON and package discovery | Parse catalogue and plugin JSON; check required identity fields, plugin semantic versions, unique catalogue names/sources, in-repository sources, manifest/name agreement and catalogue coverage of plugin manifests. Reject duplicate version declarations in catalogue plugin entries and configurable skill paths. |
-| Skills and architecture | Check immediate skill discovery, directory/name agreement, current scalar metadata conventions (`runtime-dependencies` must be `none` unless the skill bundles `scripts`, then it must name PowerShell 7.2+ and `gh`), shared architecture role/version agreement and the Common Architecture ownership table's skill names. |
+| Skills and architecture | Check discovery, names, scalar metadata, architecture/version agreement and ownership. Scripted skills declare PowerShell 7.2+; Action Ledger additionally declares `gh`. Skills without bundled scripts declare `none`. |
 | Governed templates | For assets that already declare `template`, check its identifier/version and the owning skill in both provenance placeholders. Assets without that field are not assigned a new schema. |
 | Markdown | Check inline link/image destinations and reference-definition destinations outside fenced or inline code. Resolve URI-encoded relative or repository-root paths, check file-name case and simple ATX heading fragments (including duplicate heading suffixes). Fenced examples are not expected to exist as repository files. |
 | ADR index | Check that every numbered ADR is listed once, has a matching number/title/status and uses a documented status. No acceptance or rejection is inferred. |
+| Migration and PowerShell | Check the exact seven-root architecture, matching helper root names, stale active plugin folder names and PowerShell parser errors without importing or executing helpers. |
 
 These are selected repository invariants, not full remote JSON-schema, YAML or CommonMark validation. The scalar metadata checks follow the existing frontmatter layout, not arbitrary YAML syntax. Markdown checking supports the forms used here, not every extension: Setext headings, HTML link/anchor syntax and complex nested link syntax are outside its scope. External URLs are not fetched. Update the checker alongside an intentionally changed convention rather than treating it as an independent architecture authority.
 
@@ -39,5 +40,15 @@ For a behavioural change, use focused anonymised scenarios in a separate disposa
 | Shared reference or template | Exercise each consuming skill affected by the change, not only the edited file. Preserve provenance and existing-workspace behaviour. |
 
 These are review scenarios, not an automated agent test suite or new skill behaviour. Documentation/tooling-only changes need repository checks and diff review, not a claim of live skill execution.
+
+## Static-only changes and public disclosure
+
+For the seven-root/migration implementation, the owner requested repository consistency validation only. Do not execute skills, migration helpers, synthetic workspace operations or live source retrieval for this change. Run the two repository commands above; parsing helper syntax is not executing it. Skill/helper behaviour, restart/recovery, collaboration, cloud moves and shared-link preservation remain unverified. Static success is not an operational safety guarantee.
+
+Review changed instructions, templates, JSON examples, scripts and links together. Check routing, approval boundaries, helper/plan/journal fields, dependency declarations, versions, legacy compatibility and honest partial outcomes. Search old names throughout the repository, distinguishing historical ADRs and explicit migration examples from active defaults.
+
+This public package must not contain employer/customer proprietary material, identifiable case narratives, personal profiles, private URLs, tenant IDs, real inventories or source captures. Use fictional paths and explicit observed-value placeholders. Preserve functional private-workspace input contracts: actual source identity is supplied at runtime, not replaced with fabricated evidence. Product names and public documentation links are not inherently proprietary.
+
+Record exact commands/results and manual disclosure-review scope in the handoff. Automated checks do not prove the absence of proprietary content. No private example workspace is required or modified.
 
 For a plugin change, separately record the marketplace's tracked ref and the authorised installation/new-session check required after merge. Local static checks do not prove installation, client discovery, remote retrieval, publication or automatic updates. Record exact commands and results, checks not run, and any migration implications; do not turn an unperformed check into a pass.

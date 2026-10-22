@@ -12,5 +12,8 @@ List affected plugin, skill, architecture and template versions, or explain why 
 - [ ] Updated affected versions and ADR statuses, or explained why not applicable.
 - [ ] Checked relevant JSON, links, expected behaviour and diff hygiene.
 - [ ] Confirmed no workspace evidence, private content or credentials are included.
+- [ ] Reviewed examples and references for employer/customer proprietary information and identifiable case details; examples are fictional or safely anonymised.
 
 Record checks performed and any gaps. For a plugin update, identify the marketplace's tracked ref and the installation check still required after merge.
+
+Distinguish static checks from skill/helper execution. State any intentionally unperformed runtime checks and remaining migration/link-preservation risks.

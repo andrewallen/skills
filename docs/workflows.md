@@ -7,6 +7,42 @@ These walkthroughs explain the intended behaviour through fictional scenarios. R
 - [From meeting evidence to reusable context](#from-meeting-evidence-to-reusable-context)
 - [From new evidence to an updated stakeholder profile](#from-new-evidence-to-an-updated-stakeholder-profile)
 - [From a captured action to a human-agent handoff](#from-a-captured-action-to-a-human-agent-handoff)
+- [From an existing project to the standard structure](#from-an-existing-project-to-the-standard-structure)
+
+## From an existing project to the standard structure
+
+### The friction
+
+A fictional Example Project has drafts, source documents and meeting evidence in inconsistent locations. Its users want the same short baseline as other projects, without losing versions or shared links.
+
+### The request
+
+> Use Workspace Governance to inventory `C:\Projects\Example` and prepare a migration plan into the standard seven folders. Preserve coherent collections and source identities. Report uncertainty and do not move anything until the plan is approved.
+
+### What the agent does
+
+It identifies the target boundary, existing instructions, useful collections, exact destinations, dependencies and excluded or unresolved items. The plan covers the seven roots, minimal controls, approved navigation repairs and treatment of retired containers. It does not infer issue from a filename.
+
+After approval of that exact scope, routine independent moves proceed without repeated questions. The optional helper can preview/apply/resume an ordinary-local-file batch; shared/cloud items use an appropriate authorised platform route. A local move does not prove shared links survived. Empty old folders require approved cleanup, not silent deletion.
+
+### An illustrative result
+
+```text
+Drafts\Options.md -> 20 Working\Options.md
+Reference\Guide.pdf -> 30 Sources\Guide.pdf
+Shared presentation -> deferred: platform move/link checks outstanding
+Overall outcome -> partial until deferred items and retired roots are resolved
+```
+
+These are fictional plan rows, not an executed migration or proof of helper behaviour.
+
+### What stays human
+
+The owner approves the plan, consequential exceptions and tool-specific actions. Scope changes require new authority. Evidence, provenance and owner notes are preserved. The final outcome is physical conformity, not a permanent map of legacy folders.
+
+### The design choice
+
+[Short standard folders](adr/0015-standardise-project-folders-and-navigation.md) support browsing and direct sharing. [Approved resumable migration](adr/0016-migrate-projects-through-approved-plans.md) makes progress traceable without claiming that static checks prove runtime safety.
 
 ## From meeting evidence to reusable context
 

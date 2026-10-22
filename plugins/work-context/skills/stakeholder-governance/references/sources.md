@@ -56,7 +56,7 @@ Not every surface is compulsory. Mark immaterial ones not applicable, but do not
 - Distinguish promised resources from reviewed evidence, and retain useful existing material when current access is worse.
 - Do not copy the meeting skill's classification system, index, manifests or reconciliation cadence into entity analysis.
 - For directly researched supplementary sources, follow their pagination and disclose incomplete results.
-- For an authorised producer handoff, use the client's available Meetings Governance skill, or an explicitly identified local copy, then resume analysis from its outputs. Do not assume the installed package lives inside the target workspace. An explicitly supplied legacy `Meetings` path remains valid.
+- For an authorised producer handoff, use the client's available Meetings Governance skill, or an explicitly identified local copy, then resume analysis from its outputs. Do not assume the installed package lives inside the target workspace. Legacy meeting paths are readable evidence, not permanent alternative capture destinations; structural migration needs approval.
 - Ask before broadening workspace or entity scope, and record the clarified scope in the existing profile or research map.
 
 ## 5. Coverage statuses

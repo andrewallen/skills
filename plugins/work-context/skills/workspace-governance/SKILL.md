@@ -1,103 +1,76 @@
 ---
 name: workspace-governance
-description: Create, explain, assess and safely maintain the common workspace structure. Use for initial setup, structural repair, routing ambiguous material, registering issued outputs, duplicate review or approval-ready reorganisation proposals. Do not use for ordinary reading, reasoning, drafting or editing.
+description: Create, assess, repair or migrate projects into the seven-folder structure. Plan unfamiliar layouts before approved moves; register issued outputs and review duplicates. Not required for ordinary reading or drafting.
 metadata:
-  version: "2.2"
-  architecture: common-workspace-architecture v1.2
-  runtime-dependencies: none
+  version: "3.0"
+  architecture: common-workspace-architecture v2.0
+  runtime-dependencies: PowerShell 7.2+ for the optional local migration helper
 ---
 
 # Workspace Governance
 
-Own the common structure, `Start Here.md` and `Issued Outputs Index.md`. Do not capture meetings, write stakeholder profiles or act as a task system.
-
-Ordinary analysis, AI-assisted drafting and human editing do not need this skill. New working outputs normally belong in `20 Working Material`.
+Own structure, Start Here, the Issued Outputs Index and structural migration. Do not collect meetings, write profiles or become a task system.
 
 ## Files
 
 | Load | When |
 |---|---|
-| [../../Common Architecture.md](../../Common%20Architecture.md) | Every run. Bundled in this plugin; do not assume a copy exists in the target workspace. |
-| [assets/start-here.md](assets/start-here.md) | Creating or repairing Start Here. |
-| [assets/issued-outputs-index.md](assets/issued-outputs-index.md) | Creating or repairing the Issued Outputs Index. |
+| [../../Common Architecture.md](../../Common%20Architecture.md) | Every run; bundled here, not assumed present in the target. |
+| [references/migration.md](references/migration.md) | Assessing migration, planning, applying, resuming or verifying. |
+| [assets/migration-plan.md](assets/migration-plan.md) | Preparing a transition plan. |
+| [assets/start-here.md](assets/start-here.md), [assets/issued-outputs-index.md](assets/issued-outputs-index.md) | Creating or maintaining owned navigation. |
 
 ## Resolve the target
 
-Resolve `workspace_root` from the supplied path. Never infer it from this skill's location.
+Use the supplied path, never this skill's location. A supplied core child uses its parent as root. Inspect unfamiliar layouts without assuming names establish authority or lifecycle. A named blank target is valid for initialisation.
 
-- A supplied common child such as `00 Start Here`, `10 Issued Outputs` or `70 Governance and Administration` uses its parent as `workspace_root`.
-- A blank or absent named target is valid when the user asked to initialise it.
-- If the target could reasonably be an unrelated folder, ask one focused question before writing.
-- Preserve an explicitly supplied legacy structure unless the user approves migration.
+Read target instructions and identify nested repositories, cloud storage, reparse points and application-managed collections. For a software repository, agree a project-context boundary before structural writes; do not reorganise engineering roots. Ask only where target or authority is materially ambiguous.
 
-## Choose the operation
+## Operations
 
-| Operation | Result |
+| Operation | Result and authority |
 |---|---|
-| `bootstrap` | Create the complete fixed root structure and minimum controls. |
-| `repair` | Restore missing common roots or controls without moving valid content. |
-| `assess` | Report structural and routing recommendations without changes. |
-| `route` | Prepare a move table; move only after explicit approval. |
-| `register-output` | Register one canonical issued file and its distribution event. |
-| `review-duplicates` | Compare identity and hashes; report or propose, never delete. |
+| `bootstrap` | Initialisation creates all seven roots, Start Here and Issued Outputs Index. |
+| `assess` | Read-only inventory, routing gaps and risks; no permanent legacy mapping. |
+| `plan-migration` | Concrete plan in session artifacts, or saved in the target when authorised. No moves. |
+| `apply-migration` | Execute the specifically approved plan with drift checks and progress. |
+| `resume-migration` | Revalidate the same plan and progress before continuing. |
+| `verify` | Check baseline, scoped content, references, retired roots and unresolved items. |
+| `repair` | Restore authorised missing roots or owned controls, without relocating legacy content by implication. |
+| `route` | Propose destinations; moves require plan approval. |
+| `register-output` | Register an exact deliberately circulated version and append distribution. |
+| `review-duplicates` | Compare identity/version/hashes and report; never delete. |
 
-## Bootstrap or repair
+## Structure and routing
 
-An explicit request to initialise a named workspace authorises creation of:
+Create missing items only:
 
 ```text
-workspace_root
-|-- 00 Start Here
-|   `-- Start Here.md
-|-- 10 Issued Outputs
-|   `-- Issued Outputs Index.md
-|-- 20 Working Material
-|-- 30 Source Material
-|-- 40 Meetings
-|-- 50 People and Organisations
-|-- 60 Media and Recordings
-|-- 70 Governance and Administration
-`-- 99 Archive
+00 Start Here
+    Start Here.md
+10 Issued Outputs
+    Issued Outputs Index.md
+20 Working
+30 Sources
+40 Meetings
+50 Stakeholders
+99 Archive
 ```
 
-Create only missing items and preserve everything present. Empty fixed roots are valid. Do not create meeting controls, stakeholder profiles, evidence folders or copies of specialist skills unless separately requested.
+Supplementary collections are unnumbered and short. `Governance` may hold approved migration records, not installed skill copies. Bootstrap creates no specialist controls or profiles.
 
-## Route material
+AI drafts belong in Working; received evidence in Sources retains its origin and limitations. Record audience distribution rather than identical issued copies. Preserve non-identical versions. Approval and issue are different, and neither establishes every claim's truth.
 
-Apply the routing rules in Common Architecture.
+## Migration and maintenance
 
-- AI-created or AI-assisted drafts go to Working Material.
-- Source Material is organised by origin and evidential role, not audience.
-- A meeting recording tied to an occurrence belongs in Meetings; standalone media belongs in Media and Recordings.
-- Audience distribution is recorded in the Issued Outputs Index, not by making identical audience copies.
-- If ownership, sensitivity or destination is unclear, pause only that item and continue safe independent work.
+A migration request authorises planning, not unbounded movement. Obtain approval for the exact plan, including reference edits and platform-specific actions. Then execute independent safe actions without questions about each routine file. Tool permissions still apply.
 
-Use Meetings Governance for meeting collection and Stakeholder Governance for person or organisation profiles only when the request includes that work. Otherwise report the bounded next step.
+An incompatible layout is not the final arrangement. Protected items, uncertain issue state, link limitations and legacy roots are explicit migration gaps, not permanent path aliases.
 
-## Register issued outputs
-
-Register the exact canonical version and append a distribution row. Use a stable version, modified time or SHA-256 when identity is unclear.
-
-`approved` and `issued` are different. Approval does not prove distribution, and distribution does not prove every claim correct.
-
-## Reorganisation and duplicates
-
-Before changing established content, provide:
-
-| Current path | Proposed destination | Reason | Risk or notes |
-|---|---|---|---|
-
-For filename conflicts, compare hashes. Preserve non-identical files with a clear qualifier. Never delete files.
+Update orientation from reviewed evidence, recording dates and freshness gaps. A project-context refresh may coordinate separately authorised owners; it is not background synchronisation or a dependency on the other skills.
 
 ## Completion
 
-Check that:
+Check seven roots, owned links, canonical issued records and preservation of evidence, identities, owner notes and `created_by`. Unchanged bootstrap/repair makes no changes. Migration also accounts for every scoped item, reference repair and retired root; otherwise report partial completion with concrete blockers.
 
-- every requested root or control exists once;
-- Start Here and index links resolve;
-- issued records point to one canonical file;
-- no specialist evidence or profile was duplicated;
-- no unapproved move, rename, archive action, overwrite or deletion occurred;
-- repeating bootstrap or repair makes no changes.
-
-Report what was created, repaired, registered or proposed, plus any unresolved item or permission block.
+No unapproved specialist work, overwrite, deletion or move may occur. Report actual errors. Helper verification covers local file operations, not full conformity or cloud behaviour.

@@ -30,7 +30,7 @@ plugins\<plugin>\
             assets\
 ```
 
-`SKILL.md` is the entry point, with YAML frontmatter for `name`, a useful trigger-oriented `description` and the current metadata conventions: skill `version`, `architecture` reference and `runtime-dependencies`. The directory and skill name agree. The three work-context skills use `runtime-dependencies: none` to express that they have no bundled runtime prerequisites; they still need client capabilities for their operations. Skills that bundle scripts must declare their actual prerequisites, such as PowerShell and `gh`, rather than `none`. Only add references or assets when needed, keep them inside the package and link them relative to the file using them. Skills are discovered at the fixed `skills` location, not by adding paths to `plugin.json`.
+`SKILL.md` is the entry point, with YAML frontmatter for `name`, a useful trigger-oriented `description` and the current metadata conventions: skill `version`, `architecture` reference and `runtime-dependencies`. The directory and skill name agree. Meetings and Stakeholder Governance use `runtime-dependencies: none`; Workspace Governance declares PowerShell for its optional local helper. All still need client capabilities for their operations. Skills that bundle scripts must declare their actual prerequisites, such as PowerShell and `gh`, rather than `none`. Only add references or assets when needed, keep them inside the package and link them relative to the file using them. Skills are discovered at the fixed `skills` location, not by adding paths to `plugin.json`.
 
 Keep the entry point readable: purpose and non-goals, files to load and when, target resolution, operations, ownership limits and completion. Put detailed procedures in `references` and reusable output structures in `assets`. A change to a consumed reference can change behaviour even if `SKILL.md` is untouched.
 
@@ -47,7 +47,7 @@ For the operation being authored or changed, make the following clear without in
 | Can it finish alone? | Do not require another skill to bootstrap the workspace or run first. Use the currently supported standalone path; report gaps when that path cannot satisfy the requested result. |
 | What can be handed off? | Pass the exact gap, bounded scope and source links. Another skill runs only if authorised; otherwise report the next step. No automatic synchronisation or second system of record. |
 
-The current skills do not promise acceptance of every equivalent record from every producer. [ADR-0008](adr/0008-define-independent-skill-contracts.md) proposes a more explicit interoperability contract; this guide does not add that guarantee.
+Suitable supplied evidence may come from a person or another tool without requiring that producer. Domain input requirements still apply: missing identity, attribution or coverage is a gap, not permission to invent it. [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md) accepts this narrow scope; [ADR-0008](adr/0008-define-independent-skill-contracts.md) remains a broader proposal.
 
 ## Completion and review
 
@@ -55,6 +55,8 @@ Define an observable outcome for each operation: requested records exist once, l
 
 Preserve established evidence, owner notes, stable identities and `created_by`. Update `last_governed_by` only after a material update or validation. Keep governed-file template versions distinct from skill, architecture and plugin versions. Do not move, rename, archive, overwrite or delete existing material without the required approval; a new version is not migration authority.
 
-Run the [repository checks](validation.md), then use a small anonymised scenario outside this packaging repository when behaviour changes. Check the changed operation, its missing-input path, standalone operation, ownership boundary and repetition rather than building a new test system by default. Record the expected and observed result, including gaps.
+Run the [repository checks](validation.md). When authorised to validate behaviour, use a small anonymised scenario outside this packaging repository, covering the changed operation, missing-input path, standalone ownership and repetition. Record expected and observed results.
+
+When the owner limits validation to static checks, do not run a skill, helper operation or live migration. Record runtime evidence as unverified rather than substituting parser success for observed behaviour.
 
 Finish with the [pull request checklist](../.github/pull_request_template.md): search all references to changed names, paths and rules; evaluate inherited behaviour; bundle applicable version changes; keep ADR statuses accurate; and explain compatibility or migration implications. Repository-only guidance and tooling outside the plugin need no package bump. Neither authoring nor validation implies permission to commit, push, merge, publish or move user files.

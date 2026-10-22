@@ -2,8 +2,8 @@
 name: meetings-governance
 description: Get the latest meetings, capture named meetings, initialise a meeting archive or repair incomplete meeting evidence. Preserve exact occurrence identity, source provenance and history without becoming a task or approval system.
 metadata:
-  version: "5.0"
-  architecture: common-workspace-architecture v1.2
+  version: "6.0"
+  architecture: common-workspace-architecture v2.0
   runtime-dependencies: none
 ---
 
@@ -15,6 +15,7 @@ Maintain the governed meeting evidence under `40 Meetings`. The normal operation
 
 | Load | When |
 |---|---|
+| [../../Common Architecture.md](../../Common%20Architecture.md) | Every run: shared structure, provenance, navigation and migration boundaries. |
 | [references/evidence-rules.md](references/evidence-rules.md) | Capturing or reconciling meeting evidence. |
 | [references/capture.md](references/capture.md) | Retrieving transcripts, chats, attendance, media, tied correspondence and resources. |
 | [references/review-packet.md](references/review-packet.md) | Only for an explicitly requested project-scope or principle-mapping review. |
@@ -38,8 +39,8 @@ Do not reopen historical scope, regenerate every profile or run classification r
 
 Never infer the target from this skill's location.
 
-- A supplied `40 Meetings` folder or folder containing `Archive Guide.md` or `Meetings Index.md` is `meetings_root`.
-- A supplied legacy `Meetings` folder is used directly.
+- A supplied `40 Meetings` folder is `meetings_root`. Existing controls identify an archive for assessment, but do not make a differently named root compliant.
+- A supplied legacy `Meetings` folder may be read for assessment or consumption. Before new capture there, report the need for approved structural migration; do not silently maintain a competing layout.
 - Otherwise the supplied path is `workspace_root` and `meetings_root` is its `40 Meetings` child.
 - A blank or absent named target is valid when the user asked to initialise or ingest meetings.
 - If the path could be either the workspace root or an unrelated folder, ask one focused question.
@@ -68,17 +69,14 @@ An explicit request to initialise or ingest meetings authorises creation of:
 40 Meetings
 |-- Archive Guide.md
 |-- Meetings Index.md
-|-- Internal
-|   `-- docx
-|-- External
-|   `-- docx
-`-- _Candidates
-    |-- Deferred
-    |-- Excluded
-    `-- Supplementary
+`-- YYYY-MM-DD - Descriptor
+    |-- Context.md
+    `-- Transcript.md
 ```
 
-If `meetings_root` was supplied directly, do not add another `40 Meetings`. Create only missing meeting items. Do not create other common roots, stakeholder profiles or a local skill copy.
+If `meetings_root` was supplied directly, do not add another `40 Meetings`. Create only missing meeting items and resource destinations authorised by the intake. Do not bootstrap unrelated common roots, stakeholder profiles or a local skill copy.
+
+Create occurrence folders only for actual records. Keep audience in metadata/index rows, not mandatory audience folders; do not create format or year/month layers by default. Deferred, excluded or supplementary collections are unnumbered and created only when needed. An authorised migration preserves existing IDs and provenance and repairs approved navigation; it never implies fresh capture.
 
 For a new archive, establish:
 

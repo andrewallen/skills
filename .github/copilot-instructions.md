@@ -9,3 +9,5 @@ Follow [GOVERNANCE.md](../GOVERNANCE.md) for changes, versioning and publishing,
 - Do not implement Proposed ADRs without explicit owner acceptance.
 - Use the pull request checklist. State validation gaps and migration implications explicitly.
 - Do not infer permission to commit, push, merge, publish or move existing user files.
+- Keep every committed example and reference public-safe: no employer/customer proprietary material, private links, live inventories or identifiable case narratives. Use fictional examples without weakening real target input contracts.
+- Distinguish static repository/parser validation from skill/helper execution; respect the requested scope and record runtime gaps explicitly.

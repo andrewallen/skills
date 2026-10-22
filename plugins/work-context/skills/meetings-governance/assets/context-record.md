@@ -6,7 +6,7 @@ Every governed record has a context file. Start from this complete template rath
 
 ```yaml
 document_role: meeting-context
-template: meeting-context@1.0
+template: meeting-context@2.0
 created_by: meetings-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: meetings-governance@<CURRENT_SKILL_VERSION>
 meeting_date:
@@ -42,17 +42,20 @@ Value rules:
 ## IDs and filenames
 
 - ID: `<PROJECT_CODE>-YYYY-MM-DD-HHMM` in owner-local time; add a deterministic short suffix when two occurrences share a minute. Preserve existing IDs.
-- Every companion shares one stem, with the literal `Meeting,` token:
+- New records use one short occurrence folder; companion names identify their role without repeating the project and date:
 
 ```text
-YYYY-MM-DD - Meeting, Descriptor [Context].md
-YYYY-MM-DD - Meeting, Descriptor [Transcript].md
-YYYY-MM-DD - Meeting, Descriptor [Transcript Part N].md
-YYYY-MM-DD - Meeting, Descriptor [Chat].md
-YYYY-MM-DD - Meeting, Descriptor [Recording].mp4
+YYYY-MM-DD - Descriptor
+    Context.md
+    Transcript.md
+    Transcript Part N.md
+    Chat.md
+    Recording.mp4
 ```
 
 For a rescheduled or misdated occurrence, name and index the exact occurrence time and preserve the series title and conflict in context.
+
+Add a short time or stable identity qualifier for same-day namesakes. Use these role names where capture references specify typed suffixes. Keep distinct source objects distinguishable. Existing stems, paths and names remain unchanged until an approved migration; preserve identity and repair approved links when moving them.
 
 ## Body sections
 
@@ -60,7 +63,7 @@ The context is an anchored map into the transcript and companions, reused by man
 
 Include all thirteen, in this order; use a concise `none-found`, `not-applicable` or limitation statement when a section is empty.
 
-1. **Historical-record notice.** Identifies the context as **Synthesised**, with source links as authority, and references the configured current-work system (or states that the context does not establish current ownership or status). Add one **Use this for / go to the transcript for** line: for example, positions, follow-ups and locating topics here; exact wording, tone and anything the topic map lists but key points do not cover in the transcript. State the anchor convention once (for example, transcript offsets from 00:00 with the London time of the first segment, and chat or email in clock time).
+1. **Historical-record notice.** Identifies the context as **Synthesised (AI-assisted)**, with source links as authority, the actual evidence cutoff and review limitations, and references the configured current-work system (or states that the context does not establish current ownership or status). Add one **Use this for / go to the transcript for** line: for example, positions, follow-ups and locating topics here; exact wording, tone and anything the topic map lists but key points do not cover in the transcript. State the anchor convention once (for example, transcript offsets from 00:00 with the owner-local time of the first segment, and chat or email in clock time).
 2. **Neutral summary.** Three to six sentences using neutral verbs: *raised, proposed, asked, supported, questioned, disagreed*. Use *agreed* or *decided* only when an explicit agreement is anchored in section 7. No outcome is asserted that the record does not show.
 3. **Topic map.** Contiguous time ranges covering the **whole** transcript, one line each: `start–end · topic · main speakers`. Every part of the meeting appears, including tangents, so nothing is silently dropped. **Synthesised** navigation. For multi-part or multi-object transcripts, name the part in each range.
 4. **Purpose and exact source identity.**
