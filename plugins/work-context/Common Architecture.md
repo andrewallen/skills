@@ -1,6 +1,6 @@
 ---
 document_role: common-workspace-architecture
-architecture_version: "2.0"
+architecture_version: "2.1"
 effective_date: "2026-10-22"
 ---
 
@@ -28,6 +28,14 @@ Governance is not required for ordinary reading, reasoning, drafting or editing.
 - Preserve original or received evidence in `30 Sources`.
 - Preserve exact issued versions in `10 Issued Outputs`.
 - Use a governance skill only when maintaining its governed collection or changing structure or lifecycle state.
+
+## File operations
+
+Use direct filesystem tools or shell commands for listing, reading, writing, creating, renaming, moving and deleting local files and folders. On Windows, use PowerShell with exact literal paths. Do not use Computer Use, Explorer/Finder, simulated keystrokes or clipboard automation for these operations. If filesystem access is unavailable, report that blocker rather than switching to a GUI.
+
+Use the simplest operation that fulfils the authorised request. A folder rename or move does not require a custom helper, JSON plan, digest or journal. A short before/after mapping in the conversation is enough for a simple reorganisation; obtain approval once for its scope, including any empty-folder cleanup. Skill ownership and tool permissions still apply.
+
+A OneDrive or other sync-client path is not by itself a reason to abandon filesystem tools. Use supported filesystem operations where they meet the required preservation guarantees. Hydration alone does not establish cloud identity, history or shared-link preservation. If provider restrictions or those guarantees require a cloud operation, use an authorised provider API/tool, not UI automation; report a blocker if no suitable route is available. Do not bypass reparse-point, protection or access restrictions.
 
 ## Folder roles
 
@@ -83,7 +91,7 @@ Assessment may read unfamiliar layouts. An approved migration physically converg
 
 Workspace Governance owns structural planning, approved moves, progress and verification. Preserve source IDs, historical provenance and owner notes. Other owners maintain substantive records through authorised handoffs; structural migration edits only explicitly approved navigation.
 
-Resolve software repositories' project-context boundaries before writing. Never move code, configuration, nested repositories, application-managed content or reparse-point targets by inference. Shared/cloud links require platform-aware checks; local movement does not prove preservation.
+Resolve software repositories' project-context boundaries before writing. Never move code, configuration, nested repositories, application-managed content or reparse-point targets by inference. Apply the file-operation rules above; local movement does not prove shared-link preservation.
 
 A plan binds exact scope, destinations and observed state. Apply independent safe operations without repeated questions; pause dependent groups on drift or ambiguity. Legacy collections, unresolved items and retired roots left behind are migration gaps, not an accepted alternative structure.
 

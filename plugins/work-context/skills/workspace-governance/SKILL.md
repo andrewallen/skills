@@ -2,14 +2,18 @@
 name: workspace-governance
 description: Create, assess, repair or migrate projects into the seven-folder structure. Plan unfamiliar layouts before approved moves; register issued outputs and review duplicates. Not required for ordinary reading or drafting.
 metadata:
-  version: "3.0"
-  architecture: common-workspace-architecture v2.0
-  runtime-dependencies: PowerShell 7.2+ for the optional local migration helper
+  version: "3.1"
+  architecture: common-workspace-architecture v2.1
+  runtime-dependencies: Direct filesystem or shell access; PowerShell 7.2+ for the optional local migration helper; authorised provider tools when cloud preservation requires them
 ---
 
 # Workspace Governance
 
 Own structure, Start Here, the Issued Outputs Index and structural migration. Do not collect meetings, write profiles or become a task system.
+
+Use direct filesystem tools or PowerShell for basic file and folder operations, never Computer Use or Explorer automation. The bundled helper is optional, not the gateway to migration. Follow Common Architecture's file-operation rules, including for sync-client paths.
+
+No MCP server is required for local structure work. If cloud preservation requires a provider operation, check that an authorised tool supports that exact action; WorkIQ MCP search/read access does not by itself establish move or rename support. The client supplies external tools and credentials separately.
 
 ## Files
 
@@ -32,7 +36,7 @@ Read target instructions and identify nested repositories, cloud storage, repars
 |---|---|
 | `bootstrap` | Initialisation creates all seven roots, Start Here and Issued Outputs Index. |
 | `assess` | Read-only inventory, routing gaps and risks; no permanent legacy mapping. |
-| `plan-migration` | Concrete plan in session artifacts, or saved in the target when authorised. No moves. |
+| `plan-migration` | Concrete before/after mapping in the conversation; use session artifacts for larger plans, or the target when authorised. No moves. |
 | `apply-migration` | Execute the specifically approved plan with drift checks and progress. |
 | `resume-migration` | Revalidate the same plan and progress before continuing. |
 | `verify` | Check baseline, scoped content, references, retired roots and unresolved items. |
@@ -63,7 +67,9 @@ AI drafts belong in Working; received evidence in Sources retains its origin and
 
 ## Migration and maintenance
 
-A migration request authorises planning, not unbounded movement. Obtain approval for the exact plan, including reference edits and platform-specific actions. Then execute independent safe actions without questions about each routine file. Tool permissions still apply.
+A migration request authorises planning, not unbounded movement. Obtain approval for the exact mapping, including reference edits, any required provider actions and removal of emptied old folders. Then execute independent safe actions without questions about each routine file. Do not require helper JSON, hashes or a journal for ordinary folder operations. Tool permissions still apply.
+
+Prefer a direct folder rename or move. Where the approved layout needs a new or existing destination, create missing folders, move the contents without overwriting, verify the result, then remove only explicitly approved old folders confirmed empty, including hidden entries. Never recursively delete leftover content or switch to GUI renames after an error. See the migration reference for checks and recovery.
 
 An incompatible layout is not the final arrangement. Protected items, uncertain issue state, link limitations and legacy roots are explicit migration gaps, not permanent path aliases.
 

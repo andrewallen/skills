@@ -170,13 +170,12 @@ if ($null -ne $catalogue) {
             Assert-Repository ([bool] (Get-Scalar $metadata 'description')) "${skillName}: missing description."
             Assert-Repository ($metadata -match '(?m)^metadata:\s*$' -and (Get-Scalar $metadata 'version' 2) -match '^\d+\.\d+$') "${skillName}: invalid skill metadata/version."
             $runtime = Get-Scalar $metadata 'runtime-dependencies' 2
+            Assert-Repository ([bool] $runtime) "${skillName}: runtime-dependencies metadata is required."
             if (Test-Path -LiteralPath (Join-Path $directory.FullName 'scripts') -PathType Container) {
                 Assert-Repository ($runtime -match 'PowerShell 7\.2\+') "${skillName}: bundled helpers must declare PowerShell prerequisites."
                 if ($skillName -ceq 'action-ledger') {
                     Assert-Repository ($runtime -match '\bgh\b') "${skillName}: action helpers require gh."
                 }
-            } else {
-                Assert-Repository ($runtime -ceq 'none') "${skillName}: expected independent runtime-dependencies metadata."
             }
             if ($architecture) {
                 Assert-Repository ((Get-Scalar $metadata 'architecture' 2) -ceq "$role v$version") "${skillName}: architecture reference differs from Common Architecture."

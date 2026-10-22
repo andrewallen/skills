@@ -52,7 +52,7 @@ These are contributor checklists, not automated enforcement. Branch protection a
 
 ## Migration and validation boundaries
 
-[ADR-0015](docs/adr/0015-standardise-project-folders-and-navigation.md) defines the physical seven-root baseline; [ADR-0016](docs/adr/0016-migrate-projects-through-approved-plans.md) defines approved transitions. A release does not approve moving an existing project. A permanent legacy path map is not conformity. Scope approval, item preservation, reference risks, concurrency and partial progress must remain explicit.
+[ADR-0015](docs/adr/0015-standardise-project-folders-and-navigation.md) defines the physical seven-root baseline; [ADR-0017](docs/adr/0017-use-direct-filesystem-operations.md) defines proportionate approved transitions using direct file operations. A release does not approve moving an existing project. A permanent legacy path map is not conformity. Scope approval, item preservation, reference risks, concurrency and partial progress must remain explicit.
 
 Declare actual helper prerequisites and update repository checks with packaging changes. Distinguish static consistency/parser validation from skill/helper execution, live migration, client installation and publication. Honour an explicitly static-only validation scope, record the unperformed runtime checks as gaps, and never describe static checks as proof of runtime safety.
 

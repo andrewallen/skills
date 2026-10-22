@@ -30,6 +30,8 @@ If you arrived here from a talk or presentation, start with a workflow. You can 
 
 The plugins are separate installation units; choose either or both. They do not automatically run one another.
 
+**Dependencies:** Work Context needs direct filesystem or shell access. Live Microsoft 365 discovery and retrieval need **WorkIQ MCP**, or equivalent authorised tools with the required source access; local-only work does not. Work Actions needs approved GitHub access, with PowerShell and `gh` for its optional helpers. Plugins do not install MCP servers or grant access. See the [dependency guide](docs/installation.md#dependencies-by-operation).
+
 ## See a workflow before reading the instructions
 
 - [From meeting evidence to reusable context](docs/workflows.md#from-meeting-evidence-to-reusable-context): find the source behind a point without rereading every transcript.

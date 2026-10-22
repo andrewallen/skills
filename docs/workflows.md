@@ -23,7 +23,9 @@ A fictional Example Project has drafts, source documents and meeting evidence in
 
 It identifies the target boundary, existing instructions, useful collections, exact destinations, dependencies and excluded or unresolved items. The plan covers the seven roots, minimal controls, approved navigation repairs and treatment of retired containers. It does not infer issue from a filename.
 
-After approval of that exact scope, routine independent moves proceed without repeated questions. The optional helper can preview/apply/resume an ordinary-local-file batch; shared/cloud items use an appropriate authorised platform route. A local move does not prove shared links survived. Empty old folders require approved cleanup, not silent deletion.
+After approval of that exact scope, routine independent moves proceed through filesystem tools or PowerShell, never Computer Use. A simple before/after mapping is enough; no helper JSON or journal is required. Prefer a direct folder rename/move. Where needed, create destinations, move contents without overwriting, verify and remove named old folders only when their cleanup was approved and they are empty, including hidden entries.
+
+The optional helper can preview/apply/resume an ordinary-local-file batch, not directory moves. A sync-client path alone does not require a provider route; use an authorised provider API/tool when filesystem operations cannot meet provider or preservation requirements. A local move does not prove shared links survived.
 
 ### An illustrative result
 
@@ -42,7 +44,7 @@ The owner approves the plan, consequential exceptions and tool-specific actions.
 
 ### The design choice
 
-[Short standard folders](adr/0015-standardise-project-folders-and-navigation.md) support browsing and direct sharing. [Approved resumable migration](adr/0016-migrate-projects-through-approved-plans.md) makes progress traceable without claiming that static checks prove runtime safety.
+[Short standard folders](adr/0015-standardise-project-folders-and-navigation.md) support browsing and direct sharing. [Direct filesystem operations](adr/0017-use-direct-filesystem-operations.md) keep approved migration proportionate without claiming that static checks prove runtime safety.
 
 ## From meeting evidence to reusable context
 

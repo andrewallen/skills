@@ -2,9 +2,9 @@
 name: stakeholder-governance
 description: Create or refresh evidence-backed profiles of relevant people and organisations. Use after new meeting or source evidence, for named profile creation, bounded stakeholder discovery or evidence-based content review. Do not create a CRM, personality model, account plan or second meeting archive.
 metadata:
-  version: "5.0"
-  architecture: common-workspace-architecture v2.0
-  runtime-dependencies: none
+  version: "5.1"
+  architecture: common-workspace-architecture v2.1
+  runtime-dependencies: Direct filesystem or shell access; WorkIQ MCP or equivalent authorised Microsoft 365 tools for supplementary live research
   predecessor: stakeholders-governance v2.7
 ---
 
@@ -13,6 +13,10 @@ metadata:
 A stakeholder is a relevant person or organisation. Store both entity types directly under `50 Stakeholders`, with one canonical profile per entity.
 
 The normal operation is to refresh only the profiles affected by new evidence.
+
+## Dependencies
+
+Use direct filesystem or shell access for supplied/local evidence and profiles. Supplementary live Microsoft 365 research requires WorkIQ MCP or equivalent authorised tools for the relevant email, Teams, directory, SharePoint or OneDrive sources, configured separately by the client. WorkIQ is not required when supplied/local evidence suffices. Check exact source access before relying on search results; disclose unavailable sources and permissions rather than claiming no evidence exists. This dependency does not permit parallel meeting capture or broaden the authorised research scope.
 
 ## Files
 

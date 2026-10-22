@@ -16,7 +16,7 @@ The script is read-only, uses no downloaded modules or services, and resolves th
 | Check | Coverage |
 |---|---|
 | JSON and package discovery | Parse catalogue and plugin JSON; check required identity fields, plugin semantic versions, unique catalogue names/sources, in-repository sources, manifest/name agreement and catalogue coverage of plugin manifests. Reject duplicate version declarations in catalogue plugin entries and configurable skill paths. |
-| Skills and architecture | Check discovery, names, scalar metadata, architecture/version agreement and ownership. Scripted skills declare PowerShell 7.2+; Action Ledger additionally declares `gh`. Skills without bundled scripts declare `none`. |
+| Skills and architecture | Check discovery, names, nonempty runtime-dependencies metadata, architecture/version agreement and ownership. Scripted skills declare PowerShell 7.2+; Action Ledger additionally declares `gh`. Skills without bundled scripts still declare required client capabilities and conditional dependencies; lack of scripts does not imply `none`. |
 | Governed templates | For assets that already declare `template`, check its identifier/version and the owning skill in both provenance placeholders. Assets without that field are not assigned a new schema. |
 | Markdown | Check inline link/image destinations and reference-definition destinations outside fenced or inline code. Resolve URI-encoded relative or repository-root paths, check file-name case and simple ATX heading fragments (including duplicate heading suffixes). Fenced examples are not expected to exist as repository files. |
 | ADR index | Check that every numbered ADR is listed once, has a matching number/title/status and uses a documented status. No acceptance or rejection is inferred. |
@@ -38,12 +38,13 @@ For a behavioural change, use focused anonymised scenarios in a separate disposa
 | Meeting refresh or capture | Use a bounded named occurrence and a source gap. Preserve identity and existing notes, report Not captured items, avoid unrelated roots/profiles, and create no new files on an unchanged repeat. |
 | Stakeholder evidence or profiles | Use supplied sources without a meeting archive, including insufficient evidence. Produce only supported profiles or an explicit partial result; do not collect meetings or invent endorsement. |
 | Shared reference or template | Exercise each consuming skill affected by the change, not only the edited file. Preserve provenance and existing-workspace behaviour. |
+| File-operation tool choice | Review a direct folder rename, an approved create/move/empty-cleanup mapping, a conflicting destination, hidden content left in an old folder, a helper refusal and a provider restriction. Expect filesystem tools by default, no overwrite or nonempty-folder deletion, no GUI fallback, and a provider tool or explicit blocker only where needed. Review all three consumers of Common Architecture. |
 
 These are review scenarios, not an automated agent test suite or new skill behaviour. Documentation/tooling-only changes need repository checks and diff review, not a claim of live skill execution.
 
 ## Static-only changes and public disclosure
 
-For the seven-root/migration implementation, the owner requested repository consistency validation only. Do not execute skills, migration helpers, synthetic workspace operations or live source retrieval for this change. Run the two repository commands above; parsing helper syntax is not executing it. Skill/helper behaviour, restart/recovery, collaboration, cloud moves and shared-link preservation remain unverified. Static success is not an operational safety guarantee.
+For the seven-root/migration implementation and direct-file-operation guidance, validation is repository consistency and manual instruction review only. Do not execute skills, migration helpers, synthetic workspace operations or live source retrieval for these changes. Run the two repository commands above; parsing helper syntax is not executing it. Skill/helper behaviour, restart/recovery, collaboration, cloud moves and shared-link preservation remain unverified. Static success is not an operational safety guarantee.
 
 Review changed instructions, templates, JSON examples, scripts and links together. Check routing, approval boundaries, helper/plan/journal fields, dependency declarations, versions, legacy compatibility and honest partial outcomes. Search old names throughout the repository, distinguishing historical ADRs and explicit migration examples from active defaults.
 

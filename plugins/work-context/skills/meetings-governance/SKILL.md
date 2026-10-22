@@ -2,14 +2,18 @@
 name: meetings-governance
 description: Get the latest meetings, capture named meetings, initialise a meeting archive or repair incomplete meeting evidence. Preserve exact occurrence identity, source provenance and history without becoming a task or approval system.
 metadata:
-  version: "6.0"
-  architecture: common-workspace-architecture v2.0
-  runtime-dependencies: none
+  version: "6.1"
+  architecture: common-workspace-architecture v2.1
+  runtime-dependencies: Direct filesystem or shell access; WorkIQ MCP or equivalent authorised Microsoft 365 tools for live discovery and retrieval
 ---
 
 # Meetings Governance
 
 Maintain the governed meeting evidence under `40 Meetings`. The normal operation is a latest-meeting refresh, not a full historical review.
+
+## Dependencies
+
+Use direct filesystem or shell access for local evidence and output files. Live Microsoft 365 calendar, meeting, transcript, chat, email and shared-resource access requires WorkIQ MCP or equivalent authorised tools, configured separately by the client. Local-only work on supplied evidence does not require WorkIQ. Check the required exact reads, pagination and downloads before claiming coverage; a connected server or search summary does not establish those capabilities. Report missing access per source and continue independent authorised work; do not substitute GUI file operations or claim inaccessible sources were absent.
 
 ## Files
 

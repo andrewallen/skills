@@ -9,7 +9,7 @@ Related proposals (not accepted in full):
 
 Accepted decision: [ADR-0013: Minimal shared evidence model](adr/0013-minimal-shared-evidence-model.md). This inventory remains descriptive and does not define a schema.
 
-Accepted [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md) now defines seven fixed physical roots, concise navigation and bounded producer-neutral source consumption. [ADR-0016](adr/0016-migrate-projects-through-approved-plans.md) defines transitional plans and progress, not a permanent path map or shared evidence database. Migration state is operational metadata, distinct from evidence coverage and lifecycle. No new universal evidence fields are imposed.
+Accepted [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md) now defines seven fixed physical roots, concise navigation and bounded producer-neutral source consumption. [ADR-0017](adr/0017-use-direct-filesystem-operations.md) defines proportionate approved mappings and direct file operations, not a permanent path map or shared evidence database. Migration state is operational metadata, distinct from evidence coverage and lifecycle. No new universal evidence fields are imposed.
 
 ## Terms in the current repository
 

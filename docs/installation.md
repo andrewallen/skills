@@ -8,11 +8,27 @@ The documented client is GitHub Copilot CLI. The packages use Agent Plugins 1.0,
 
 Choose the plugin for the work you want to do. Work Context provides three workspace/evidence skills; Work Actions provides Action Ledger and manual helpers. Neither requires the other.
 
-Work Context needs filesystem access for workspace operations and suitable authorised client tools for remote retrieval. Its optional ordinary-local-file migration helper additionally requires PowerShell 7.2+, but not `gh`; it previews by default and does not migrate cloud storage.
+Work Context needs direct filesystem or shell access for workspace operations and suitable authorised client tools for remote retrieval. Basic file operations do not use Computer Use. Its optional ordinary-local-file migration helper additionally requires PowerShell 7.2+, but not `gh`; it previews by default and does not migrate directories or cloud storage. Folder operations do not require this helper.
 
 Work Actions needs approved GitHub access; its helpers additionally require PowerShell 7.2+ and authenticated `gh` for github.com, plus an explicitly named, configured ledger checkout. The current action-ledger pilot's capture flow also requires its configured GitHub Project and appropriate permissions.
 
 Installation does not supply credentials, adopt a ledger policy, grant access, run a helper or authorise a workspace migration.
+
+## Dependencies by operation
+
+| Operation | Required client capability or dependency |
+|---|---|
+| Local workspace assessment, folder operations, reading supplied evidence and writing controls/profiles | Direct filesystem tools or shell access. No MCP server is required for local-only work; Computer Use is not a substitute. |
+| Meetings Governance: live Microsoft 365 calendar/meeting discovery and retrieval of Teams transcripts/chats, tied Outlook email and shared resources | **WorkIQ MCP**, or equivalent authorised Microsoft 365 tools exposing the required sources and exact reads. The signed-in account must have access to the requested records. |
+| Stakeholder Governance: supplementary live Microsoft 365 email, Teams, directory, SharePoint or OneDrive research | **WorkIQ MCP**, or equivalent authorised tools for the scoped sources. Not needed when supplied/local evidence is sufficient; this does not authorise parallel meeting capture. |
+| Workspace migration requiring cloud identity, history or shared-link guarantees beyond supported filesystem operations | An authorised provider tool/API supporting the specific move and preservation requirements. Do not assume WorkIQ search/read access includes cloud move capabilities. |
+| Workspace Governance's optional independent-local-file helper | PowerShell 7.2+; no `gh`. Not required for ordinary folder operations. |
+| Action Ledger and its bundled helpers | Approved GitHub access; PowerShell 7.2+ and authenticated `gh` for the helpers, plus the explicitly configured ledger and any required GitHub Project permissions. |
+| Supplementary public-source research | Authorised web search/fetch tools when that research is requested; no private source data sent to public services. |
+
+Configure WorkIQ MCP or other source tools separately in the client and authenticate through its supported setup. This repository does not bundle MCP servers, install them, supply credentials or grant tenant permissions. A listed skill or connected server does not prove that a particular transcript, attachment, full history or download is available.
+
+Before remote work, check the available tools and their source-specific capabilities. Search summaries alone are not exact source retrieval. If a required capability or permission is missing, name the affected source and limitation, continue independent authorised local work, and report partial coverage. Do not claim `none found` or full capture when access was unavailable.
 
 ## GitHub installation
 
@@ -76,6 +92,6 @@ New common workspaces use `99 Archive`. The correction was introduced in Work Co
 
 Legacy folder structures, record identities, source evidence and provenance are preserved unless an appropriate change is explicitly approved. Ordinary reading, reasoning, drafting and editing do not require a governance skill.
 
-The current baseline and approved physical migration are defined by [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md) and [ADR-0016](adr/0016-migrate-projects-through-approved-plans.md). Legacy evidence remains readable, but legacy folder locations are not permanent compliant writing destinations. Use an explicit migration plan; do not rename folders just because the package version changed.
+The current baseline and approved physical migration are defined by [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md) and [ADR-0017](adr/0017-use-direct-filesystem-operations.md). Legacy evidence remains readable, but legacy folder locations are not permanent compliant writing destinations. A simple migration needs an approved before/after mapping, not a mandatory helper plan file; do not rename folders just because the package version changed.
 
 Repository consistency and parser checks do not establish helper execution, client compatibility or shared-link preservation. Verify those separately through an authorised exercise before claiming operational validation.
