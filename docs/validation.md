@@ -44,6 +44,8 @@ For a behavioural change, use focused anonymised scenarios in a separate disposa
 
 These are review scenarios, not an automated agent test suite or new skill behaviour. Documentation/tooling-only changes need repository checks and diff review, not a claim of live skill execution.
 
+For [repository configuration](repository-configuration.md) documentation, distinguish the intended baseline and dated settings observations from current effective enforcement. The repository script checks links and ADR consistency, not GitHub settings. Use the guide's authorised read-only inspection when recording observations; report unavailable surfaces rather than assuming absence. Settings writes and enforcement exercises require separate authority and must not be claimed from static validation alone.
+
 ## Static-only changes and public disclosure
 
 For the seven-root/migration implementation, direct-file-operation guidance and project-evidence profile guidance, validation is repository consistency and manual instruction review only. Do not execute skills, migration helpers, synthetic workspace operations or live source retrieval for these changes. Run the two repository commands above; parsing helper syntax is not executing it. Skill/helper behaviour, restart/recovery, collaboration, cloud moves and shared-link preservation remain unverified. Static success is not an operational safety guarantee.

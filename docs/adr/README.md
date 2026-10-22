@@ -26,3 +26,4 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0018](0018-ground-stakeholder-profiles-in-project-evidence.md) | Ground stakeholder profiles in project evidence | Superseded by ADR-0020 |
 | [0019](0019-license-repository-content-under-mit.md) | License repository content under MIT | Accepted |
 | [0020](0020-deploy-stable-versioned-workspace-signposts.md) | Deploy stable, versioned workspace signposts | Accepted |
+| [0021](0021-record-github-repository-governance-baseline.md) | Record the GitHub repository governance baseline | Accepted |
