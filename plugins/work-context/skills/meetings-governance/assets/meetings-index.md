@@ -7,7 +7,7 @@ Create `Meetings Index.md` from this when absent. The index is the only archive 
 ```markdown
 ---
 document_role: meetings-index
-template: meetings-index@1.1
+template: meetings-index@2.0
 created_by: meetings-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: meetings-governance@<CURRENT_SKILL_VERSION>
 inventory_status: provisional
@@ -29,8 +29,8 @@ This index is derived navigation. Source companions hold the captured evidence; 
 
 ## Main meeting archive
 
-| Date/time | ID | Meeting | Class | Audience | Matched principles | Evidence | Context |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| Date/time | ID | Meeting | Audience | Matched principles | Evidence | Context |
+| --- | --- | --- | --- | --- | --- | --- |
 
 ## Calibrated candidates and supplementary records
 
@@ -42,9 +42,11 @@ This index is derived navigation. Source companions hold the captured evidence; 
 
 Replace `<CURRENT_SKILL_VERSION>` when creating the index. Preserve `created_by`. Update `last_governed_by` only after a material update or validation. A later skill version does not by itself require migration.
 
+Legacy indexes may retain their existing `Class` column and values. Preserve them; leave the legacy `Class` cell empty for new entries, and do not remove the column without owner approval.
+
 Resume queue, kept under **Remaining work** while a pass is in flight:
 
-| Item / exact source IDs | Done: retrieved / reviewed / retained | Resume: query and exact cursor/range, or none | Next step / blocker |
+| Item / exact source IDs | Done: retrieved locally / retrieved online / reviewed / retained locally | Resume: query and exact cursor/range, or none | Next step / blocker |
 | --- | --- | --- | --- |
 
 Canonical context link (relative to the index):

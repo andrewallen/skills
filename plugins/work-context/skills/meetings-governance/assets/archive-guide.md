@@ -5,7 +5,7 @@ Create `Archive Guide.md` from this when absent. The guide may start `provisiona
 ```markdown
 ---
 document_role: meeting-archive-guide
-template: meeting-archive-guide@1.1
+template: meeting-archive-guide@2.0
 created_by: meetings-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: meetings-governance@<CURRENT_SKILL_VERSION>
 workspace_code: "<WORKSPACE_CODE>"
@@ -48,13 +48,9 @@ inventory_status: provisional
 
 <Stable kebab-case ID: description.>
 
-## Meeting classes
-
-<The class and baseline-impact tables from the skill.>
-
 ## Evidence and retention rules
 
-<Exact occurrence, provenance, sensitivity and class-specific retention. Include the compact Captured / Extracted / Synthesised / Inferred / Proposed legend, stating that information type is distinct from archive class, capture status and approval.>
+<Exact occurrence and provenance. Record platform-applied classification labels as metadata only; do not infer classification from source-content markings or use a label alone to block capture. Attempt local retention first; if it fails, link and review the source online through normal authorized access when possible, and distinguish online review from local capture in per-source evidence coverage. State actual access limitations. Include the compact Captured / Extracted / Synthesised / Inferred / Proposed legend, stating that information transformation is distinct from platform labels, evidence coverage and approval.>
 
 ## Storage and protection
 
@@ -70,7 +66,7 @@ inventory_status: provisional
 
 ## Scope history
 
-<Dated entries: baseline version, what changed in scope or principles, why, approved by. Retired principle IDs are listed here, never reused.>
+<Dated entries: what changed in scope or principles, why, and who approved it. Retired principle IDs are listed here, never reused.>
 ```
 
 Replace `<CURRENT_SKILL_VERSION>` when creating the guide. Preserve `created_by`. Update `last_governed_by` only after a material update or validation. A later skill version does not by itself require migration.

@@ -10,10 +10,13 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0002](0002-package-skills-as-agent-plugin.md) | Package skills as an Agent Plugins 1.0 plugin with a Copilot marketplace | Accepted |
 | [0003](0003-independent-skills-with-fixed-ownership.md) | Keep skills independent with fixed ownership boundaries | Accepted |
 | [0004](0004-licence-not-yet-chosen.md) | No reuse licence yet | Accepted |
-| [0005](0005-safeguards-for-meeting-evidence-capture.md) | Apply safeguards to meeting-evidence capture | Proposed |
+| [0005](0005-safeguards-for-meeting-evidence-capture.md) | Apply safeguards to meeting-evidence capture | Superseded by ADR-0012 |
 | [0006](0006-version-and-publish-plugin-changes-together.md) | Version and publish plugin changes together | Accepted |
 | [0007](0007-use-99-archive-for-new-workspaces.md) | Use 99 Archive for new workspaces | Accepted |
 | [0008](0008-define-independent-skill-contracts.md) | Define independent skill contracts and interoperability | Proposed |
-| [0009](0009-establish-a-shared-information-model.md) | Establish a shared information model | Proposed |
+| [0009](0009-establish-a-shared-information-model.md) | Establish a shared information model | Superseded by ADR-0013 |
 | [0010](0010-define-evidence-retrieval-semantics.md) | Define evidence retrieval and interpretation semantics | Proposed |
-| [0011](0011-maintain-work-actions-plugin-here.md) | Maintain the work-actions plugin in this repository | Proposed |
+| [0011](0011-maintain-work-actions-plugin-here.md) | Maintain the work-actions plugin in this repository | Accepted |
+| [0012](0012-local-first-meeting-evidence-capture.md) | Prefer local meeting-evidence capture with authorized online review | Accepted |
+| [0013](0013-minimal-shared-evidence-model.md) | Use a minimal shared evidence model across skills | Accepted |
+| [0014](0014-record-meeting-evidence-coverage-per-source.md) | Record meeting evidence coverage per source | Accepted |

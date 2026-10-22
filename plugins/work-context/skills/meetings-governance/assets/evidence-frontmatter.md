@@ -1,6 +1,6 @@
 # Evidence companion frontmatter
 
-Include only identifiers that actually exist; never write `unknown` as an ID. For local files use `source_file` and a hash when available, and `source_document_id` only for a real stable document identity. Single-quote Windows paths.
+Include only identifiers that actually exist; never write `unknown` as an ID. For local files use `source_file` and a hash when available, and `source_document_id` only for a real stable document identity. Single-quote Windows paths. Record `sensitivity` only from a platform-applied classification label, exactly as exposed; do not infer or interpret classification from source-content markings.
 
 ## Transcript
 

@@ -1,6 +1,6 @@
 # ADR-0009: Establish a shared information model
 
-- Status: Proposed
+- Status: Superseded by ADR-0013
 - Date: 2026-10-20
 
 ## Context
@@ -33,4 +33,6 @@ This proposal does not accept or supersede [ADR-0005](0005-safeguards-for-meetin
 
 A neutral reference can reduce duplicated definitions and make compatible records easier to consume across skills. It also requires explicit ownership for each shared term and a compatibility strategy before changing existing templates.
 
-Acceptance will require defining the outstanding vocabularies, checking all skill and template references, and determining which shared-reference changes affect skill versions, architecture versions and the plugin package. Existing workspace records must not be migrated automatically.
+Had it been accepted, this proposal would have required defining the outstanding vocabularies, checking all skill and template references, and determining which shared-reference changes affect skill versions, architecture versions and the plugin package. Existing workspace records must not be migrated automatically.
+
+The owner selected a narrower conceptual model without a universal schema or new shared vocabularies. See accepted [ADR-0013](0013-minimal-shared-evidence-model.md); this broader proposal was not implemented as written.

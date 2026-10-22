@@ -75,6 +75,6 @@ Record coverage in one compact table in the profile header or research map:
 | **No relevant evidence found** | A successful, stated bounded search or read found none; not proof of global absence. |
 | **Not applicable** | The surface does not bear on the scoped question. |
 
-- These are coverage statuses, not information types or confidence scores, and not the archive's `capture_status`: `Reviewed` may mean one excerpt was read while the meeting is still `partial`; a `complete` capture does not establish attribution, truth or approval.
+- These are coverage statuses, not information types or confidence scores, and are distinct from meeting-source coverage: `Reviewed` may mean one excerpt was read while other sources remain unreviewed or unretained; retaining all in-scope sources does not establish attribution, truth or approval.
 - Record the research cutoff and latest source date separately when they differ. If profile and map have different coverage, say so.
 - Distinguish what the producer retrieved, reviewed and retained. Do not refresh an entity's position or advance a profile's review cutoff merely because the map gained a new producer link.

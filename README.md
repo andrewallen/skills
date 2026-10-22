@@ -1,118 +1,84 @@
-# Work Context
+# Andrew Allen's agent skills
 
-This repository packages personal agent plugins as Agent Plugins 1.0 packages, distributed through a GitHub Copilot CLI marketplace: `work-context` (three workspace governance skills, below) and `work-actions` (the action-ledger skill and manual helpers; see [Work Actions plugin](docs/work-actions-plugin.md)).
+**Practical agent skills, built in the flow of work.**
 
-## Documentation
+I'm Andrew Allen. This is my evolving collection of plugins, skills and supporting resources for the workflows I am building around my own work: keeping project material usable, preserving meeting context, and coordinating actions between people and agents.
 
-For repository maintenance and skill authoring, read in this order:
+If you arrived here from a talk or presentation, start with a workflow. You can see the problem it addresses, an example request, the intended result and the boundaries that keep it useful. Then follow the links into the skill itself and the decisions behind it.
 
-| Read | Purpose |
-|---|---|
-| [Governance](GOVERNANCE.md) | Change authority, versioning, compatibility and publication rules. |
-| [Current architecture](docs/architecture.md) | Package boundaries, skill ownership and how information is shared today. |
-| [Skill authoring](docs/skill-authoring.md) | Decide what to extend, define boundaries and check completion. |
-| [Validation](docs/validation.md) | Run repeatable repository checks and identify what still needs manual review. |
-| [ADR index](docs/adr/README.md) | Accepted decisions and proposals; Proposed does not mean implemented. |
+**[Explore the plugins](#explore-the-plugins) | [See the workflows](docs/workflows.md) | [How I build them](docs/how-i-build.md) | [Installation](#github-installation-with-copilot-cli)**
 
-The [current information model inventory](docs/current-information-model.md) maps today's terms, records, relationships and unresolved definitions. It is descriptive, not an accepted shared-model specification.
+## Explore the plugins
 
-## Layout
+### Work Context
 
-```text
-.github\plugin\marketplace.json
-plugins
-├── work-actions
-│   ├── plugin.json
-│   └── skills
-│       └── action-ledger
-└── work-context
-    ├── plugin.json
-    ├── Common Architecture.md
-    └── skills
-        ├── workspace-governance
-        ├── meetings-governance
-        └── stakeholder-governance
-```
+**Keep project evidence and context usable.** Organise a workspace, capture meeting evidence and maintain evidence-backed profiles of relevant people and organisations.
 
-The portable manifest lives at the plugin root. Clients discover each skill from an immediate child of `skills` containing `SKILL.md`. References and templates stay inside the package. There are no bundled MCP servers, hooks or executable components.
+- [Workspace Governance](docs/work-context-plugin.md#workspace-governance): give project material a consistent home and assess or repair its structure.
+- [Meetings Governance](docs/work-context-plugin.md#meetings-governance): turn meeting sources into retained evidence and an anchored context you can revisit.
+- [Stakeholder Governance](docs/work-context-plugin.md#stakeholder-governance): refresh profiles from dated, attributed evidence rather than assumptions.
 
-The marketplace is a Copilot-specific distribution catalogue, separate from the portable plugin specification. Its source points to `plugins/work-context`, relative to the repository root.
+[Explore Work Context](docs/work-context-plugin.md) | [Inspect its skills](plugins/work-context/skills)
 
-## Included skills
+### Work Actions
 
-| Skill | Use |
-|---|---|
-| `workspace-governance` | Create or repair the common workspace, route material, review duplicates and register issued outputs. |
-| `meetings-governance` | Capture named meetings or refresh new and changed meeting evidence. |
-| `stakeholder-governance` | Create or refresh evidence-backed profiles of relevant people and organisations. |
+**Coordinate actions between people and agents.** Keep capture, clarification, execution, review and human acceptance on one GitHub issue ledger.
 
-The skills operate on the target workspace supplied by the user, not on this repository or the installed plugin directory. No parent folder name is required: `Active Work` and `Current Matters` are optional personal organisational choices, not assumptions made by the skills. They can operate independently. Ordinary reading, reasoning, drafting and editing do not require these governance skills.
+- [Action Ledger](docs/work-actions-plugin.md#action-ledger): make the next action, human accountability, execution boundary and handoff explicit.
+
+[Explore Work Actions](docs/work-actions-plugin.md) | [Inspect the skill](plugins/work-actions/skills/action-ledger/SKILL.md)
+
+The plugins are separate installation units; choose either or both. They do not automatically run one another.
+
+## See a workflow before reading the instructions
+
+- [From meeting evidence to reusable context](docs/workflows.md#from-meeting-evidence-to-reusable-context): find the source behind a point without rereading every transcript.
+- [From new evidence to an updated stakeholder profile](docs/workflows.md#from-new-evidence-to-an-updated-stakeholder-profile): update what changed without rebuilding the archive.
+- [From a captured action to a human-agent handoff](docs/workflows.md#from-a-captured-action-to-a-human-agent-handoff): separate recording work, authorising execution and accepting the result.
+
+These are fictional illustrations of the intended workflows, not customer records, live execution results or performance claims.
+
+## What is in this collection?
+
+A **plugin** is an installable bundle. A **skill** describes when an agent should help, what it can do and where it must stop. **References** hold detailed procedures; **templates** describe the records a skill creates.
+
+The human overviews live in [the documentation](docs/README.md). The actual agent instructions, references and templates live under [plugins](plugins). This repository packages those resources; your project workspace or action ledger is a separate, explicitly supplied target.
+
+This is a personal, evolving collection, not a promise of universal client compatibility or a managed service. The overviews explain prerequisites and limitations; the skill definitions are the source for current behaviour.
 
 ## GitHub installation with Copilot CLI
 
+Register the marketplace once:
+
 ```powershell
 copilot plugin marketplace add andrewallen/skills
-copilot plugin install work-context@andrewallen-personal-skills
 ```
+
+Install either plugin, or both:
+
+```powershell
+copilot plugin install work-context@andrewallen-personal-skills
+copilot plugin install work-actions@andrewallen-personal-skills
+```
+
+Start a new session and check `/skills list`. Installation provides instructions and bundled resources, not credentials, source access or permission to act.
+
+Read the [installation guide](docs/installation.md) for prerequisites, a safe first request, older installation names and compatibility limits.
 
 ## Local installation with Copilot CLI
 
-From this repository's root, install the package directly:
-
-```powershell
-copilot plugin install ".\plugins\work-context"
-```
-
-Or register this repository as a local marketplace and install from it:
-
-```powershell
-copilot plugin marketplace add "."
-copilot plugin install work-context@andrewallen-personal-skills
-```
-
-These commands change your local plugin configuration; they are instructions, not actions performed by repository setup. After installation, start a new session and check `/skills list` for the three skills.
-
-If you previously installed the plugin as `workspace-governance`, install `work-context` and uninstall the old plugin before starting a new session to avoid loading duplicate skills. The individual skill names have not changed.
+For a checkout-based installation, use the [local installation instructions](docs/installation.md#local-installation). The installed plugin directory is never the target workspace.
 
 ## Updating an installed plugin
 
-For a GitHub marketplace installation:
+Follow the [update instructions](docs/installation.md#updating-an-installed-plugin). Marketplace installations normally retrieve `main`, not unpublished work on a feature branch. An update is not permission to migrate existing workspace content.
 
-```powershell
-copilot plugin marketplace update andrewallen-personal-skills
-copilot plugin update work-context
-copilot plugin list
-```
+## Behind the skills
 
-Start a new session and check the installed version and changed behaviour. These commands retrieve the ref the marketplace tracks, normally `main`, not an unpublished feature branch. A custom marketplace does not automatically enable client-side auto-updates.
+[How I build these workflows](docs/how-i-build.md) explains the approach. For the technical detail, use the [maintainer reading path](docs/README.md#maintaining-and-extending): governance, architecture, skill authoring, validation and ADRs.
 
-Path-sourced plugins in a local directory marketplace load from that directory; restart or start a new session after edits. For other installation sources, use the client's plugin update command.
+The repo is the primary place to explore the collection; there is no separate documentation site.
 
-The archive-folder correction is packaged as `work-context` 1.0.1, with Workspace Governance 2.2 and Common Architecture 1.2. Newly initialised workspaces use `99 Archive`; existing legacy structures are preserved unless a migration is explicitly approved.
+## Licensing
 
-## Maintenance
-
-- Add future plugins under `plugins` and add their relative source to the marketplace.
-- `work-actions` ([documentation](docs/work-actions-plugin.md)) is the second plugin; its helpers are the only executable components, are manual, and are covered by `scripts\test-work-actions-plugin.ps1`.
-- Keep component discovery at the fixed `skills` location. Do not add configurable skill paths to `plugin.json`.
-- Keep optional dependencies absent: these skills need filesystem access and, for remote evidence retrieval, suitable authorised tools supplied by the client.
-- Update a skill's own metadata version when its behaviour changes. Update the plugin version when distributing an updated package. The marketplace does not pin duplicate version numbers.
-- Keep governed-file template versions separate from skill and plugin versions.
-- Follow [GOVERNANCE.md](GOVERNANCE.md) and record significant decisions in [docs/adr](docs/adr/README.md).
-- Do not commit workspace evidence, customer documents, generated outputs, credentials or local caches here.
-
-From the repository root, run the dependency-free checks with PowerShell 7:
-
-```powershell
-pwsh -NoProfile -File .\scripts\validate-repository.ps1
-pwsh -NoProfile -File .\scripts\test-work-actions-plugin.ps1
-git diff --check
-``` scope and gaps](docs/validation.md) before treating these checks as review evidence.
-
-No reuse license has been configured. Issued-output registration remains part of the existing workspace skill; packaging has not changed that policy.
-
-## Format references
-
-- [Agent Plugins specification](https://agent-plugins.org/specification)
-- [Agent Skills specification](https://agentskills.io/specification)
-- [Copilot CLI marketplace format](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-marketplace)
+No reuse licence is configured. Public visibility does not grant general permission to copy, adapt or redistribute the content. See the [current licensing decision](docs/adr/0004-licence-not-yet-chosen.md).

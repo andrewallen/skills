@@ -1,6 +1,6 @@
 # ADR-0011: Maintain the work-actions plugin in this repository
 
-- Status: Proposed
+- Status: Accepted
 - Date: 2026-10-20
 
 ## Context
@@ -21,4 +21,4 @@ This does not change action workflow authority, handoff or acceptance semantics,
 
 Helper or reference changes are made and versioned here (patch/minor/major per [Governance](../../GOVERNANCE.md)); a ledger repository updates its pinned snapshot deliberately. Skill runtime-dependency metadata may now name helper prerequisites instead of `none`, and the repository check enforces that. Existing `work-actions@anallen-work-actions` installations must be replaced by `work-actions@andrewallen-personal-skills`; ledger records need no migration.
 
-The owner requested the move directly; this ADR records the decision for review and remains Proposed until the owner accepts it.
+The owner accepted this decision on 2026-10-22. This ADR records repository ownership; it does not authorize publication or migration of operational ledger data.

@@ -8,9 +8,13 @@ Read [Governance](../GOVERNANCE.md) and [current architecture](architecture.md) 
 |---|---|---|
 | Extend an existing skill | The request is another operation within that skill's existing responsibility and owned records. | Check its references, assets and completion rules together. Do not widen its ownership by convenience. |
 | Add a skill to `work-context` | The responsibility is distinct, independently useful and belongs in the same installation and release unit. | Establish non-overlapping ownership and update affected discovery and documentation references. Ownership or structure changes need an ADR. |
-| Add a plugin under `plugins` | A capability needs a separate installation/release boundary rather than another operation in this package. | Record the significant packaging decision, add a portable manifest and catalogue source, and document installation. A new plugin is not a way to bypass shared ownership rules. |
+| Add a plugin under `plugins` | A capability needs a separate installation/release boundary rather than another operation in this package. | Record the significant packaging decision, add a portable manifest and catalogue source, and provide a human overview linked from the root README and documentation index. A new plugin is not a way to bypass shared ownership rules. |
 
 Prefer extending an existing owner over creating a competing writer. A shared rule belongs in Common Architecture only if it genuinely governs all affected skills; specialist retrieval detail belongs in the owner's references. Do not consolidate unresolved terms into a new shared contract until the relevant decision is accepted.
+
+Follow the [discovery guidance](README.md#keep-discovery-useful-as-the-collection-grows) for human overviews and examples. Explain purpose, skills, requests and results, prerequisites, limits, installation and source links without duplicating authoritative version metadata or presenting illustrations as live results.
+
+Use the minimal conceptual core in [ADR-0013](adr/0013-minimal-shared-evidence-model.md) when defining cross-skill relationships: preserve source identity and links, distinguish source from derived information, and state attribution, time and coverage where they matter. Keep record schemas and domain vocabularies with the skill that owns them; do not add universal fields or require another skill as a producer.
 
 ## Package shape
 
@@ -26,7 +30,7 @@ plugins\<plugin>\
             assets\
 ```
 
-`SKILL.md` is the entry point, with YAML frontmatter for `name`, a useful trigger-oriented `description` and the current metadata conventions: skill `version`, `architecture` reference and `runtime-dependencies`. The directory and skill name agree. Current skills use `runtime-dependencies: none` to express independence; they still need client capabilities for the operation. Only add references or assets when needed, keep them inside the package and link them relative to the file using them. Skills are discovered at the fixed `skills` location, not by adding paths to `plugin.json`.
+`SKILL.md` is the entry point, with YAML frontmatter for `name`, a useful trigger-oriented `description` and the current metadata conventions: skill `version`, `architecture` reference and `runtime-dependencies`. The directory and skill name agree. The three work-context skills use `runtime-dependencies: none` to express that they have no bundled runtime prerequisites; they still need client capabilities for their operations. Skills that bundle scripts must declare their actual prerequisites, such as PowerShell and `gh`, rather than `none`. Only add references or assets when needed, keep them inside the package and link them relative to the file using them. Skills are discovered at the fixed `skills` location, not by adding paths to `plugin.json`.
 
 Keep the entry point readable: purpose and non-goals, files to load and when, target resolution, operations, ownership limits and completion. Put detailed procedures in `references` and reusable output structures in `assets`. A change to a consumed reference can change behaviour even if `SKILL.md` is untouched.
 

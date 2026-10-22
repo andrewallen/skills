@@ -27,6 +27,8 @@ These are selected repository invariants, not full remote JSON-schema, YAML or C
 
 Read the diff and follow [Governance](../GOVERNANCE.md) and the [pull request checklist](../.github/pull_request_template.md). The checks cannot establish that prose is consistent in meaning, that no private material is present, or that an agent follows the instructions.
 
+For visitor-facing documentation, follow the README routes through each plugin overview to its skill sources and installation guidance. Check that every marketplace plugin and skill is discoverable, examples agree with the source instructions and are labelled as illustrations, and current versions are linked rather than copied. Preserve existing installation and update anchors when reorganising the README.
+
 For a behavioural change, use focused anonymised scenarios in a separate disposable target, never governed workspace folders in this repository. Select from the current skills' completion checks:
 
 | Change | Useful scenario and expected boundary |
