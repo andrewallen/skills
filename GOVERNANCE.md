@@ -35,7 +35,7 @@ Before a change is ready for review:
 
 Metadata-only updates to an architecture reference do not themselves require a skill version bump. Repository-only documentation or process changes outside a plugin do not require a plugin bump. Evaluate each skill if a shared reference changes its behaviour.
 
-Do not add duplicate plugin versions to the marketplace catalogue; the plugin manifest is the version source. Do not change `created_by` in existing governed files, or migrate user workspaces merely because a version advanced. A folder rename must explain the treatment of existing workspaces and obtain approval before moving established content.
+Do not add duplicate plugin versions to the marketplace catalogue; the plugin manifest is the version source. Do not change `created_by` in existing governed files, or migrate user workspaces merely because a version advanced. Static workspace signposts are versioned deployments, not rolling project summaries; ordinary project activity does not require refreshing them. A future authorised governance operation may assess their recorded template and skill provenance and decide whether a material upgrade is useful. Preserve user additions and obtain approval before rewriting existing signpost content. A folder rename must explain the treatment of existing workspaces and obtain approval before moving established content.
 
 ## Publishing and updates
 
@@ -52,7 +52,7 @@ These are contributor checklists, not automated enforcement. A GitHub ruleset pr
 
 ## Migration and validation boundaries
 
-[ADR-0015](docs/adr/0015-standardise-project-folders-and-navigation.md) defines the physical seven-root baseline; [ADR-0017](docs/adr/0017-use-direct-filesystem-operations.md) defines proportionate approved transitions using direct file operations. A release does not approve moving an existing project. A permanent legacy path map is not conformity. Scope approval, item preservation, reference risks, concurrency and partial progress must remain explicit.
+[ADR-0020](docs/adr/0020-deploy-stable-versioned-workspace-signposts.md) defines the current signpost policy and retains the physical seven-root baseline; [ADR-0017](docs/adr/0017-use-direct-filesystem-operations.md) defines proportionate approved transitions using direct file operations. A release does not approve moving an existing project. A permanent legacy path map is not conformity. Scope approval, item preservation, reference risks, concurrency and partial progress must remain explicit.
 
 Declare actual helper prerequisites and update repository checks with packaging changes. Distinguish static consistency/parser validation from skill/helper execution, live migration, client installation and publication. Honour an explicitly static-only validation scope, record the unperformed runtime checks as gaps, and never describe static checks as proof of runtime safety.
 

@@ -2,8 +2,8 @@
 name: meetings-governance
 description: Get the latest meetings, capture named meetings, initialise a meeting archive or repair incomplete meeting evidence. Preserve exact occurrence identity, source provenance and history without becoming a task or approval system.
 metadata:
-  version: "6.1"
-  architecture: common-workspace-architecture v2.2
+  version: "6.2"
+  architecture: common-workspace-architecture v2.3
   runtime-dependencies: Direct filesystem or shell access; WorkIQ MCP or equivalent authorised Microsoft 365 tools for live discovery and retrieval
 ---
 

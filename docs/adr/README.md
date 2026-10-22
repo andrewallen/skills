@@ -20,8 +20,9 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0012](0012-local-first-meeting-evidence-capture.md) | Prefer local meeting-evidence capture with authorized online review | Accepted |
 | [0013](0013-minimal-shared-evidence-model.md) | Use a minimal shared evidence model across skills | Accepted |
 | [0014](0014-record-meeting-evidence-coverage-per-source.md) | Record meeting evidence coverage per source | Accepted |
-| [0015](0015-standardise-project-folders-and-navigation.md) | Standardise project folders and navigation | Accepted |
+| [0015](0015-standardise-project-folders-and-navigation.md) | Standardise project folders and navigation | Superseded by ADR-0020 |
 | [0016](0016-migrate-projects-through-approved-plans.md) | Migrate projects through approved plans | Superseded by ADR-0017 |
 | [0017](0017-use-direct-filesystem-operations.md) | Use direct filesystem operations | Accepted |
-| [0018](0018-ground-stakeholder-profiles-in-project-evidence.md) | Ground stakeholder profiles in project evidence | Accepted |
+| [0018](0018-ground-stakeholder-profiles-in-project-evidence.md) | Ground stakeholder profiles in project evidence | Superseded by ADR-0020 |
 | [0019](0019-license-repository-content-under-mit.md) | License repository content under MIT | Accepted |
+| [0020](0020-deploy-stable-versioned-workspace-signposts.md) | Deploy stable, versioned workspace signposts | Accepted |

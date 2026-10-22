@@ -9,16 +9,16 @@ Related proposals (not accepted in full):
 
 Accepted decision: [ADR-0013: Minimal shared evidence model](adr/0013-minimal-shared-evidence-model.md). This inventory remains descriptive and does not define a schema.
 
-Accepted [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md) now defines seven fixed physical roots, concise navigation and bounded producer-neutral source consumption. [ADR-0017](adr/0017-use-direct-filesystem-operations.md) defines proportionate approved mappings and direct file operations, not a permanent path map or shared evidence database. Migration state is operational metadata, distinct from evidence coverage and lifecycle. No new universal evidence fields are imposed.
+Accepted [ADR-0020](adr/0020-deploy-stable-versioned-workspace-signposts.md) defines stable, versioned workspace signposts while retaining the seven-root physical baseline from superseded [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md). [ADR-0017](adr/0017-use-direct-filesystem-operations.md) defines proportionate approved mappings and direct file operations, not a permanent path map or shared evidence database. Migration state is operational metadata, distinct from evidence coverage and lifecycle. No new universal evidence fields are imposed.
 
 ## Terms in the current repository
 
 | View | Current definition or use | Current source |
 |---|---|---|
-| **Vocabulary** | Terms such as `Captured`, `Extracted`, `Synthesised`, `Inferred`, `Proposed`, `working`, `approved`, `issued` and `archived` have meanings in specific contexts. | [Common Architecture](../plugins/work-context/Common%20Architecture.md); [Meetings evidence rules](../plugins/work-context/skills/meetings-governance/references/evidence-rules.md) |
-| **Taxonomy** | Several independent classification dimensions are used; they should not be treated as one status field. The current dimensions are listed below. | Common Architecture, meeting evidence rules and skill templates |
-| **Ontology** | Records imply entities and relationships, such as a meeting occurrence having transcripts, a context linking to evidence, a profile citing sources, and an issued output having distribution events. These relationships are not yet stated as one shared model. | [Context record](../plugins/work-context/skills/meetings-governance/assets/context-record.md); [Person profile](../plugins/work-context/skills/stakeholder-governance/assets/person-profile.md); [Issued Outputs Index](../plugins/work-context/skills/workspace-governance/assets/issued-outputs-index.md) |
-| **Information requirements** | Templates specify fields and sections needed for contexts, evidence companions, profiles, indexes and orientation documents. | Templates under `plugins/work-context/skills/*/assets` |
+| **Vocabulary** | Terms such as `Captured`, `Extracted`, `Synthesised`, `Inferred`, `Proposed`, `working`, `approved`, `issued` and `archived` have meanings in specific contexts. `Structural signpost` describes navigation guidance, not an evidence-provenance type. | [Common Architecture](../plugins/work-context/Common%20Architecture.md); [Meetings evidence rules](../plugins/work-context/skills/meetings-governance/references/evidence-rules.md); [ADR-0020](adr/0020-deploy-stable-versioned-workspace-signposts.md) |
+| **Taxonomy** | Several independent classification dimensions are used; they should not be treated as one status field. Document role is distinct from provenance, lifecycle, authority, audience and evidence coverage. | Common Architecture, meeting evidence rules and skill templates |
+| **Ontology** | Records imply entities and relationships, such as a meeting occurrence having transcripts, a context linking to evidence, a profile citing sources, an issued output having distribution events, and a structural signpost pointing to a collection. These relationships are conceptual; there is no universal graph schema. | [Context record](../plugins/work-context/skills/meetings-governance/assets/context-record.md); [Person profile](../plugins/work-context/skills/stakeholder-governance/assets/person-profile.md); [Issued Outputs Index](../plugins/work-context/skills/workspace-governance/assets/issued-outputs-index.md); [signpost templates](../plugins/work-context/skills/workspace-governance/assets) |
+| **Information requirements** | Templates specify fields and sections needed for contexts, evidence companions, profiles, indexes and static signposts. Signpost provenance records deployment and governance versions, not a changing evidence cutoff or review date. | Templates under `plugins/work-context/skills/*/assets` |
 | **Logical record structure** | Records use Markdown, YAML frontmatter, stable IDs, source anchors, relative links and tables. No cross-skill logical identifier or relationship contract is defined centrally. | Meeting and stakeholder templates |
 | **Interpretation semantics** | Existing rules limit claims based on attribution, authority, corroboration, completeness, time and source access. They are mainly distributed through specialist instructions. | Meeting evidence rules; stakeholder evidence guidance and source rules |
 | **Physical representation** | The plugin package is Markdown skill definitions, references, templates and a JSON manifest. Workspaces use the fixed numbered roots in Common Architecture. | [README](../README.md); Common Architecture |
@@ -40,13 +40,15 @@ These are separate axes. A value in one axis must not be used as a value or conc
 | **Stakeholder source coverage** | `Reviewed`, `Partial`, `Unavailable`, `Not checked`, `No relevant evidence found`, `Not applicable`. | These describe the bounded research pass, not information type or confidence. |
 | **Sensitivity and usage rights** | Meeting capture records platform-applied classification labels as metadata when exposed; source-content markings are not interpreted as classification. | See accepted [ADR-0012](adr/0012-local-first-meeting-evidence-capture.md). No common controlled vocabulary is defined in this package. |
 | **Date and freshness** | Occurrence time, source modified/effective time, actual inspection time, evidence cutoff and reconciliation time. | The meeting rules require these to remain distinct; no general recency-ranking rule is defined. |
-| **Record kind** | Examples include source companion, meeting context, meetings index, archive guide, person profile, organisation profile, research map, Start Here and Issued Outputs Index. | Some templates use `document_role`; no complete shared record-kind vocabulary is defined. |
+| **Record kind** | Examples include source companion, meeting context, meetings index, archive guide, person profile, organisation profile, research map, Start Here, `AGENTS.md` and Issued Outputs Index. A signpost is structural navigation, not an evidence-bearing derived record or specialist index. | Some templates use `document_role`; no complete shared record-kind vocabulary is defined. |
 
 ## Current entities and relationships
 
 | Entity or record | Relationships represented today | Evidence / limitation |
 |---|---|---|
 | Workspace | Has a purpose and scope; has fixed roots and systems of record. | Common Architecture and Start Here template. |
+| Structural signpost | Points readers to stable folder roles and may reference a companion signpost. It does not summarize, index or corroborate project records. | Start Here and root `AGENTS.md` under ADR-0020; no evidence cutoff or review cadence. |
+| Specialist index | Locates records owned and maintained by its specialist skill. | Meetings Index; stakeholder skill owns profiles and uses research maps only when justified, with no permanent entity index. |
 | Meeting occurrence | Has an exact occurrence identity and can relate to transcripts, chat, recordings and artifacts. | Context frontmatter has `meeting_id` and `related_*` fields. |
 | Source artifact or version | Has source identity, author/sender, dates, provenance and possibly a stable link or hash. | Evidence companion frontmatter and evidence rules. |
 | Passage or contribution | Is anchored to a transcript, chat or email; has a source speaker/sender and attribution qualifications. | Context key-points table and attribution rules. |
@@ -56,7 +58,7 @@ These are separate axes. A value in one axis must not be used as a value or conc
 | Issued output | Has one canonical file and can have distribution events recorded in the index. | Common Architecture and Issued Outputs Index. |
 | Governance principle | Has a stable ID and may be matched to a meeting context. | Archive Guide and context `matched_principles`. |
 
-The inventory observes these links in current formats; it does not establish a new canonical identifier scheme or formal graph vocabulary.
+The inventory observes these links in current formats; it does not establish a new canonical identifier scheme or formal graph vocabulary. In particular, a signpost-to-folder link is structural navigation, not an evidence relationship.
 
 ## Existing interpretation rules
 

@@ -34,7 +34,7 @@ Assessment reports recommendations. Initialisation is a separate request; reorga
 
 All seven roots are present after full initialisation or migration. Supplementary folders are unnumbered, short and purposeful. Keep useful collections within their appropriate home; avoid automatic year, audience or format nesting. Meeting recordings stay with their occurrence; other media follows its purpose.
 
-Use Start Here for orientation, meeting contexts and profiles to locate relevant material, and primary passages to ground material claims. Directly shared documents should communicate their own purpose, status, date and provenance. Source placement is not a truth guarantee; AI assistance is not approval.
+Start Here is a stable map of the folder roles; root `AGENTS.md` gives concise agent navigation and safeguards. Neither is a project summary or an index of changing contents. Inspect relevant workspace files and specialist indexes for current information, then use primary passages to ground material claims. Directly shared evidence-bearing documents should communicate their own purpose, status, date and provenance. Source placement is not a truth guarantee; AI assistance is not approval.
 
 ### Migrate an existing project
 
@@ -46,7 +46,7 @@ All three skills use direct filesystem tools or shell commands for basic file op
 
 The optional [local helper](../plugins/work-context/skills/workspace-governance/references/migration.md#local-helper-boundary) requires PowerShell 7.2+ and handles independent ordinary-local-file batches only; it is not required for folder operations. A OneDrive path alone does not require a different tool. Use an authorised provider API/tool only where filesystem operations cannot meet provider or preservation requirements. Neither hydration, a local move nor static checks prove preservation of cloud identity, history or shared links.
 
-[Read the skill](../plugins/work-context/skills/workspace-governance/SKILL.md) | [Common Architecture](../plugins/work-context/Common%20Architecture.md) | [Templates](../plugins/work-context/skills/workspace-governance/assets)
+[Read the skill](../plugins/work-context/skills/workspace-governance/SKILL.md) | [Common Architecture](../plugins/work-context/Common%20Architecture.md) | [Templates](../plugins/work-context/skills/workspace-governance/assets) | [ADR-0020](adr/0020-deploy-stable-versioned-workspace-signposts.md)
 
 ### Meetings Governance
 
@@ -72,7 +72,7 @@ Example request:
 
 > Use Stakeholder Governance to refresh only the Example Partner organisation profile from the supplied new evidence. Preserve prior dated positions and disagreements. Do not infer endorsement or collect meeting evidence.
 
-A meeting archive is not a prerequisite. Missing meeting collection is a bounded gap or an explicitly authorised handoff, not permission to build another archive. A profile does not simulate personal or organisational approval.
+A meeting archive is not a prerequisite. Missing meeting collection is a bounded gap or an explicitly authorised handoff, not permission to build another archive. Profile updates do not require refreshing static signposts. A profile does not simulate personal or organisational approval.
 
 A profile review is not described as complete while relevant available content remains unread; unread or inaccessible sources are named. Live Microsoft 365, directory or public research happens only when you separately authorise it for a stated question.
 

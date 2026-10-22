@@ -44,7 +44,7 @@ The owner approves the plan, consequential exceptions and tool-specific actions.
 
 ### The design choice
 
-[Short standard folders](adr/0015-standardise-project-folders-and-navigation.md) support browsing and direct sharing. [Direct filesystem operations](adr/0017-use-direct-filesystem-operations.md) keep approved migration proportionate without claiming that static checks prove runtime safety.
+[Stable standard folders and signposts](adr/0020-deploy-stable-versioned-workspace-signposts.md) support browsing and direct sharing. [Direct filesystem operations](adr/0017-use-direct-filesystem-operations.md) keep approved migration proportionate without claiming that static checks prove runtime safety.
 
 ## From meeting evidence to reusable context
 
@@ -98,7 +98,7 @@ A person or organisation has a profile, but new evidence has arrived, including 
 
 It resolves the entity and checks that it is eligible for a profile, because Microsoft and Microsoft employees are not profiled. It reads the affected profile and the relevant primary passages, including the content of the changed presentation, and updates only supported sections. Evidence that bears on the project's purpose leads; wider relationship context found in the project sits lower down. An existing meeting index and context help locate passages; they are not independent corroboration of the underlying source.
 
-Where evidence is thin, the profile stays compact and provisional and grows only as evidence supports it. A report that could not be read, or a link to material outside the project, is named as a gap rather than skipped or followed; Microsoft 365 or public research happens only when separately authorised. If the update leaves Start Here stale, the agent reports that to Workspace Governance instead of editing it.
+Where evidence is thin, the profile stays compact and provisional and grows only as evidence supports it. A report that could not be read, or a link to material outside the project, is named as a gap rather than skipped or followed; Microsoft 365 or public research happens only when separately authorised. Profile updates do not require changing the static Start Here or `AGENTS.md` signposts.
 
 A meeting archive is optional: supplied evidence can support a standalone profile pass. Missing meeting collection remains a bounded gap or an explicitly authorised handoff, not permission for the profile skill to collect meetings.
 
