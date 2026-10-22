@@ -26,7 +26,7 @@ function AssertLocal([string] $Path) {
             $item = Get-Item -LiteralPath $current -Force
             # Reparse, offline, recall-on-open and recall-on-data-access.
             if (([long] $item.Attributes -band 0x00441400) -ne 0) {
-                throw "Not an ordinary local path; use a platform-aware route: $current"
+                throw "Unsupported by this optional helper: $current. Use the migration guidance to select a supported filesystem or provider operation; do not bypass path protections or use GUI automation."
             }
         }
         $current = Split-Path -Path $current -Parent

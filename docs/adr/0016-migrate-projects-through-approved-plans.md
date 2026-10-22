@@ -1,7 +1,9 @@
 # ADR-0016: Migrate projects through approved plans
 
-- Status: Accepted
+- Status: Superseded by ADR-0017
 - Date: 2026-10-22
+
+Superseded by [ADR-0017](0017-use-direct-filesystem-operations.md), which clarifies direct file operations, proportionate plans and approved empty-folder cleanup.
 
 ## Context
 

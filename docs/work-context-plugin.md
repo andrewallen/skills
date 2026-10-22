@@ -42,7 +42,9 @@ Use Start Here for orientation, meeting contexts and profiles to locate relevant
 
 The destination is a consistent physical layout, not a permanent map of old folders. Approved migration preserves meaningful collections, evidence and identities, records progress and can resume. Unresolved content or legacy roots means partial migration, not compliance.
 
-The optional [local helper](../plugins/work-context/skills/workspace-governance/references/migration.md#local-helper-boundary) requires PowerShell 7.2+, previews by default and handles independent ordinary-local-file moves only. Cloud/shared content needs a platform-aware route. Neither a local move nor static repository checks prove preservation of shared links.
+All three skills use direct filesystem tools or shell commands for basic file operations, never Computer Use or Explorer automation. For a simple reorganisation, approve a short before/after mapping once. Prefer a folder rename/move; when needed, create destinations, move contents without overwriting, verify and remove only approved old folders confirmed empty, including hidden entries.
+
+The optional [local helper](../plugins/work-context/skills/workspace-governance/references/migration.md#local-helper-boundary) requires PowerShell 7.2+ and handles independent ordinary-local-file batches only; it is not required for folder operations. A OneDrive path alone does not require a different tool. Use an authorised provider API/tool only where filesystem operations cannot meet provider or preservation requirements. Neither hydration, a local move nor static checks prove preservation of cloud identity, history or shared links.
 
 [Read the skill](../plugins/work-context/skills/workspace-governance/SKILL.md) | [Common Architecture](../plugins/work-context/Common%20Architecture.md) | [Templates](../plugins/work-context/skills/workspace-governance/assets)
 
@@ -76,7 +78,9 @@ A meeting archive is not a prerequisite. Missing meeting collection is a bounded
 
 ## Prerequisites and limits
 
-The client must support skills and provide filesystem access for workspace operations. Remote capture or research also needs suitable authorised retrieval tools supplied by the client; this plugin does not bundle them or grant access.
+The client must support skills and provide direct filesystem or shell access for workspace operations. Live Microsoft 365 capture or research needs **WorkIQ MCP**, or equivalent authorised tools for the required Outlook, Teams, directory, SharePoint and OneDrive sources. Local-only work with supplied evidence does not require WorkIQ.
+
+The client supplies and authenticates those tools separately; this plugin does not bundle MCP servers or grant source access. Check exact reads, pagination and download capabilities for the requested operation rather than assuming that search access supplies them. Missing capabilities are explicit coverage gaps, not empty search results. See [dependencies by operation](installation.md#dependencies-by-operation).
 
 Always supply the target. The repository and installed plugin directory are not project workspaces. No parent folder name is required, and the skills can operate independently without a bootstrap run from another skill.
 
