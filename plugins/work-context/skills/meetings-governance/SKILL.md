@@ -2,7 +2,7 @@
 name: meetings-governance
 description: Get the latest meetings, capture named meetings, initialise a meeting archive or repair incomplete meeting evidence. Preserve exact occurrence identity, source provenance and history without becoming a task or approval system.
 metadata:
-  version: "4.0"
+  version: "5.0"
   architecture: common-workspace-architecture v1.2
   runtime-dependencies: none
 ---
@@ -17,7 +17,7 @@ Maintain the governed meeting evidence under `40 Meetings`. The normal operation
 |---|---|
 | [references/evidence-rules.md](references/evidence-rules.md) | Capturing or reconciling meeting evidence. |
 | [references/capture.md](references/capture.md) | Retrieving transcripts, chats, attendance, media, tied correspondence and resources. |
-| [references/review-packet.md](references/review-packet.md) | Only for an explicitly requested scope recalibration or classification review. |
+| [references/review-packet.md](references/review-packet.md) | Only for an explicitly requested project-scope or principle-mapping review. |
 | [assets/archive-guide.md](assets/archive-guide.md), [assets/meetings-index.md](assets/meetings-index.md) | Creating or repairing controls. |
 | [assets/context-record.md](assets/context-record.md), [assets/evidence-frontmatter.md](assets/evidence-frontmatter.md) | Writing meeting records and companions. |
 
@@ -28,8 +28,8 @@ Unless the user asks for initial backfill, named intake, repair or recalibration
 1. Resolve the meeting root and read the Archive Guide and Meetings Index when present.
 2. Use the last completed reconciliation as the starting point; otherwise use a bounded recent window and state it.
 3. Find meetings and meeting sources added or changed in that window.
-4. Reuse unchanged complete captures.
-5. Capture new or changed evidence, update affected contexts and update the index once.
+4. Reuse unchanged complete local captures. For sources previously reviewed online but not retained locally, retry local retention within the authorized scope.
+5. Capture new or changed evidence, review authorized online sources when local retention fails, update affected contexts and update the index once.
 6. Report anything not captured, then what changed.
 
 Do not reopen historical scope, regenerate every profile or run classification review during a routine refresh.
@@ -52,7 +52,7 @@ Never infer the target from this skill's location.
 | `targeted-intake` | Capture named meetings and their tied evidence. |
 | `initial-backfill` | Establish scope and discover history across a confirmed initial range. |
 | `repair` | Restore missing controls, links or incomplete records without implying fresh retrieval. |
-| `recalibrate` | Revisit scope or classifications only when explicitly requested. |
+| `recalibrate` | Revisit project scope or workspace-principle mappings only when explicitly requested. |
 
 The archive may be:
 
@@ -97,18 +97,21 @@ Resolve the exact occurrence before attaching evidence. A title, attendee, keywo
 
 For each in-scope meeting:
 
-- retain every accessible transcript, meeting or follow-up chat, tied email, note, minute and recap as a faithful Markdown companion;
-- retain recordings and shared resources in their original form and record their identity and use;
-- preserve wording, speaker attribution, timestamps, provenance, sensitivity and uncertainty;
-- create one context record that points to the retained evidence;
-- record access failures and missing sources as `Not captured`, never as `none found`;
+- attempt to retain every in-scope transcript, meeting or follow-up chat, tied email, note, minute and recap locally as a faithful Markdown companion;
+- attempt to retain recordings and shared resources locally in their original form, with their identity and original source link;
+- when local retention fails, preserve the canonical source link and observed failure, then use normal authorized platform access to review the source online if possible; include that evidence in the synthesis alongside local sources and state that it was not retained locally;
+- record platform-applied classification labels as metadata when exposed; do not infer or interpret classification from markings in source content, and do not treat a platform label alone as a reason to withhold capture or synthesis;
+- do not use legacy meeting-class or baseline-impact values to exclude an in-scope source or alter capture; preserve those values in existing records without automatic migration;
+- preserve wording, speaker attribution, timestamps, provenance and uncertainty;
+- create one context record that links to locally retained evidence and every online-only source considered;
+- if online reading also fails, record the source and actual limitation as `Not captured`, never as `none found`;
 - keep owner notes untouched.
 
 Use the local capture reference for source-specific retrieval and pagination rules.
 
 ## Classify and index
 
-Classify only after reviewing the primary evidence. Keep information type separate from meeting class:
+Describe information transformation only after reviewing the primary evidence. Keep it distinct from source-platform classification labels and lifecycle:
 
 - Captured: original communication or recording;
 - Extracted: a faithful selected passage;
@@ -126,14 +129,17 @@ Meeting evidence can support stakeholder profiles, but Stakeholder Governance is
 
 - `initial-backfill`: freeze the confirmed range, inventory plausible candidates, resolve exact occurrences and state any coverage gap.
 - `repair`: preserve existing evidence and IDs; repair only the missing control, link or provenance field.
-- `recalibrate`: use the review-packet reference, require owner approval for scope changes and preserve classification history. Do not remove captured evidence.
+- `recalibrate`: use the scope-review reference, require owner approval for scope changes and preserve evidence history. Do not remove captured evidence.
 
 ## Completion
 
 Check that:
 
 - each requested occurrence has one identity and context;
-- all readable in-scope meeting evidence was retained or listed as Not captured;
+- every in-scope source had a local-retention attempt;
+- online-readable sources that could not be retained locally are linked, identified as online-only review, and considered in the synthesis;
+- sources that could not be read online are listed as Not captured with the actual limitation;
+- the evidence-coverage table distinguishes each source's local retrieval, online retrieval, semantic review and local retention; archive inventory status does not establish local-retention completeness;
 - the index matches the governed records;
 - no owner note or non-identical source was overwritten;
 - no stakeholder profile or unrelated workspace structure was created;

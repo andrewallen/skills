@@ -2,17 +2,17 @@
 
 These rules belong to Meetings Governance. Stakeholder Governance has its own shorter guidance for consuming evidence and writing profiles.
 
-## Key guidance: capture all meeting evidence, in Markdown
+## Key guidance: local-first meeting capture and online review
 
-Owner decisions, 23 and 28 September 2026. They override any conflicting rule below.
+Owner decisions, 23 and 28 September 2026, established the earlier guidance. ADR-0012 supersedes that guidance where it conflicts on local capture, platform labels or online review; all other applicable rules remain in force.
 
 1. **The workspace's OneDrive folders are secure by default.** They are the approved store for in-scope workspace material. Do not assess, question or wait for destination protection before saving.
-2. **Retain 100% of accessible meeting evidence as Markdown.** Meeting evidence is what the meeting itself produced or carried: transcripts, meeting and follow-up chats, tied emails, notes, minutes and recaps. Save every one you can read to its governed folder as a faithful Markdown companion. Reading a source is not enough: an unsaved source is not captured.
-   **Resources are not rendered.** Presented or shared documents, decks, spreadsheets, PDFs, Loop pages and web pages (customer, internal or AI-generated) stay as their original files or links. Record each one's identity, location and use in the meeting; do not convert it to Markdown. The meeting evidence is what records how a resource was discussed.
-3. **Labels, markings and personal content are never a reason to withhold.** OFFICIAL, OFFICIAL-SENSITIVE, Confidential, MIP labels, "do not share" text and unverified rights or protection are recorded beside the content. They never justify a pointer-only record, a summary in place of the source, or thinner context. Captured meeting evidence is saved in full, without redaction: personal or private remarks made in a meeting stay in the transcript or chat as spoken or written. Downstream outputs (contexts, profiles, drafts) still use only material relevant to their purpose.
-4. **Only two reasons can justify not saving:** a genuine technical block (the read or extraction actually fails: access denied, encryption that prevents text extraction, tool error), or an explicit instruction from the archive owner. Never work around a technical block: no decrypting or unzipping synced copies, changing sharing, or alternative endpoints.
-5. **A block is a failure, never a disposition.** Record the exact source, attempted route, error and time; set the record's capture to `partial`; add it to the Remaining-work queue; and list it first in the run report under **Not captured**. Never describe blocked or unsaved content as captured, retained or complete.
-6. **Prove it before finishing.** Retrieved, reviewed and retained must match for every in-scope source. Any gap is a Not-captured item, so the owner can trust that anything not listed is fully in the archive as Markdown.
+2. **Attempt local capture first.** For in-scope meeting communications (transcripts, meeting and follow-up chats, tied emails, notes, minutes and recaps), attempt a faithful Markdown companion in the governed folder. For recordings and reusable resources, attempt to retain the original file locally and record its identity and source link. Online reading is not local retention.
+   **Resources are not rendered.** Presented or shared documents, decks, spreadsheets, PDFs, Loop pages and web pages (customer, internal or AI-generated) stay as their original files or links. Do not convert them to Markdown.
+3. **Use platform labels as metadata only.** Record classification labels applied by the source platform, exactly as exposed. Do not infer or interpret classification from words, banners, filenames or markings in source content. A platform label alone is not a reason to withhold local capture, online review, quotation or synthesis. Preserve source content faithfully; downstream outputs still use only material relevant to their purpose.
+4. **If local retention fails, review online when authorized.** Record the canonical source link, attempted route, observed error and time. If the source remains readable through normal, authorized platform access, review it online and include it in the synthesis alongside locally retained sources. Link it from the context and record online review separately from local retention in the evidence-coverage table.
+5. **Do not bypass access or technical controls.** If online reading also fails, record the exact source and actual limitation in the evidence-coverage table, add it to the Remaining-work queue and list it first in the run report under **Not captured**. Do not decrypt or unpack synced copies, change sharing, or use an unapproved route. Never imply an unreadable source was considered.
+6. **Prove the distinct outcomes before finishing.** Track local retrieval, online retrieval, semantic review and local retention separately for every in-scope source. A source missing from the local archive remains **Not captured locally** even when reviewed online. State any source that could not be reviewed at all as a coverage gap; do not describe the local archive as complete while any in-scope source is not retained.
 
 ## Contents
 
@@ -70,7 +70,7 @@ Keep these axes separate:
 - **Type:** one of the five above.
 - **Attribution:** direct, reported or unresolved; preserve every reporting intermediary. "Reported" qualifies attribution; it is not a sixth type.
 - **Decision status:** question, request, proposal, suggestion, position, claim, concern, disagreement, working-session agreement, formal approval or evidenced completion.
-- **Coverage and capture status:** defined by each skill; never mixed with the types.
+- **Coverage:** defined by each skill and recorded separately from information types; meeting contexts report it per source rather than as one aggregate capture status.
 - **Sensitivity and usage rights:** handling requirements, not evidence strength.
 
 "Interpretation" is a reader-friendly label for **Inferred** and "Recommendation" for **Proposed**; they are not extra types. Express evidence strength and source reliability as plain-language caveats, not numerical confidence scores.
@@ -119,15 +119,15 @@ Keep these axes separate:
 ## 5. Output limits and retention
 
 - Tool hosts may retain oversized responses automatically. Minimise payloads; do not promise zero retention. Record runtime retention separately from deliberate archive output.
-- Source continuation and host-output truncation are different conditions. Read only authorised bounded results and never count unseen truncated content as reviewed or retained; re-read in smaller bounded pages until the whole source is saved.
-- Distinguish what was **retrieved**, **semantically reviewed** and **retained**. The target for in-scope sources is all three, in full; any difference is a Not-captured item (Key guidance 5).
+- Source continuation and host-output truncation are different conditions. Read only authorised bounded results and never count unseen truncated content as reviewed or retained; re-read in smaller bounded pages until the whole source is saved locally where possible. If local saving fails, use the authorized online-review fallback in Key guidance 4 and report any remaining gap.
+- Distinguish what was retrieved locally, retrieved online, **semantically reviewed** and retained locally. If local retention fails but authorized online review succeeds, mark the source Not captured locally and still use it in the synthesis. If online review also fails, report the actual gap (Key guidance 5).
 
 ## 6. Protected and cloud-hosted sources
 
-- Read cloud-hosted Office files through authorised Microsoft 365 grounding or supported source access when a meeting-evidence companion (for example a transcript exported to Word) needs saving as Markdown; edit through supported cloud editing. Resource documents are not rendered (Key guidance 2).
-- Do not unzip, decrypt or parse a synced local copy to bypass failed cloud access or encryption. A failed read is a Not-captured item.
-- Record source label, invitation marking and any usage-rights statement beside the content as distinct facts. They are metadata, not retention decisions (Key guidance 3).
-- Never weaken labels, unlock containers, change sharing or send notifications as part of maintenance.
+- Read cloud-hosted Office files through authorised Microsoft 365 grounding or supported source access when a meeting-evidence companion (for example a transcript exported to Word) needs saving as Markdown; edit through supported cloud editing. If local saving fails, use the canonical source link through normal authorized platform access for online review when possible. Resource documents are not rendered (Key guidance 2).
+- Do not unzip, decrypt or parse a synced local copy to bypass failed cloud access or encryption. A source that cannot be read online is Not captured; a local-save failure alone is not a failed read if the original remains readable online.
+- Record platform-applied classification labels exactly as metadata when exposed. Do not infer classification from source-content markings or interpret those markings as handling instructions (Key guidance 3).
+- Never change platform labels, unlock containers, change sharing or send notifications as part of maintenance.
 - Treat protection rewrapping or hash changes as a provenance event, not automatic corruption.
 - Never downgrade or erase good prior evidence because current access is worse.
 

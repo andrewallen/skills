@@ -2,6 +2,8 @@
 
 This is a description of the current package, not a new workspace architecture or an implementation of a Proposed ADR. [Governance](../GOVERNANCE.md) controls repository changes; [Common Architecture](../plugins/work-context/Common%20Architecture.md) defines the target workspace's structure, routing and ownership.
 
+For the human introduction, use the [collection and documentation map](README.md), [Work Context overview](work-context-plugin.md) or [Work Actions overview](work-actions-plugin.md). Those pages explain the package; they do not replace its skill instructions.
+
 ## Package boundaries
 
 | Boundary | Current implementation |
@@ -28,22 +30,20 @@ Under accepted [ADR-0003](adr/0003-independent-skills-with-fixed-ownership.md), 
 
 ## Information sharing today
 
-- **Shared rules:** Common Architecture defines folder roles, routing, information/lifecycle distinctions and generated-file provenance. It is not a complete shared vocabulary or schema.
+- **Shared rules:** Common Architecture defines folder roles, routing, information/lifecycle distinctions and generated-file provenance. Accepted [ADR-0013](adr/0013-minimal-shared-evidence-model.md) adds a small repository-wide conceptual core for evidence identity, provenance, attribution, time, coverage and relationships; it does not impose a common schema.
 - **Local definitions:** Meeting references define capture, occurrence identity and attribution; stakeholder references define source consumption, profile evidence and research coverage. Assets define the records each skill writes.
 - **Consumption:** Stakeholder work uses meeting indexes and contexts to locate primary source passages, carrying their coverage and attribution limits into profiles. A profile does not corroborate a meeting, nor does a context corroborate its transcript. Workspace navigation and issued-output registration do not establish the truth of source claims.
 - **Optional handoffs:** Existing archive files and the conversation carry exact source links, scope, changes and gaps. There is no required handoff registry or packet, automatic synchronisation or permission to run another skill. See the current [meeting handoff rules](../plugins/work-context/skills/meetings-governance/references/evidence-rules.md#1-ownership-and-handoff) and [stakeholder source rules](../plugins/work-context/skills/stakeholder-governance/references/sources.md).
 
-The [current information model inventory](current-information-model.md) maps these scattered definitions and gaps. In particular, archive class, baseline impact and the full set of capture-state tokens are not centrally resolved. Do not fill those gaps with invented shared values or silently treat distinct classification axes as one status.
+The [current information model inventory](current-information-model.md) maps these scattered definitions and gaps. Meeting class and baseline-impact fields are not part of the current context template. Meeting contexts report retrieval, review and retention per source; they do not use an aggregate capture-status field. Archive inventory status remains a separate archive-level measure.
 
 ## Implemented decisions versus proposals
 
-The [ADR index](adr/README.md) is the status source. Accepted ADRs document current packaging, ownership, versioning and archive naming; the inventory and this overview do not accept decisions.
+The [ADR index](adr/README.md) is the status source. Accepted ADRs document current packaging, ownership, versioning, archive naming, meeting-evidence capture and the minimal shared evidence model; the inventory and this overview do not accept decisions. Accepted [ADR-0012](adr/0012-local-first-meeting-evidence-capture.md) establishes local-first capture, platform labels as metadata only, and authorized online review when local retention fails. Accepted [ADR-0013](adr/0013-minimal-shared-evidence-model.md) supersedes the broader proposal in ADR-0009.
 
 | Proposed ADR | Not established by that proposal |
 |---|---|
-| [0005: Capture safeguards](adr/0005-safeguards-for-meeting-evidence-capture.md) | A change to the existing meeting capture instructions. The current retention rules and the proposed safeguards remain distinct. |
 | [0008: Independent contracts](adr/0008-define-independent-skill-contracts.md) | A universal compatible-input contract or producer-neutral record guarantee across the current skills. |
-| [0009: Shared information model](adr/0009-establish-a-shared-information-model.md) | A central model, newly controlled vocabularies, record schemas or workspace migrations. |
 | [0010: Retrieval semantics](adr/0010-define-evidence-retrieval-semantics.md) | A consolidated shared retrieval reference, ranking algorithm or ingestion service. Some underlying rules already exist in specialist references. |
 
 Implementation of a proposal needs explicit owner acceptance and a separately scoped, versioned change. This repository guidance adds no mandatory workspace roots, record fields or migrations.

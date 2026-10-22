@@ -1,12 +1,13 @@
 # Current information model inventory
 
-**Status:** Non-normative inventory of current repository definitions and gaps, prepared 2026-10-20. This document does not establish new requirements or resolve proposed decisions.
+**Status:** Non-normative inventory of current repository definitions and gaps, updated 2026-10-22. This document does not establish new requirements or resolve proposed decisions.
 
 Related proposals:
 
 - [ADR-0008: Independent skill contracts and interoperability](adr/0008-define-independent-skill-contracts.md)
-- [ADR-0009: Shared information model](adr/0009-establish-a-shared-information-model.md)
 - [ADR-0010: Evidence retrieval and interpretation semantics](adr/0010-define-evidence-retrieval-semantics.md)
+
+Accepted decision: [ADR-0013: Minimal shared evidence model](adr/0013-minimal-shared-evidence-model.md). This inventory remains descriptive and does not define a schema.
 
 ## Terms in the current repository
 
@@ -31,11 +32,11 @@ These are separate axes. A value in one axis must not be used as a value or conc
 | **Attribution** | Direct, reported or unresolved; transcript-specific attribution levels 1–5: source-attributed, named-at-risk, consistent-but-anonymous, unattributed, garbled. | Attribution qualifies a source claim and is not an information type or confidence score. |
 | **Lifecycle** | `working`, `review-required`, `approved`, `issued`, `superseded`, `withdrawn`, `archived`. | These are common lifecycle terms; approval and issue are explicitly distinct. |
 | **Audience** | Meeting audience uses `internal` or `external`; issued-output distribution records audience per event. | Audience is not provenance or authority. |
-| **Meeting/archive classification** | Contexts require `archive_class`, `baseline_version`, `baseline_impact` and matched principle IDs. Archive Guide template calls for class and impact tables. | The package does not currently provide the promised authoritative class and baseline-impact tables. |
-| **Capture status** | Context requires exactly one `capture_status`; the meeting rules direct blocked capture to `partial`. | The package does not define a complete authoritative set of capture-state tokens. Descriptive uses of “complete” do not by themselves establish an allowed token. |
-| **Meeting archive inventory** | `provisional` or `complete-through-<date>`; onboarding describes archive maturity as `blank`, `partial` or `established`. | Inventory and archive maturity are not the same as an individual record's capture status. |
-| **Stakeholder source coverage** | `Reviewed`, `Partial`, `Unavailable`, `Not checked`, `No relevant evidence found`, `Not applicable`. | These describe the bounded research pass, not information type, confidence or meeting capture status. |
-| **Sensitivity and usage rights** | Recorded as handling metadata where established. | No common controlled vocabulary is defined in this package. |
+| **Meeting/project navigation** | Meeting identity, project scope, source relationships, topic/decision anchors and workspace-specific matched principle IDs support retrieval. | New contexts do not require archive-class or baseline-impact fields under [ADR-0013](adr/0013-minimal-shared-evidence-model.md). Preserve such values in legacy records; do not use them to gate capture. |
+| **Meeting source coverage** | Context evidence-coverage table distinguishes local retrieval, online retrieval, semantic review and local retention for each source. | No aggregate per-context `capture_status` is required; online review does not imply local retention. |
+| **Meeting archive inventory** | `provisional` or `complete-through-<date>`; onboarding describes archive maturity as `blank`, `partial` or `established`. | Inventory and archive maturity describe the archive, not any individual source. |
+| **Stakeholder source coverage** | `Reviewed`, `Partial`, `Unavailable`, `Not checked`, `No relevant evidence found`, `Not applicable`. | These describe the bounded research pass, not information type or confidence. |
+| **Sensitivity and usage rights** | Meeting capture records platform-applied classification labels as metadata when exposed; source-content markings are not interpreted as classification. | See accepted [ADR-0012](adr/0012-local-first-meeting-evidence-capture.md). No common controlled vocabulary is defined in this package. |
 | **Date and freshness** | Occurrence time, source modified/effective time, actual inspection time, evidence cutoff and reconciliation time. | The meeting rules require these to remain distinct; no general recency-ranking rule is defined. |
 | **Record kind** | Examples include source companion, meeting context, meetings index, archive guide, person profile, organisation profile, research map, Start Here and Issued Outputs Index. | Some templates use `document_role`; no complete shared record-kind vocabulary is defined. |
 
@@ -71,15 +72,11 @@ These rules are present in specialist guidance, not yet consolidated into a shar
 
 ## Open definitions to resolve
 
-1. What meeting/archive classes are supported, and what class-specific retention or routing follows each?
-2. What are the allowed `baseline_impact` values, and how do they differ from archive class?
-3. What is the complete allowed set for per-record `capture_status`? How does it relate to archive maturity and index completeness?
-4. Which common record kinds and relationship names need stable definitions, versus remaining skill-local?
-5. Which attribution, decision-status, lifecycle, audience and coverage vocabularies are portable shared terms, and which need controlled extensions?
-6. What minimum identity, source-anchor and version information makes a record interoperable without requiring a particular producer skill?
-7. Which authority, effective-date, correction and supersession rules should be common semantics, and which are workspace-specific?
-8. How should sensitivity and usage-rights terms be represented without implying permission from a label or an unverified classification?
-9. What should be searchable summaries or precise extracts, what must remain source-grounded, and how should stale or failed ingestion be reported?
-10. Which domain terms and business definitions belong only in a workspace's governed controls, such as “Strategic Engagement” or “Active Programme”?
+1. Which common record kinds and relationship names need stable definitions, versus remaining skill-local?
+2. Which attribution, decision-status, lifecycle, audience and coverage vocabularies are portable shared terms, and which need controlled extensions?
+3. Which authority, effective-date, correction and supersession rules should be common semantics, and which are workspace-specific?
+4. How should usage-rights terms be represented without implying permission from an unverified classification?
+5. What should be searchable summaries or precise extracts, what must remain source-grounded, and how should stale or failed ingestion be reported?
+6. Which domain terms and business definitions belong only in a workspace's governed controls, such as “Strategic Engagement” or “Active Programme”?
 
 Resolving these questions may change skill behaviour or generated records. Until the related ADRs are accepted, this inventory is descriptive only; it does not authorise new required fields, vocabulary, migrations or capture behaviour.
