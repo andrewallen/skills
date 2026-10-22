@@ -7,7 +7,7 @@ Create `Meetings Index.md` from this when absent. The index is the only archive 
 ```markdown
 ---
 document_role: meetings-index
-template: meetings-index@2.0
+template: meetings-index@3.0
 created_by: meetings-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: meetings-governance@<CURRENT_SKILL_VERSION>
 inventory_status: provisional
@@ -52,5 +52,5 @@ Resume queue, kept under **Remaining work** while a pass is in flight:
 Canonical context link (relative to the index):
 
 ```markdown
-[Context](Internal/2026-09-02%20-%20Meeting%2C%20Descriptor%20%5BContext%5D.md)
+[Context](2026-09-02%20-%20Descriptor/Context.md)
 ```

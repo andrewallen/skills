@@ -50,10 +50,18 @@ See [README update instructions](README.md#updating-an-installed-plugin). Market
 
 These are contributor checklists, not automated enforcement. Branch protection and CI are separate repository settings and are not enabled by this document.
 
+## Migration and validation boundaries
+
+[ADR-0015](docs/adr/0015-standardise-project-folders-and-navigation.md) defines the physical seven-root baseline; [ADR-0016](docs/adr/0016-migrate-projects-through-approved-plans.md) defines approved transitions. A release does not approve moving an existing project. A permanent legacy path map is not conformity. Scope approval, item preservation, reference risks, concurrency and partial progress must remain explicit.
+
+Declare actual helper prerequisites and update repository checks with packaging changes. Distinguish static consistency/parser validation from skill/helper execution, live migration, client installation and publication. Honour an explicitly static-only validation scope, record the unperformed runtime checks as gaps, and never describe static checks as proof of runtime safety.
+
 ## Content rules
 
 - Do not commit workspace evidence, customer documents, generated outputs, credentials or local caches.
-- Examples must be anonymised.
+- This is public-facing material. Examples must be fictional or safely anonymised and remain functional through explicit placeholders and input contracts.
+- Do not include employer or customer proprietary information, identifiable case narratives, private URLs, tenant/item IDs, personal profiles or real project inventories. Review references, screenshots, snippets and added assets as well as prose. Public product/tool names are not inherently proprietary.
+- Keep real source identities and evidence in authorised target workspaces; public-safe packaging must not require anonymising or fabricating privately retained evidence.
 - Changes to data-handling guidance (for example capture, retention or redaction rules) need an ADR.
 
 ## Licensing

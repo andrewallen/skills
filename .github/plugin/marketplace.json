@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "work-context",
-      "description": "Common workspace structure, latest-meeting refresh, and evidence-backed stakeholder profiles.",
+      "description": "Common workspace structure with approved migration, latest-meeting refresh, and evidence-backed stakeholder profiles.",
       "source": "./plugins/work-context"
     },
     {

@@ -32,7 +32,9 @@ Those distinctions belong in the workflow itself, not only in a disclaimer at th
 
 Significant decisions are recorded in [ADRs](adr/README.md); a proposal is not an implemented promise. Changes to packaged behaviour are versioned with the affected plugin, skill and template, while existing user records are not automatically migrated.
 
-[Repository checks](validation.md) can check packaging and links. They cannot prove that an agent follows the workflow. Behavioural review needs a bounded, anonymised scenario outside this repository, including missing evidence, ownership limits and repeat-run behaviour. A check not performed remains a gap.
+[Repository checks](validation.md) check packaging, links and PowerShell syntax without executing helpers. They cannot prove that an agent follows the workflow. When a change is explicitly static-only, runtime behaviour remains a documented gap; no private project needs to be ingested to validate the public package.
+
+When authorised, behavioural review uses a bounded, anonymised scenario outside this repository, including missing evidence, ownership limits and repeat-run behaviour. A check not performed remains a gap.
 
 ## Explore the implementation
 

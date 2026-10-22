@@ -5,7 +5,7 @@ Create `Archive Guide.md` from this when absent. The guide may start `provisiona
 ```markdown
 ---
 document_role: meeting-archive-guide
-template: meeting-archive-guide@2.0
+template: meeting-archive-guide@3.0
 created_by: meetings-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: meetings-governance@<CURRENT_SKILL_VERSION>
 workspace_code: "<WORKSPACE_CODE>"
@@ -16,10 +16,9 @@ approved_at: "<TIMESTAMP OR provisional>"
 current_work_system: "<SYSTEM OR not specified>"
 meetings_root: '<RESOLVED PATH>'
 issued_outputs_root: '<RESOLVED PATH>'
-working_material_root: '<RESOLVED PATH>'
-source_material_root: '<RESOLVED PATH>'
-people_organisations_root: '<RESOLVED PATH>'
-media_recordings_root: '<RESOLVED PATH>'
+working_root: '<RESOLVED PATH>'
+sources_root: '<RESOLVED PATH>'
+stakeholder_root: '<RESOLVED PATH>'
 governance_root: '<RESOLVED PATH>'
 archive_root: '<RESOLVED PATH>'
 initial_discovery_range: "<RANGE OR targeted-intake-only>"
@@ -55,6 +54,8 @@ inventory_status: provisional
 ## Storage and protection
 
 <Approved boundary, resource roots and known limitations.>
+
+<Use the common seven-root names. Governance is an optional unnumbered control folder, not a required numbered root; set governance_root to not specified until authorised rather than creating it implicitly. Standalone media follows purpose; meeting media stays in its occurrence.>
 
 ## Current-work authority
 

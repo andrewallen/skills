@@ -2,15 +2,15 @@
 name: stakeholder-governance
 description: Create or refresh evidence-backed profiles of relevant people and organisations. Use after new meeting or source evidence, for named profile creation, bounded stakeholder discovery or evidence-based content review. Do not create a CRM, personality model, account plan or second meeting archive.
 metadata:
-  version: "4.1"
-  architecture: common-workspace-architecture v1.2
+  version: "5.0"
+  architecture: common-workspace-architecture v2.0
   runtime-dependencies: none
   predecessor: stakeholders-governance v2.7
 ---
 
 # Stakeholder Governance
 
-A stakeholder is a relevant person or organisation. Store both entity types directly under `50 People and Organisations`, with one canonical profile per entity.
+A stakeholder is a relevant person or organisation. Store both entity types directly under `50 Stakeholders`, with one canonical profile per entity.
 
 The normal operation is to refresh only the profiles affected by new evidence.
 
@@ -18,6 +18,7 @@ The normal operation is to refresh only the profiles affected by new evidence.
 
 | Load | When |
 |---|---|
+| [../../Common Architecture.md](../../Common%20Architecture.md) | Every run: shared structure, provenance, navigation and migration boundaries. |
 | [references/evidence-guidance.md](references/evidence-guidance.md) | Every profile creation, refresh or content review. |
 | [references/sources.md](references/sources.md) | Discovery, full-profile research or supplementary source research. |
 | [assets/person-profile.md](assets/person-profile.md) | Creating or repairing a person profile. |
@@ -41,10 +42,10 @@ Do not refresh every profile merely because one meeting or document changed.
 
 Never infer the target from this skill's location.
 
-- A supplied `50 People and Organisations` folder is `stakeholder_root`.
-- A supplied legacy `Stakeholders` folder is used directly.
+- A supplied `50 Stakeholders` folder is `stakeholder_root`.
+- Legacy stakeholder locations may be read as evidence. Before writing profiles there, report the need for approved structural migration; do not create a permanent alternative layout.
 - An existing entity folder means a targeted profile operation.
-- Otherwise the supplied path is `workspace_root` and `stakeholder_root` is its `50 People and Organisations` child.
+- Otherwise the supplied path is `workspace_root` and `stakeholder_root` is its `50 Stakeholders` child.
 - A blank or absent named target is valid when the user asked to create or discover profiles.
 - If the entity, entity type or target is ambiguous, ask one focused question.
 
@@ -63,14 +64,16 @@ Never infer the target from this skill's location.
 An explicit request to create or discover profiles authorises:
 
 ```text
-50 People and Organisations
+50 Stakeholders
 |-- Full Name
 |   `-- Full Name - Person Profile.md
 `-- Organisation Name
     `-- Organisation Name - Organisation Profile.md
 ```
 
-If `stakeholder_root` was supplied directly, do not add another `50 People and Organisations`.
+If `stakeholder_root` was supplied directly, do not add another `50 Stakeholders`.
+
+Compatible supplied evidence may come from people or other tools; no producer skill is required. Preserve source limitations and report missing required information instead of inventing provenance. Existing entity folders outside the baseline require an approved transition before maintenance there.
 
 Create only named entities, entities approved through bounded discovery or entities supported by sufficient evidence. Do not create empty placeholders, mandatory `People` and `Organisations` containers, a permanent entity index or a copy of this skill.
 

@@ -1,7 +1,7 @@
 ---
 document_role: common-workspace-architecture
-architecture_version: "1.2"
-effective_date: "2026-10-15"
+architecture_version: "2.0"
+effective_date: "2026-10-22"
 ---
 
 # Common Workspace Architecture
@@ -11,12 +11,10 @@ Use the same structure for an event, engagement, initiative, research activity, 
 ```text
 00 Start Here
 10 Issued Outputs
-20 Working Material
-30 Source Material
+20 Working
+30 Sources
 40 Meetings
-50 People and Organisations
-60 Media and Recordings
-70 Governance and Administration
+50 Stakeholders
 99 Archive
 ```
 
@@ -25,9 +23,9 @@ Use the same structure for an event, engagement, initiative, research activity, 
 Governance is not required for ordinary reading, reasoning, drafting or editing.
 
 - Read the material needed for the task.
-- Put new analysis, synthesis, presentations and AI-assisted drafts in `20 Working Material`.
+- Put new analysis, synthesis, presentations and AI-assisted drafts in `20 Working`.
 - Edit working files normally.
-- Preserve original or received evidence in `30 Source Material`.
+- Preserve original or received evidence in `30 Sources`.
 - Preserve exact issued versions in `10 Issued Outputs`.
 - Use a governance skill only when maintaining its governed collection or changing structure or lifecycle state.
 
@@ -37,24 +35,22 @@ Governance is not required for ordinary reading, reasoning, drafting or editing.
 |---|---|
 | `00 Start Here` | Short orientation, current position and navigation. |
 | `10 Issued Outputs` | Exact versions deliberately circulated, plus distribution history. |
-| `20 Working Material` | Drafts, analysis, synthesis, presentations and AI-assisted work. |
-| `30 Source Material` | Original or received evidence and reference material. |
+| `20 Working` | Drafts, analysis, synthesis, presentations and AI-assisted work. |
+| `30 Sources` | Original or received evidence and reference material; placement does not establish truth or authority. |
 | `40 Meetings` | Governed meeting, workshop and session evidence. |
-| `50 People and Organisations` | Evidence-backed profiles of relevant people and organisations. |
-| `60 Media and Recordings` | Standalone media not tied to a governed meeting. |
-| `70 Governance and Administration` | Architecture, controls and local governance skills. |
+| `50 Stakeholders` | Evidence-backed profiles of relevant people and organisations. |
 | `99 Archive` | Superseded, withdrawn or inactive retained material. |
 
 ## Routing
 
 Use the first applicable rule:
 
-1. Meeting-specific evidence, including occurrence recordings, goes to `40 Meetings`.
-2. Person and organisation analysis goes to `50 People and Organisations`.
+1. Meeting communication evidence and occurrence recordings go to `40 Meetings`; reusable shared resources follow their source, working or issued role and are linked from the meeting.
+2. Person and organisation analysis goes to `50 Stakeholders`.
 3. An exact version deliberately circulated goes to `10 Issued Outputs`.
-4. Original or received evidence goes to `30 Source Material`.
-5. New analysis, drafts and AI-assisted work go to `20 Working Material`.
-6. Standalone media goes to `60 Media and Recordings`.
+4. Original or received evidence goes to `30 Sources`.
+5. New analysis, drafts and AI-assisted work go to `20 Working`.
+6. Standalone media follows its source, working or issued role; format does not require a separate root.
 7. Material moves to `99 Archive` only with explicit approval.
 
 Filenames such as `Final`, `Official`, `Clean` or `Customer-Ready` do not establish lifecycle state.
@@ -71,6 +67,26 @@ Keep these separate:
 
 AI assistance is provenance, not evidence of authority, approval or issue.
 
+## Naming and navigation
+
+All fully initialised or migrated workspaces have the seven core roots, including empty ones. Number only these roots. Supplementary folders are unnumbered, normally one to three meaningful words, and must not compete with core roles. Prefer collections within the appropriate core; a distinct additional function such as `Governance` may sit at the root. Preserve coherent collections rather than flattening them.
+
+Keep paths shallow. Do not repeat the project name or automatically add year, month, audience or format layers. Check full destination paths against actual client limits. Never silently abbreviate existing filenames.
+
+Project documents created or materially updated should visibly state purpose, lifecycle, relevant date/version, material provenance and source limitations in their native format. Do not rewrite received originals to add a banner. Optional `AI Exploration` under Working is for speculative material, not every AI-assisted record.
+
+Start Here is a short front door. Indexes, contexts and profiles lead to relevant source passages; they do not corroborate them independently. Summaries support orientation; quotations, contested claims and stakeholder characterisations require source grounding. Do not load the whole collection merely because it is available. Record evidence cutoffs and freshness gaps: refreshed meetings do not automatically refresh profiles or orientation.
+
+## Existing projects and migration
+
+Assessment may read unfamiliar layouts. An approved migration physically converges on this baseline; permanent alternative-root mapping is not compliance. Routine reading or specialist work does not authorise migration.
+
+Workspace Governance owns structural planning, approved moves, progress and verification. Preserve source IDs, historical provenance and owner notes. Other owners maintain substantive records through authorised handoffs; structural migration edits only explicitly approved navigation.
+
+Resolve software repositories' project-context boundaries before writing. Never move code, configuration, nested repositories, application-managed content or reparse-point targets by inference. Shared/cloud links require platform-aware checks; local movement does not prove preservation.
+
+A plan binds exact scope, destinations and observed state. Apply independent safe operations without repeated questions; pause dependent groups on drift or ambiguity. Legacy collections, unresolved items and retired roots left behind are migration gaps, not an accepted alternative structure.
+
 ## Issued outputs
 
 Keep one canonical issued file. Record each audience, issue date, channel and evidence in the Issued Outputs Index. Create another file only when the content or required format differs.
@@ -81,7 +97,7 @@ Before resolving a filename conflict, compare identity, version and hashes. Pres
 
 | Skill | Owns |
 |---|---|
-| `workspace-governance` | Fixed roots, Start Here, Issued Outputs Index, routing and duplicate review. |
+| `workspace-governance` | Fixed roots, Start Here, Issued Outputs Index, routing, migration and duplicate review. |
 | `meetings-governance` | Meeting discovery, capture, contexts, index and reconciliation. |
 | `stakeholder-governance` | Evidence-backed person and organisation profiles and research maps. |
 

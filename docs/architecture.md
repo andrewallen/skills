@@ -14,15 +14,15 @@ For the human introduction, use the [collection and documentation map](README.md
 | Skill | Each immediate child of `plugins/work-context/skills` has a `SKILL.md`; its `references` and `assets` supply task-specific instructions and templates. No configurable skill path is declared. |
 | Runtime and target | The client supplies filesystem access and suitable authorised retrieval tools. The user supplies the target workspace or collection; skills never derive it from their installed location. |
 
-There are no bundled MCP servers, hooks, executables, search services or background synchronisation in `work-context`. The separate `work-actions` plugin ([documentation](work-actions-plugin.md), [ADR-0011](adr/0011-maintain-work-actions-plugin-here.md)) bundles manual, preview-by-default PowerShell helpers and is otherwise outside this description of `work-context`. See accepted [ADR-0002](adr/0002-package-skills-as-agent-plugin.md) for packaging and [README](../README.md#github-installation-with-copilot-cli) for installation.
+There are no bundled MCP servers, hooks, search services or background synchronisation in `work-context`. The separate `work-actions` plugin ([documentation](work-actions-plugin.md), [ADR-0011](adr/0011-maintain-work-actions-plugin-here.md)) bundles manual, preview-by-default PowerShell helpers and is otherwise outside this description of `work-context`. See accepted [ADR-0002](adr/0002-package-skills-as-agent-plugin.md) for packaging and [README](../README.md#github-installation-with-copilot-cli) for installation.
 
 ## Ownership and standalone operation
 
-All three skills declare the same Common Architecture version and no runtime dependency on another skill. Workspace Governance explicitly loads Common Architecture every run; the specialist skills direct readers to their own bundled references. Read those references as part of the behaviour, not just the skill entry point.
+All three skills declare the same Common Architecture version and no runtime dependency on another skill. All three skills explicitly load Common Architecture every run; specialists also load their own bundled references. Read those references as part of the behaviour, not just the skill entry point.
 
 | Skill | Owns | Does not own |
 |---|---|---|
-| [Workspace Governance](../plugins/work-context/skills/workspace-governance/SKILL.md) | Fixed roots, Start Here, Issued Outputs Index, routing and duplicate review. | Meeting capture, stakeholder profiles or a task system. |
+| [Workspace Governance](../plugins/work-context/skills/workspace-governance/SKILL.md) | Seven fixed roots, Start Here, Issued Outputs Index, routing, approved migration and duplicate review. | Meeting capture, stakeholder profiles or a task system. |
 | [Meetings Governance](../plugins/work-context/skills/meetings-governance/SKILL.md) | Discovery, exact occurrence resolution, capture, contexts, Meetings Index and reconciliation. | Stakeholder analysis or unrelated workspace controls. |
 | [Stakeholder Governance](../plugins/work-context/skills/stakeholder-governance/SKILL.md) | Canonical person and organisation profiles, optional research maps and evidence-based content review. | Meeting collection, a second archive, CRM or task management. |
 
@@ -46,4 +46,12 @@ The [ADR index](adr/README.md) is the status source. Accepted ADRs document curr
 | [0008: Independent contracts](adr/0008-define-independent-skill-contracts.md) | A universal compatible-input contract or producer-neutral record guarantee across the current skills. |
 | [0010: Retrieval semantics](adr/0010-define-evidence-retrieval-semantics.md) | A consolidated shared retrieval reference, ranking algorithm or ingestion service. Some underlying rules already exist in specialist references. |
 
-Implementation of a proposal needs explicit owner acceptance and a separately scoped, versioned change. This repository guidance adds no mandatory workspace roots, record fields or migrations.
+Implementation of a proposal needs explicit owner acceptance and a separately scoped, versioned change. The accepted baseline decisions below, rather than this descriptive overview, establish the new requirements.
+
+## Standard layout and physical migration
+
+Accepted [ADR-0015](adr/0015-standardise-project-folders-and-navigation.md) and [ADR-0016](adr/0016-migrate-projects-through-approved-plans.md) establish the new baseline and transition contract. Common Architecture is the authoritative seven-root definition. Supplementary folders are short and unnumbered; legacy locations are not permanent compliant alternatives.
+
+Workspace Governance now bundles an optional local PowerShell helper for independent file moves. It is preview-by-default, binds application to an approved plan digest and records resumable progress. It does not classify sources, delete legacy containers, bootstrap controls, edit links or migrate cloud storage. Private plans and journals belong in the authorised target/session, not the public package.
+
+The accepted scope includes compatible supplied evidence without producer requirements and source-grounded navigation, not a universal record schema or full acceptance of ADR-0008/ADR-0010. A complete migration requires the baseline, reconciled inventory, approved reference repairs and resolved retired roots. Static checks do not prove runtime behaviour, link preservation or safe concurrent editing.

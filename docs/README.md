@@ -58,7 +58,7 @@ scripts
 
 The [marketplace catalogue](../.github/plugin/marketplace.json) lists both plugins using repository-relative sources. It is a Copilot-specific discovery layer, separate from the portable Agent Plugins format. Each plugin's root manifest is its package-version source, and clients discover skills from immediate children of `skills` containing `SKILL.md`.
 
-Work Context has no bundled executables. Work Actions includes manual, preview-by-default PowerShell helpers. Neither plugin bundles an MCP server or automatic dispatch.
+Work Context includes an optional preview-by-default local migration helper. Work Actions includes manual, preview-by-default PowerShell helpers. Neither plugin bundles an MCP server or automatic dispatch.
 
 ## Format references
 
