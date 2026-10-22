@@ -85,4 +85,4 @@ The repo is the primary place to explore the collection; there is no separate do
 
 ## Licensing
 
-No reuse licence is configured. Public visibility does not grant general permission to copy, adapt or redistribute the content. See the [current licensing decision](docs/adr/0004-licence-not-yet-chosen.md).
+The repository's original content is licensed under the [MIT License](LICENSE). See [ADR-0019](docs/adr/0019-license-repository-content-under-mit.md) for the decision.

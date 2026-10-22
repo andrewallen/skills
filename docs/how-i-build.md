@@ -40,4 +40,4 @@ When authorised, behavioural review uses a bounded, anonymised scenario outside 
 
 For the human view, start with [Work Context](work-context-plugin.md) or [Work Actions](work-actions-plugin.md). For the implementation, follow their links into `SKILL.md`, detailed references and templates.
 
-For maintenance, read [Governance](../GOVERNANCE.md) and the [authoring guide](skill-authoring.md). The collection remains subject to its [current licensing decision](adr/0004-licence-not-yet-chosen.md); this explanation does not introduce a reuse licence or a contribution policy.
+For maintenance, read [Governance](../GOVERNANCE.md) and the [authoring guide](skill-authoring.md). The collection's original content is licensed under the [MIT License](../LICENSE); this explanation does not introduce a contribution policy.

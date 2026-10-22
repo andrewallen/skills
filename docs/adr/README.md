@@ -9,7 +9,7 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0001](0001-record-architecture-decisions.md) | Record architecture decisions | Accepted |
 | [0002](0002-package-skills-as-agent-plugin.md) | Package skills as an Agent Plugins 1.0 plugin with a Copilot marketplace | Accepted |
 | [0003](0003-independent-skills-with-fixed-ownership.md) | Keep skills independent with fixed ownership boundaries | Accepted |
-| [0004](0004-licence-not-yet-chosen.md) | No reuse licence yet | Accepted |
+| [0004](0004-licence-not-yet-chosen.md) | No reuse licence yet | Superseded by ADR-0019 |
 | [0005](0005-safeguards-for-meeting-evidence-capture.md) | Apply safeguards to meeting-evidence capture | Superseded by ADR-0012 |
 | [0006](0006-version-and-publish-plugin-changes-together.md) | Version and publish plugin changes together | Accepted |
 | [0007](0007-use-99-archive-for-new-workspaces.md) | Use 99 Archive for new workspaces | Accepted |
@@ -24,3 +24,4 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0016](0016-migrate-projects-through-approved-plans.md) | Migrate projects through approved plans | Superseded by ADR-0017 |
 | [0017](0017-use-direct-filesystem-operations.md) | Use direct filesystem operations | Accepted |
 | [0018](0018-ground-stakeholder-profiles-in-project-evidence.md) | Ground stakeholder profiles in project evidence | Accepted |
+| [0019](0019-license-repository-content-under-mit.md) | License repository content under MIT | Accepted |

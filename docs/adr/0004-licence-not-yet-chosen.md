@@ -1,16 +1,16 @@
 # ADR-0004: No reuse licence yet
 
-- Status: Accepted
+- Status: Superseded by ADR-0019
 - Date: 2026-10-14
 
 ## Context
 
-The repository is public, but the README states that no reuse licence has been configured.
+At the time of this decision, the repository was public and no reuse licence had been configured.
 
 ## Decision
 
-Leave the repository unlicensed for now. Choose a licence deliberately before inviting reuse or contributions, then record it in a superseding ADR.
+Leave the repository unlicensed until the owner deliberately chooses a licence. This decision was superseded by [ADR-0019](0019-license-repository-content-under-mit.md).
 
 ## Consequences
 
-Default copyright applies, so others have no explicit right to reuse the content. This is a known gap, not an oversight.
+Until superseded, default copyright applied and others had no explicit right to reuse the content.
