@@ -20,6 +20,7 @@ Installation does not supply credentials, adopt a ledger policy, grant access, r
 |---|---|
 | Local workspace assessment, folder operations, reading supplied evidence and writing controls/profiles | Direct filesystem tools or shell access, plus any local readers for the document formats in scope. No MCP server is required for local-only work; Computer Use is not a substitute. Content that cannot be read is reported as a gap, not skipped. |
 | Meetings Governance: live Microsoft 365 calendar/meeting discovery and retrieval of Teams transcripts/chats, tied Outlook email and shared resources | **WorkIQ MCP**, or equivalent authorised Microsoft 365 tools exposing the required sources and exact reads. The signed-in account must have access to the requested records. |
+| Meetings Governance: original files beyond an inline tool's binary/output limit | Shell/filesystem access to save and verify the file, plus an authorised transfer route. Try non-interactive provider download tools, returned self-authorising URLs and configured file-scoped APIs/CLIs first. The already signed-in browser is a last resort, not a required dependency when another route works. See [large Microsoft 365 files](#large-microsoft-365-files). |
 | Stakeholder Governance: separately authorised live Microsoft 365 email, Teams, directory, SharePoint or OneDrive research for a stated question | **WorkIQ MCP**, or equivalent authorised tools for the scoped sources. Not part of ordinary profile creation or refresh, which use the project's own files; this does not authorise parallel meeting capture. |
 | Workspace migration requiring cloud identity, history or shared-link guarantees beyond supported filesystem operations | An authorised provider tool/API supporting the specific move and preservation requirements. Do not assume WorkIQ search/read access includes cloud move capabilities. |
 | Workspace Governance's optional independent-local-file helper | PowerShell 7.2+; no `gh`. Not required for ordinary folder operations. |
@@ -29,6 +30,24 @@ Installation does not supply credentials, adopt a ledger policy, grant access, r
 Configure WorkIQ MCP or other source tools separately in the client and authenticate through its supported setup. This repository does not bundle MCP servers, install them, supply credentials or grant tenant permissions. A listed skill or connected server does not prove that a particular transcript, attachment, full history or download is available.
 
 Before remote work, check the available tools and their source-specific capabilities. Search summaries alone are not exact source retrieval. If a required capability or permission is missing, name the affected source and limitation, continue independent authorised local work, and report partial coverage. Do not claim `none found` or full capture when access was unavailable.
+
+### Large Microsoft 365 files
+
+WorkIQ's currently exposed `fetch_blob` documents a **4 MB raw-file cap** and returns base64 for drive files and email attachments alike. That is this tool's transfer limit, not a Microsoft 365 limit. Other tools that return inline base64 document their own limits, and some Microsoft 365 tools return only metadata or indexed text, so read each installed schema.
+
+Dedicated mail, SharePoint and OneDrive tools can complement WorkIQ. Use a configured on-demand registry to discover their available capabilities before declaring a gap; do not install or persistently configure additional servers automatically. Mail attachment downloads may carry files beyond WorkIQ's cap; SharePoint/OneDrive tools can resolve exact metadata and download links, but their inspected inline binary readers require files under 5 MB. Another search or metadata tool is not an unlimited downloader.
+
+A manual test on Windows with Microsoft Edge (one environment, not a skill run) observed:
+
+- A mail attachment-download tool returned a complete 8.5 MB attachment. The host saved the oversized output to a file, which has to be parsed as JSON before the base64 is decoded.
+- A drive item's returned download URL was not pre-authenticated. A plain HTTP request received `401`, and a general-purpose command-line token without file scopes received `403`. [Microsoft Graph's driveItem content API](https://learn.microsoft.com/en-us/graph/api/driveitem-get-content?view=graph-rest-1.0) documents a short-lived pre-authenticated URL, but the URLs a particular tool exposes may not include one.
+- Opening that same URL from the shell in the already signed-in default browser saved the complete 16.9 MB file, which matched its size, zip integrity and provider hash.
+
+Prefer non-interactive retrieval in this order: a provider download tool, a returned self-authorising URL saved by an HTTP client, then an already configured file-scoped API or CLI. Only after these fail or are unavailable may the skill open a returned download URL in the user's signed-in browser, then use browser automation if needed. Opening a URL from the shell can still interrupt the user; Browser Use and Computer Use are last resorts, must use background-safe interaction where supported and must yield to active user input. Record why each applicable non-interactive route could not be used.
+
+A signed-in browser carries the transfer only. It cannot download what the user cannot open: tenant consent, source permissions, download blocks and sensitivity-label protection still apply, and a protected file is retained as downloaded, never decrypted. Do not expose credentials or pre-authenticated download URLs in archive pointers or logs.
+
+Meetings Governance applies this [recovery sequence](../plugins/work-context/skills/meetings-governance/references/capture.md#0-retrieval-preflight-and-automatic-recovery) in the same run, asks once for any specific sign-in or approval it still needs after authorised alternatives, and records anything it could not retrieve as a gap. The plugin installs no server or SDK, adds no permissions, and does not sign in, switch accounts or request access.
 
 ## GitHub installation
 

@@ -28,3 +28,5 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0020](0020-deploy-stable-versioned-workspace-signposts.md) | Deploy stable, versioned workspace signposts | Accepted |
 | [0021](0021-record-github-repository-governance-baseline.md) | Record the GitHub repository governance baseline | Accepted |
 | [0022](0022-run-repository-validation-as-a-required-check.md) | Run repository validation as a required check | Accepted |
+| [0023](0023-recover-meeting-evidence-retrieval-through-authorised-routes.md) | Recover meeting-evidence retrieval through authorised routes | Superseded by ADR-0024 |
+| [0024](0024-prefer-non-interactive-retrieval-before-browser-fallbacks.md) | Prefer non-interactive retrieval before browser fallbacks | Accepted |
