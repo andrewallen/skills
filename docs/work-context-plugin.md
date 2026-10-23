@@ -60,6 +60,8 @@ Example request:
 
 The context helps you locate topics, attributed points and historical follow-ups; it does not replace primary evidence or establish current action ownership. When local saving fails, authorised online review may inform synthesis, but remains explicitly distinct from local retention.
 
+Retrieval does not stop at the first tool-size or wrapper failure. The skill discovers available source-specific tools, including mail attachment and SharePoint/OneDrive alternatives, tries supported authorised routes in the same run and verifies original-file transfers before claiming local capture. It exhausts applicable non-interactive provider tools, returned download URLs and configured file-scoped APIs/CLIs before opening or automating a browser. Browser Use and Computer Use are last resorts because they can interrupt the user. See [large Microsoft 365 files](installation.md#large-microsoft-365-files) and [ADR-0024](adr/0024-prefer-non-interactive-retrieval-before-browser-fallbacks.md). Missing authentication and real source denials remain explicit blockers, not permission to change accounts or bypass controls.
+
 [Read the skill](../plugins/work-context/skills/meetings-governance/SKILL.md) | [Capture rules](../plugins/work-context/skills/meetings-governance/references/capture.md) | [Context template](../plugins/work-context/skills/meetings-governance/assets/context-record.md)
 
 ### Stakeholder Governance

@@ -107,6 +107,7 @@ Keep these axes separate:
 
 ## 4. Retrieval playbook
 
+- Apply the [capture preflight and recovery sequence](capture.md#0-retrieval-preflight-and-automatic-recovery) (accepted [ADR-0024](../../../../../docs/adr/0024-prefer-non-interactive-retrieval-before-browser-fallbacks.md)) to all source types. Continue through available authorised alternatives in the same run, distinguishing a tool/transport limitation from source denial; no generic reprompt is needed to try another already-permitted route. Exhaust applicable non-interactive routes before opening or automating a browser; Browser Use and Computer Use are last resorts and must yield to active user input.
 - Prefer dedicated entity tools for exact reads and pagination. Semantic search supplies leads, not substitute identities or negative findings.
 - Prove one small request before repeating it across sources.
 - Copy paired identifiers from the same resolved record. Compare opaque IDs case-sensitively and ordinally, including in PowerShell (`-ceq`, not `-eq`). Never lowercase, rebuild or repair IDs or cursors. Decode URL query encoding only when the tool's token parameter requires it, without changing the value.
@@ -120,6 +121,7 @@ Keep these axes separate:
 
 - Tool hosts may retain oversized responses automatically. Minimise payloads; do not promise zero retention. Record runtime retention separately from deliberate archive output.
 - Source continuation and host-output truncation are different conditions. Read only authorised bounded results and never count unseen truncated content as reviewed or retained; re-read in smaller bounded pages until the whole source is saved locally where possible. If local saving fails, use the authorised online-review fallback in Key guidance 4 and report any remaining gap.
+- Recover a complete host-retained output or structured payload before repeating the source call. For binary originals beyond inline limits, use the capture reference's original-file routes; pagination or a preview/conversion is not original-file retention. Never reconstruct an original from truncated base64.
 - Distinguish what was retrieved locally, retrieved online, **semantically reviewed** and retained locally. If local retention fails but authorised online review succeeds, mark the source Not captured locally and still use it in the synthesis. If online review also fails, report the actual gap (Key guidance 5).
 
 ## 6. Protected and cloud-hosted sources
@@ -136,7 +138,7 @@ Keep these axes separate:
 - Keep three times distinct: the frozen evidence cutoff, the actual inspection time and the source version's modified/effective time. Record only times actually established; never reuse the cutoff as a retrieval timestamp.
 - Prefer grounded or version-pinned reads over opening a collaborative app. Verify that each answer or citation used the exact intended item, version and attachment parent; a familiar title or a URL in the prompt does not guarantee it. Discard mismatched-source comparisons.
 - For a necessary authorised native view (including Loop), capture item/version/modified metadata before opening and compare after closing where supported. A first fingerprint taken after opening cannot prove a pre-view state. Native viewing is not assumed side-effect-free.
-- Use an observed viewing/preview link, not a guessed download URL, and enable download cancellation where supported.
+- For viewing, use an observed viewing/preview link, not a guessed download URL, and enable download cancellation where supported. Explicit original-file capture uses the capture reference's authorised download routes instead; it is distinct from an unexpected download during viewing.
 - If navigation starts an unexpected download or the version advances, stop that route, record the observation and tell the user. Do not infer a content change or cause, use the download as a workaround, revert the source or delete files.
 - Current content cannot establish a historical version; retain that limitation.
 - Record physical page/slide numbers, hidden slides and unreadable image-only content. A current PPTX, an earlier version and an emailed PDF are distinct evidence until equivalence is shown; matching extracted text is not byte or visual equivalence.
