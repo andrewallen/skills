@@ -5,7 +5,7 @@
 
 ## Context
 
-The reusable action-ledger skill, its references, assets and manual PowerShell helpers were first packaged as `work-actions` in the owner's operational ledger repository, `work-actions` (merged at `a2ef997809b8c4f1b30bfb1f18b5a5ebe0dd6b20`). The owner asked to move the plugin here and manage it here. This repository already catalogues and maintains `work-context`, under accepted [ADR-0002](0002-package-skills-as-agent-plugin.md) and [ADR-0006](0006-version-and-publish-plugin-changes-together.md).
+The reusable action-ledger skill, its references, assets and manual PowerShell helpers were first packaged as `work-actions` outside this repository. The owner asked to move the plugin here and manage it here. This repository already catalogues and maintains `work-context`, under accepted [ADR-0002](0002-package-skills-as-agent-plugin.md) and [ADR-0006](0006-version-and-publish-plugin-changes-together.md).
 
 ## Decision
 

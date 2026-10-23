@@ -2,7 +2,7 @@
 name: action-ledger
 description: Capture, clarify, select, delegate, execute, review or hand off actions in an explicitly named GitHub issue ledger. Keep human attention, accountability, execution and acceptance separate. Use for daily or weekly action reviews and safe manual view refresh; not for an application backlog, automatic dispatch or general coding without a ledger action.
 metadata:
-  version: "1.1"
+  version: "1.2"
   runtime-dependencies: Approved GitHub access; PowerShell 7.2+ and authenticated gh for bundled helpers
 ---
 
@@ -35,6 +35,11 @@ For helpers, also resolve the supplied checkout as an absolute `target_path`.
 Read its `.github/work-actions.json` and confirm `repository` matches the
 explicit `target_repository`. The installed plugin is never the target.
 The source ledger is a valid target only when explicitly selected.
+The view-refresh helpers inspect all open non-pull-request issues and flag
+records that lack valid action or parent-Project metadata. Use them only with a
+dedicated action ledger, not a general-purpose issue tracker. The skill may
+still operate on one explicitly named action issue without refreshing every
+issue in that repository.
 
 Read the target's `GOVERNANCE.md`, `AGENTS.md`, documentation map, current
 working method, relevant decisions and applicable tool permissions. Read
@@ -55,7 +60,7 @@ human; do not choose the least restrictive interpretation.
 | Select/review | Read source labels and dates, surface deadlines, decisions and dependencies; do not turn selection into execution. |
 | Delegate/execute | Act only on this particular explicitly assigned execution and its boundary. |
 | Handoff | Leave an evidence-backed update and one concrete next step on the same issue. |
-| Accept/cancel | Close only with attributable human acceptance or explicit delegated acceptance, or authorized cancellation. |
+| Accept/cancel | Close only with attributable human acceptance or explicit delegated acceptance, or authorised cancellation. |
 | Refresh/maintain | Preview deterministic changes, apply only with authority, and report the actual result. |
 
 ## Capture and clarify
@@ -67,11 +72,10 @@ when an add-to-Project step fails.
 
 In this pilot an API-created action starts with `kind:action`, `Inbox`,
 `state:ready`; a parent outcome uses `Project`, not both kinds. Keep related
-work as links/sub-issues, not copies. The current pilot forms and API flow
-include the configured private Project: add the same API-created issue using
+work as links/sub-issues, not copies. The current capture flow includes the
+configured private Project: add the same API-created issue using
 the target configuration's Project owner/number and canonical issue URL.
-Report missing Project permissions; do not silently implement the Proposed
-Projects-optional ADR.
+Report missing Project permissions; no Projects-optional mode is implemented.
 
 Assignees identify the human accountable for acceptance, not the executor.
 Capture does not establish a commitment or delegation. Clarification preserves
@@ -99,7 +103,7 @@ Use the execution-update template at each material handoff. Maintain the issue's
 Next action without rewriting the outcome. Waiting also needs a named Waiting
 for dependency and Review on follow-up date. Failure needs the actual error
 and a recovery step. A finished draft or PR remains `state:review` while
-acceptance is pending. Close completed only after criteria and authorized
+acceptance is pending. Close completed only after criteria and authorised
 acceptance are recorded; cancellation uses not planned.
 
 After source labels/fields change, refresh using the target's approved method.

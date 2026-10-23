@@ -2,9 +2,9 @@
 name: workspace-governance
 description: Create, assess, repair or migrate projects into the seven-folder structure. Plan unfamiliar layouts before approved moves; register issued outputs and review duplicates. Not required for ordinary reading or drafting.
 metadata:
-  version: "4.0"
-  architecture: common-workspace-architecture v2.3
-  runtime-dependencies: Direct filesystem or shell access; PowerShell 7.2+ for the optional local migration helper; authorised provider tools when cloud preservation requires them
+  version: "4.1"
+  architecture: common-workspace-architecture v2.4
+  runtime-dependencies: Direct filesystem or shell access; Windows path conventions; PowerShell 7.2+ for the optional local migration helper; authorised provider tools when cloud preservation requires them
 ---
 
 # Workspace Governance

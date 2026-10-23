@@ -39,7 +39,7 @@ The [current information model inventory](current-information-model.md) maps the
 
 ## Implemented decisions versus proposals
 
-The [ADR index](adr/README.md) is the status source. Accepted ADRs document current packaging, ownership, versioning, archive naming, meeting-evidence capture and the minimal shared evidence model; the inventory and this overview do not accept decisions. Accepted [ADR-0012](adr/0012-local-first-meeting-evidence-capture.md) establishes local-first capture, platform labels as metadata only, and authorized online review when local retention fails. Accepted [ADR-0013](adr/0013-minimal-shared-evidence-model.md) supersedes the broader proposal in ADR-0009.
+The [ADR index](adr/README.md) is the status source. Accepted ADRs document current packaging, ownership, versioning, archive naming, meeting-evidence capture and the minimal shared evidence model; the inventory and this overview do not accept decisions. Accepted [ADR-0012](adr/0012-local-first-meeting-evidence-capture.md) establishes local-first capture, platform labels as metadata only, and authorised online review when local retention fails. Accepted [ADR-0013](adr/0013-minimal-shared-evidence-model.md) supersedes the broader proposal in ADR-0009.
 
 | Proposed ADR | Not established by that proposal |
 |---|---|

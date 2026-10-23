@@ -1,7 +1,7 @@
 ---
 document_role: common-workspace-architecture
-architecture_version: "2.3"
-effective_date: "2026-10-22"
+architecture_version: "2.4"
+effective_date: "2026-10-23"
 ---
 
 # Common Workspace Architecture
@@ -67,7 +67,17 @@ Filenames such as `Final`, `Official`, `Clean` or `Customer-Ready` do not establ
 
 ## Information and lifecycle
 
-Keep these separate:
+Use the five information types consistently across the skills:
+
+| Type | Meaning |
+|---|---|
+| **Captured** | Original communication, recording or retained source; the source may contain errors. |
+| **Extracted** | A selected quotation, discrete fact or close attributed paraphrase with no additional conclusion. |
+| **Synthesised** | Statements organised, condensed or connected within or across sources. |
+| **Inferred** | Interpretation extending beyond an explicit statement. |
+| **Proposed** | A recommendation or application suggested by the author or agent. |
+
+Specialist references may add examples, but do not redefine these types. Keep them separate from:
 
 - information type: Captured, Extracted, Synthesised, Inferred or Proposed;
 - provenance and attribution;

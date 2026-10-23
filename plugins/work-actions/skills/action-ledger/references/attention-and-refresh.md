@@ -1,6 +1,7 @@
 # Attention and manual refresh
 
-The current pilot uses `Europe/London` calendar dates, including BST/GMT.
+The fixtures use `Europe/London`; operational dates use the target ledger's
+configured `timeZone` system ID, including its daylight-saving transitions.
 Due date is a real deadline; Review on is resurfacing/follow-up. Never move a
 deadline just to hide overdue work. Dates are blank, `_No response_`, or a
 valid `YYYY-MM-DD`, with no prose or duplicate sections. Only top-level form
@@ -41,9 +42,9 @@ Only the reconciler owns the configured `view:*` labels and
 and explanatory comment; repeated identical errors do not spam comments.
 Fix source data and refresh; old notices remain history.
 
-The source pilot is deliberately manual: `WORK_ACTIONS_AUTO_REFRESH=false`,
-Enterprise-hosted runners unavailable, no self-hosted runner assigned.
-Do not enable automation, alter runners or permissions to clear a check.
-Source labels/comments update immediately; computed views can be stale.
+The packaged helpers are manually invoked; no scheduled runner or automatic
+refresh is part of this plugin. Do not enable automation, alter runners or
+permissions to clear a check. Source labels/comments update immediately;
+computed views can be stale.
 Rechecks detect some concurrent edits but cannot eliminate the final read/write
 gap. Report conflicts and rerun only once the target is stable.

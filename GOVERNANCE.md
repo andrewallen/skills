@@ -50,7 +50,7 @@ The published source is the repository ref used when registering the marketplace
 
 See [README update instructions](README.md#updating-an-installed-plugin). Marketplace registration and a version bump do not guarantee automatic installation: that depends on the client's update configuration. GitHub tags and Releases are optional release records, not substitutes for updating the ref the marketplace consumes.
 
-These are contributor checklists, not proof of automated enforcement. The intended GitHub baseline and its trade-offs are recorded in [ADR-0021](docs/adr/0021-record-github-repository-governance-baseline.md); the [repository configuration guide](docs/repository-configuration.md) separates dated observations from live verification. A PR requirement does not itself enforce independent review, successful validation or owner authorisation.
+Until the accepted [ADR-0022](docs/adr/0022-run-repository-validation-as-a-required-check.md) workflow is merged, reports under its stable check name and is configured as a required status check, repository validation remains a contributor duty. The intended GitHub baseline and its trade-offs are recorded in [ADR-0021](docs/adr/0021-record-github-repository-governance-baseline.md); the [repository configuration guide](docs/repository-configuration.md) separates dated observations from live verification. A PR requirement or successful status check does not itself enforce independent review, owner authorisation, runtime safety or public-content review.
 
 ## GitHub repository configuration
 

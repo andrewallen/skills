@@ -2,10 +2,9 @@
 name: stakeholder-governance
 description: Create or refresh evidence-backed profiles of relevant people and organisations from the project's own files. Use after new meeting or source evidence, for named profile creation, bounded stakeholder discovery or evidence-based content review. Do not profile Microsoft or Microsoft employees. Do not create a CRM, personality model, account plan or second meeting archive.
 metadata:
-  version: "6.1"
-  architecture: common-workspace-architecture v2.3
-  runtime-dependencies: Direct filesystem or shell access; any local readers available for the document formats in scope; WorkIQ MCP or equivalent authorised Microsoft 365 tools only for separately authorised live research
-  predecessor: stakeholders-governance v2.7
+  version: "6.2"
+  architecture: common-workspace-architecture v2.4
+  runtime-dependencies: Direct filesystem or shell access using Windows path conventions; any local readers available for the document formats in scope; WorkIQ MCP or equivalent authorised Microsoft 365 tools only for separately authorised live research
 ---
 
 # Stakeholder Governance

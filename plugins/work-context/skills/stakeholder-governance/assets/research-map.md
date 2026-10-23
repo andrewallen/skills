@@ -16,7 +16,7 @@ Entity type: <person | organisation>
 Supports: <relative link to the canonical Person Profile or Organisation Profile>, which holds the substantive account.
 Map review scope: <range, cutoff, date>. Profile review scope: <same, or state the difference>.
 
-Taxonomy: **Captured** original record; **Extracted** quotation, fact or close paraphrase; **Synthesised** organised or connected statements; **Inferred** interpretation; **Proposed** our recommendation.
+Taxonomy: **Captured** original communication, recording or retained source; **Extracted** a selected quotation, discrete fact or close attributed paraphrase with no additional conclusion; **Synthesised** statements organised, condensed or connected within or across sources; **Inferred** interpretation extending beyond an explicit statement; **Proposed** a recommendation or application suggested by the author or agent.
 
 ## Coverage
 

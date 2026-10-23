@@ -41,6 +41,38 @@ function Get-ActionConfiguration {
     }
     # Optional: an absent or null extraViews means none, never a null view entry.
     if ($null -eq $config['extraViews']) { $config['extraViews'] = @() }
+    # Entries become Project view names and filters. Reject what would create a duplicate
+    # view or a malformed filter before any request is made.
+    if ($config['extraViews'] -isnot [System.Collections.IList]) {
+        throw 'extraViews must be an array of objects, each with a name and an optional label.'
+    }
+    $viewNames = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::InvariantCultureIgnoreCase)
+    $null = $viewNames.Add('All actions')
+    foreach ($view in $config.views) { $null = $viewNames.Add([string]$view.name) }
+    $position = 0
+    foreach ($extra in $config['extraViews']) {
+        $position++
+        if ($extra -isnot [System.Collections.IDictionary]) {
+            throw "extraViews entry $position must be an object with a name and an optional label."
+        }
+        $unsupported = @($extra.Keys | Where-Object { $_ -notin @('name', 'label') })
+        if ($unsupported.Count -gt 0) {
+            throw "extraViews entry $position contains unsupported field '$($unsupported[0])'; use only name and optional label."
+        }
+        $name = $extra['name']
+        if ($name -isnot [string] -or [string]::IsNullOrWhiteSpace($name)) {
+            throw "extraViews entry $position needs a non-empty name."
+        }
+        if ($extra.Contains('label')) {
+            $label = $extra['label']
+            if ($label -isnot [string] -or [string]::IsNullOrWhiteSpace($label) -or $label -match '["\p{Cc}]') {
+                throw "extraViews entry $position ('$name') has an invalid label; use a non-empty string without quotes or control characters."
+            }
+        }
+        if (-not $viewNames.Add($name)) {
+            throw "extraViews entry $position ('$name') repeats a view name; names must be unique, ignoring case, including 'All actions' and the built-in views."
+        }
+    }
     return $config
 }
 

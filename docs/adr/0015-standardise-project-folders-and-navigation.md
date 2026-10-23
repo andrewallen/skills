@@ -19,4 +19,4 @@ Skills consume suitable supplied evidence without requiring its producer, while 
 
 ## Consequences
 
-Common Architecture advances to 2.0; affected skills and templates change with the package. Existing projects are not silently migrated. The accepted `99 Archive` name in ADR-0007 and independent ownership in ADR-0003 remain valid. New roots replace previous active defaults, not historical records.
+Common Architecture advances to 2.0; affected skills and templates change with the package. Existing projects are not silently migrated. The accepted `99 Archive` name in ADR-0007 and independent ownership in ADR-0003 remain valid. New roots replace previous active defaults, not historical records. ADR-0020 supersedes this decision's navigation requirements and changes navigation policy only (its decision 8). The rest remains in force: ADR-0020 decision 1 retains the seven fixed roots, their routing roles and bounded producer-neutral source consumption, and Common Architecture carries the folder, path and output-metadata rules, with static signposts as the stated exception to the visible-metadata rule.

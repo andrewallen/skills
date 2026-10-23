@@ -9,7 +9,7 @@ ADR-0016 left directory moves outside the optional helper and called for a platf
 
 ## Decision
 
-Supersede [ADR-0016](0016-migrate-projects-through-approved-plans.md), retaining its seven-root destination, bounded approval, preservation, drift checks and honest partial outcomes.
+Supersede [ADR-0016](0016-migrate-projects-through-approved-plans.md), retaining its seven-root destination, bounded approval, preservation, drift checks and honest partial outcomes. This decision supersedes ADR-0016's mandatory helper-plan approach.
 
 All Work Context skills use direct filesystem tools or shell commands for basic local file operations, never Computer Use or Explorer/Finder automation. Prefer a direct folder rename/move. Where the approved layout needs it, create missing destinations, move contents without overwriting, verify the result and remove only approved old folders freshly confirmed empty, including hidden entries. Removal is non-recursive and never targets the project root or reparse-point targets.
 
@@ -23,4 +23,4 @@ The optional helper retains its independent-local-file, digest-bound and preview
 
 Routine folder work has a direct route without a mandatory helper workflow. Shared guidance applies to all three skills; the seven roots, ownership and governed-file schemas do not change. No existing workspace is automatically migrated or repaired by this release.
 
-Validation is repository consistency, parser checks and manual instruction review only. Skill/helper execution, filesystem/provider behaviour, recovery, shared-link preservation and installed-client behaviour remain unverified and need separately authorised runtime checks.
+Validation includes repository consistency, parser checks, manual instruction review and a synthetic temporary-directory execution test of the optional helper. That test does not use or verify a real workspace. Skill execution, filesystem/provider behaviour on actual workspaces, recovery, shared-link preservation and installed-client behaviour remain unverified and need separately authorised runtime checks.

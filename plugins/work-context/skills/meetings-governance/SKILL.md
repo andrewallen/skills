@@ -2,9 +2,9 @@
 name: meetings-governance
 description: Get the latest meetings, capture named meetings, initialise a meeting archive or repair incomplete meeting evidence. Preserve exact occurrence identity, source provenance and history without becoming a task or approval system.
 metadata:
-  version: "6.2"
-  architecture: common-workspace-architecture v2.3
-  runtime-dependencies: Direct filesystem or shell access; WorkIQ MCP or equivalent authorised Microsoft 365 tools for live discovery and retrieval
+  version: "6.3"
+  architecture: common-workspace-architecture v2.4
+  runtime-dependencies: Direct filesystem or shell access using Windows path conventions; WorkIQ MCP or equivalent authorised Microsoft 365 tools for live discovery and retrieval
 ---
 
 # Meetings Governance
@@ -33,8 +33,8 @@ Unless the user asks for initial backfill, named intake, repair or recalibration
 1. Resolve the meeting root and read the Archive Guide and Meetings Index when present.
 2. Use the last completed reconciliation as the starting point; otherwise use a bounded recent window and state it.
 3. Find meetings and meeting sources added or changed in that window.
-4. Reuse unchanged complete local captures. For sources previously reviewed online but not retained locally, retry local retention within the authorized scope.
-5. Capture new or changed evidence, review authorized online sources when local retention fails, update affected contexts and update the index once.
+4. Reuse unchanged complete local captures. For sources previously reviewed online but not retained locally, retry local retention within the authorised scope.
+5. Capture new or changed evidence, review authorised online sources when local retention fails, update affected contexts and update the index once.
 6. Report anything not captured, then what changed.
 
 Do not reopen historical scope, regenerate every profile or run classification review during a routine refresh.
@@ -101,7 +101,7 @@ For each in-scope meeting:
 
 - attempt to retain every in-scope transcript, meeting or follow-up chat, tied email, note, minute and recap locally as a faithful Markdown companion;
 - attempt to retain recordings and shared resources locally in their original form, with their identity and original source link;
-- when local retention fails, preserve the canonical source link and observed failure, then use normal authorized platform access to review the source online if possible; include that evidence in the synthesis alongside local sources and state that it was not retained locally;
+- when local retention fails, preserve the canonical source link and observed failure, then use normal authorised platform access to review the source online if possible; include that evidence in the synthesis alongside local sources and state that it was not retained locally;
 - record platform-applied classification labels as metadata when exposed; do not infer or interpret classification from markings in source content, and do not treat a platform label alone as a reason to withhold capture or synthesis;
 - do not use legacy meeting-class or baseline-impact values to exclude an in-scope source or alter capture; preserve those values in existing records without automatic migration;
 - preserve wording, speaker attribution, timestamps, provenance and uncertainty;
@@ -115,11 +115,11 @@ Use the local capture reference for source-specific retrieval and pagination rul
 
 Describe information transformation only after reviewing the primary evidence. Keep it distinct from source-platform classification labels and lifecycle:
 
-- Captured: original communication or recording;
-- Extracted: a faithful selected passage;
-- Synthesised: a summary or connected account;
-- Inferred: interpretation beyond the words;
-- Proposed: a recommendation or future action.
+- Captured: original communication, recording or retained source; the source may contain errors.
+- Extracted: a selected quotation, discrete fact or close attributed paraphrase with no additional conclusion.
+- Synthesised: statements organised, condensed or connected within or across sources.
+- Inferred: interpretation extending beyond an explicit statement.
+- Proposed: a recommendation or application suggested by the author or agent.
 
 Update the Meetings Index once after the affected records are complete. A targeted intake leaves archive-wide inventory status `provisional`.
 

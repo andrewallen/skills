@@ -9,12 +9,12 @@
   "plugins": [
     {
       "name": "work-context",
-      "description": "Common workspace structure with approved migration, latest-meeting refresh, and evidence-backed stakeholder profiles.",
+      "description": "Consistent project folders, approved migration, meeting evidence and stakeholder profiles.",
       "source": "./plugins/work-context"
     },
     {
       "name": "work-actions",
-      "description": "Capture, clarify, delegate, review and hand off actions on one GitHub issue ledger.",
+      "description": "A shared human-agent action ledger with bounded delegation, evidence-backed handoffs and deterministic attention views.",
       "source": "./plugins/work-actions"
     }
   ]

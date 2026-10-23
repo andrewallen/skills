@@ -18,7 +18,7 @@ Name the approved empty old folders to remove after contents have moved and been
       "source": "Drafts\\Options.md",
       "destination": "20 Working\\Options.md",
       "sha256": "<observed-64-character-sha256>",
-      "lastWriteTimeUtc": "<observed-ISO-8601-UTC-timestamp>"
+      "lastWriteTimeUtc": "<observed-ISO-8601-UTC-timestamp-with-seven-fractional-digits>"
     }
   ],
   "unresolved": [],
@@ -28,4 +28,4 @@ Name the approved empty old folders to remove after contents have moved and been
 
 Paths within operations and retired roots are relative to the exact target. Each operation is one independent file move, not a directory, glob, dependency group or link rewrite. Unresolved entries are explanatory strings. Retired roots must be resolved through approved cleanup before full conformity; the helper never deletes them.
 
-For helper execution, the plan digest is computed from the exact JSON bytes. Approval names that digest and the specific authority for writes. Changes to approved scope require new approval. Helper journals bind schema, plan hash, target and prepared/completed operation indexes. They are operational records, not evidence that the project meets all semantic or cloud requirements.
+For helper execution, the plan digest is computed from the exact JSON bytes. Approval names that digest and the specific authority for writes. Changes to approved scope require new approval. The helper compares `LastWriteTimeUtc.Ticks` exactly as well as the file SHA-256; record the observed UTC value with seven fractional digits (`DateTime` round-trip format) so tick precision is preserved. A filesystem that rounds modification times can cause a safe false refusal. Helper journals bind schema, plan hash, target and prepared/completed operation indexes. They are operational records, not evidence that the project meets all semantic or cloud requirements.

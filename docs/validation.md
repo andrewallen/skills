@@ -1,6 +1,6 @@
 # Repository validation
 
-From the repository root, with Git and PowerShell 7 available:
+From the repository root, with Git and PowerShell 7.2+ available:
 
 ```powershell
 pwsh -NoProfile -File .\scripts\validate-repository.ps1
@@ -9,20 +9,22 @@ git diff --check
 
 Package-specific helper isolation checks for `work-actions` run separately with `pwsh -NoProfile -File .\scripts\test-work-actions-plugin.ps1` (synthetic fixtures, faked `gh`, no live GitHub access).
 
+The optional workspace migration helper has a separate synthetic-fixture test: `pwsh -NoProfile -File .\scripts\test-workspace-migration-helper.ps1`. It executes the helper only against disposable temporary directories outside the repository package; it does not exercise a real workspace or authorise a migration.
+
 The script is read-only, uses no downloaded modules or services, and resolves the repository from its own location. It checks tracked and non-ignored untracked files, so newly added documentation is included before staging. It prints failures and exits nonzero; it does not repair files, install the plugin or publish anything.
 
 ## Automated scope
 
 | Check | Coverage |
 |---|---|
-| JSON and package discovery | Parse catalogue and plugin JSON; check required identity fields, plugin semantic versions, unique catalogue names/sources, in-repository sources, manifest/name agreement and catalogue coverage of plugin manifests. Reject duplicate version declarations in catalogue plugin entries and configurable skill paths. |
+| JSON and package discovery | Parse catalogue and plugin JSON; check required identity and MIT licence fields, plugin semantic versions, matching catalogue/manifest descriptions, unique catalogue names/sources, in-repository sources, manifest/name agreement and catalogue coverage of plugin manifests. Reject duplicate version declarations in catalogue plugin entries and configurable skill paths. |
 | Skills and architecture | Check discovery, names, nonempty runtime-dependencies metadata, architecture/version agreement and ownership. Scripted skills declare PowerShell 7.2+; Action Ledger additionally declares `gh`. Skills without bundled scripts still declare required client capabilities and conditional dependencies; lack of scripts does not imply `none`. |
 | Governed templates | For assets that already declare `template`, check its identifier/version and the owning skill in both provenance placeholders. Assets without that field are not assigned a new schema. |
 | Markdown | Check inline link/image destinations and reference-definition destinations outside fenced or inline code. Resolve URI-encoded relative or repository-root paths, check file-name case and simple ATX heading fragments (including duplicate heading suffixes). Fenced examples are not expected to exist as repository files. |
-| ADR index | Check that every numbered ADR is listed once, has a matching number/title/status and uses a documented status. No acceptance or rejection is inferred. |
-| Migration and PowerShell | Check the exact seven-root architecture, matching helper root names, stale active plugin folder names and PowerShell parser errors without importing or executing helpers. |
+| ADR index | Check that every numbered ADR is listed once, has a matching number/title/status and uses a documented status. A superseded ADR must name an existing target, and that target must refer back to it as superseded. No acceptance or rejection is inferred. |
+| Migration and PowerShell | Check the exact seven-root architecture, matching helper root names, stale active plugin folder names and PowerShell parser errors. The dedicated migration test separately executes the optional helper against disposable synthetic paths. |
 
-These are selected repository invariants, not full remote JSON-schema, YAML or CommonMark validation. The scalar metadata checks follow the existing frontmatter layout, not arbitrary YAML syntax. Markdown checking supports the forms used here, not every extension: Setext headings, HTML link/anchor syntax and complex nested link syntax are outside its scope. External URLs are not fetched. Update the checker alongside an intentionally changed convention rather than treating it as an independent architecture authority.
+These are selected repository invariants, not full remote JSON-schema, YAML or CommonMark validation. The scalar metadata checks follow the existing frontmatter layout, not arbitrary YAML syntax. The Actions workflow is reviewed as source but is not parsed or executed by this checker. Markdown checking supports the forms used here, not every extension: Setext headings, HTML link/anchor syntax and complex nested link syntax are outside its scope. External URLs are not fetched. Update the checker alongside an intentionally changed convention rather than treating it as an independent architecture authority.
 
 ## Review and behavioural evidence
 
@@ -48,7 +50,7 @@ For [repository configuration](repository-configuration.md) documentation, disti
 
 ## Static-only changes and public disclosure
 
-The seven-root/migration implementation, direct-file-operation guidance and project-evidence profile guidance are validated by repository consistency and manual instruction review only: do not execute skills, migration helpers, synthetic workspace operations or live source retrieval for them. Run the two repository commands above; parsing helper syntax is not executing it, so the `work-context` migration helper is parse-checked only. The `work-actions` isolation test is a separate check that does execute that package's bundled helpers, against synthetic fixtures with a faked `gh`. Skill/helper behaviour, restart/recovery, collaboration, cloud moves and shared-link preservation remain unverified. Static success is not an operational safety guarantee.
+The seven-root and project-evidence guidance is validated by repository consistency and manual instruction review only; do not execute skills, real workspace operations or live source retrieval as part of repository validation. The dedicated migration test executes the optional helper only against synthetic temporary targets. The `work-actions` isolation test executes that package's helpers against synthetic fixtures with a faked `gh`. Neither test exercises live GitHub, actual workspaces, client behaviour, collaboration, cloud moves or shared-link preservation. Static success is not an operational safety guarantee.
 
 Review changed instructions, templates, JSON examples, scripts and links together. Check routing, approval boundaries, helper/plan/journal fields, dependency declarations, versions, legacy compatibility and honest partial outcomes. Search old names throughout the repository, distinguishing historical ADRs and explicit migration examples from active defaults.
 

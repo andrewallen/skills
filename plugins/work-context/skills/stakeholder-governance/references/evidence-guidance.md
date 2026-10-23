@@ -6,11 +6,11 @@ Use evidence to support a bounded profile, not to reconstruct a whole person or 
 
 | Type | Use |
 |---|---|
-| Captured | Original communication or retained source. |
-| Extracted | Faithful quotation, fact or close attributed paraphrase. |
-| Synthesised | Statements organised or connected across evidence. |
-| Inferred | Interpretation beyond an explicit statement. |
-| Proposed | Our recommendation or application. |
+| Captured | Original communication, recording or retained source; the source may contain errors. |
+| Extracted | A selected quotation, discrete fact or close attributed paraphrase with no additional conclusion. |
+| Synthesised | Statements organised, condensed or connected within or across sources. |
+| Inferred | Interpretation extending beyond an explicit statement. |
+| Proposed | A recommendation or application suggested by the author or agent. |
 
 Keep information type separate from attribution, lifecycle, approval, sensitivity and source coverage.
 

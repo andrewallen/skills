@@ -76,11 +76,9 @@ One issue per action. Human accountability stays with the assignee; executor and
 
 Use the saved attention views to choose work and the decision, running, and failure views to oversee agents. Labels are authoritative; the native Project Status field is intentionally hidden.
 
-Dates use $($config.timeZone). This pilot supports local refresh with scripts/Sync-ActionViews.ps1 -Apply.
+Dates use the configured time zone. Refresh is manual unless this repository's owner has separately approved and configured an automation workflow. A merge or Project setup does not enable automation.
 
-Automatic date-driven refresh requires the workflow on the default branch, an approved Actions runner, and WORK_ACTIONS_AUTO_REFRESH=true. Otherwise the refresh jobs stay paused; merging alone does not enable them.
-
-[Capture an action](https://github.com/$($config.repository)/issues/new?template=action.yml) | [Working method](https://github.com/$($config.repository)/blob/main/docs/working-method.md) | [Agent contract](https://github.com/$($config.repository)/blob/main/AGENTS.md)
+Follow this ledger repository's own governance, issue template and operating guidance where present. This Project description does not create policy or link to files that may not exist here.
 
 Forms add issues here when the creator has Project write access. API-created issues need an explicit Project add step. This is a shared ledger, not an automatic agent dispatcher.
 "@

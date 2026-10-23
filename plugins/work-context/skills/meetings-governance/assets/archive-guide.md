@@ -5,7 +5,7 @@ Create `Archive Guide.md` from this when absent. The guide may start `provisiona
 ```markdown
 ---
 document_role: meeting-archive-guide
-template: meeting-archive-guide@3.0
+template: meeting-archive-guide@3.1
 created_by: meetings-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: meetings-governance@<CURRENT_SKILL_VERSION>
 workspace_code: "<WORKSPACE_CODE>"
@@ -15,6 +15,7 @@ owner_timezone: "<TIMEZONE>"
 approved_at: "<TIMESTAMP OR provisional>"
 current_work_system: "<SYSTEM OR not specified>"
 meetings_root: '<RESOLVED PATH>'
+start_here_root: '<RESOLVED PATH>'
 issued_outputs_root: '<RESOLVED PATH>'
 working_root: '<RESOLVED PATH>'
 sources_root: '<RESOLVED PATH>'
@@ -49,13 +50,13 @@ inventory_status: provisional
 
 ## Evidence and retention rules
 
-<Exact occurrence and provenance. Record platform-applied classification labels as metadata only; do not infer classification from source-content markings or use a label alone to block capture. Attempt local retention first; if it fails, link and review the source online through normal authorized access when possible, and distinguish online review from local capture in per-source evidence coverage. State actual access limitations. Include the compact Captured / Extracted / Synthesised / Inferred / Proposed legend, stating that information transformation is distinct from platform labels, evidence coverage and approval.>
+<Exact occurrence and provenance. Record platform-applied classification labels as metadata only; do not infer classification from source-content markings or use a label alone to block capture. Attempt local retention first; if it fails, link and review the source online through normal authorised access when possible, and distinguish online review from local capture in per-source evidence coverage. State actual access limitations. Include the five information types exactly as defined in Common Architecture, stating that information transformation is distinct from platform labels, evidence coverage and approval.>
 
 ## Storage and protection
 
 <Approved boundary, resource roots and known limitations.>
 
-<Use the common seven-root names. Governance is an optional unnumbered control folder, not a required numbered root; set governance_root to not specified until authorised rather than creating it implicitly. Standalone media follows purpose; meeting media stays in its occurrence.>
+<Use the seven common root names and their matching metadata keys. Governance is an optional unnumbered control folder, not a numbered root; if not present, set governance_root to not specified rather than creating it implicitly. Standalone media follows purpose; meeting media stays in its occurrence.>
 
 ## Current-work authority
 
@@ -71,3 +72,5 @@ inventory_status: provisional
 ```
 
 Replace `<CURRENT_SKILL_VERSION>` when creating the guide. Preserve `created_by`. Update `last_governed_by` only after a material update or validation. A later skill version does not by itself require migration.
+
+Template 3.1 corrects the root metadata to include `start_here_root` and makes optional `governance_root` explicit. Do not rewrite an existing guide solely because its template version is older.
