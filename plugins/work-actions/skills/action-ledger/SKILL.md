@@ -2,7 +2,7 @@
 name: action-ledger
 description: Capture, clarify, select, delegate, execute, review or hand off actions in an explicitly named GitHub issue ledger. Keep human attention, accountability, execution and acceptance separate. Use for daily or weekly action reviews and safe manual view refresh; not for an application backlog, automatic dispatch or general coding without a ledger action.
 metadata:
-  version: "1.0"
+  version: "1.1"
   runtime-dependencies: Approved GitHub access; PowerShell 7.2+ and authenticated gh for bundled helpers
 ---
 

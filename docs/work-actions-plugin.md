@@ -30,15 +30,15 @@ The current pilot requires its configured GitHub Project for the capture flow. P
 
 This repository is the canonical plugin source ([ADR-0011](adr/0011-maintain-work-actions-plugin-here.md)). An operational ledger keeps its own configuration, Project identifiers, records and policy outside this repository.
 
-## Install and start
+## Install, update and start
 
-Follow [GitHub installation](../README.md#github-installation-with-copilot-cli) or the [local installation guide](installation.md#local-installation), selecting `work-actions`. Start with the read-only review request above against a ledger you are authorised to access.
+Follow [GitHub installation](../README.md#github-installation-with-copilot-cli) or the [local installation guide](installation.md#local-installation), selecting `work-actions`. To update an installed copy, use the [shared installation and update guide](installation.md); these are instructions, and repository changes install nothing. Start with the read-only review request above against a ledger you are authorised to access.
 
 If installed from an earlier marketplace, uninstall that older installation before installing `work-actions@andrewallen-personal-skills` to avoid duplicate skills. See [older installation names](installation.md#older-installation-names).
 
-## Source and design
+## Versions and design
 
-The [plugin manifest](../plugins/work-actions/plugin.json) and [skill metadata](../plugins/work-actions/skills/action-ledger/SKILL.md) are the version sources. The [handoff walkthrough](workflows.md#from-a-captured-action-to-a-human-agent-handoff) illustrates the separation between capture, delegation and acceptance.
+The [plugin manifest](../plugins/work-actions/plugin.json) and [skill metadata](../plugins/work-actions/skills/action-ledger/SKILL.md) are the version sources; read them for current versions. Existing ledger records are not migrated by installing or updating the plugin. The [handoff walkthrough](workflows.md#from-a-captured-action-to-a-human-agent-handoff) illustrates the separation between capture, delegation and acceptance.
 
 ## Layout
 
@@ -61,17 +61,9 @@ Copying only `plugins/work-actions` is sufficient; nothing reaches back into thi
 - Helpers preview by default; `-Apply` permits writes but supplies no authority. Failures are reported, not converted to success.
 - Configuration and label definitions are inputs from the target ledger. Never copy another ledger's repository or Project identifiers.
 
-## Install and update
-
-Use the [shared installation and update guide](installation.md). These are instructions; repository changes install nothing.
-
 ## Pinning for a ledger
 
 A ledger may vendor only `plugins/work-actions/skills/action-ledger/scripts/*` at an immutable commit of this repository, preserving the relative `skills/action-ledger/scripts` depth (the module resolves its package boundary three directories up) and recording commit and file hashes. Scripts are kept LF by `.gitattributes`.
-
-## Versions
-
-Read the [plugin manifest](../plugins/work-actions/plugin.json) and [skill metadata](../plugins/work-actions/skills/action-ledger/SKILL.md) for current versions. Existing ledger records are not migrated by installing or updating the plugin.
 
 ## Validation
 
@@ -80,4 +72,4 @@ pwsh -NoProfile -File .\scripts\test-work-actions-plugin.ps1
 pwsh -NoProfile -File .\scripts\validate-repository.ps1
 ```
 
-The first copies the package alone, fakes `gh`, and checks target safety, preview-by-default, idempotence, no file mutation and honest failures against synthetic fixtures in `scripts\fixtures\work-actions`. It does not prove client discovery, installation, live GitHub behaviour or Project permissions.
+The first copies the package alone, fakes `gh`, and checks target safety, preview-by-default, idempotence, no file mutation, an omitted optional `extraViews` key and honest failures against synthetic fixtures in `scripts\fixtures\work-actions`. It does not prove client discovery, installation, live GitHub behaviour or Project permissions.

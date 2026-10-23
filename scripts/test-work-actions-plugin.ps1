@@ -222,6 +222,24 @@ try {
         Assert-Equal 1 $itemAdd.Count 'Project helper adds the same action record once'
         Assert-True ('7' -in $itemAdd[0].Arguments -and 'example' -in $itemAdd[0].Arguments -and
             'https://github.com/example/ledger/issues/17' -in $itemAdd[0].Arguments) 'Project membership uses the target Project and issue'
+
+        # extraViews is optional: a ledger configuration without it must behave like an empty list.
+        $bare = (New-Item -ItemType Directory -Path (Join-Path $scratch 'target without extra views')).FullName
+        $bareConfigurationPath = Join-Path (New-Item -ItemType Directory -Path (Join-Path $bare '.github')).FullName 'work-actions.json'
+        $bareSource = Get-Content -LiteralPath (Join-Path $fixtures 'work-actions.json') -Raw | ConvertFrom-Json -AsHashtable
+        $bareSource.Remove('extraViews')
+        $bareSource | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $bareConfigurationPath -Encoding utf8
+        Assert-True ((Get-Content -LiteralPath $bareConfigurationPath -Raw) -notmatch 'extraViews') 'The variant ledger configuration omits the optional extraViews key'
+        $bareResolved = Get-ActionConfiguration -TargetPath $bare -Repository 'example/ledger'
+        Assert-True ($bareResolved.ContainsKey('extraViews') -and @($bareResolved['extraViews']).Count -eq 0) 'An omitted extraViews key resolves to no extra views'
+        $barePreview = @(& (Join-Path $scripts 'Sync-ActionProject.ps1') -TargetPath $bare -Repository 'example/ledger' 6>&1 | ForEach-Object { [string]$_ })
+        Assert-Equal 9 @($barePreview | Where-Object { $_.StartsWith("View '") }).Count 'Omitted extraViews previews only the nine built-in views'
+        $writes = $global:PluginTestBackend.Writes.Count
+        & (Join-Path $scripts 'Sync-ActionProject.ps1') -TargetPath $bare -Repository 'example/ledger' -Apply
+        $bareWrites = @($global:PluginTestBackend.Writes | Select-Object -Skip $writes)
+        Assert-Equal 1 @($bareWrites | Where-Object { $_.Arguments[0] -eq 'project' -and $_.Arguments[1] -eq 'link' }).Count 'Omitted extraViews still links the Project after the views are written'
+        Assert-Equal 1 @($bareWrites | Where-Object { $_.Arguments[0] -eq 'project' -and $_.Arguments[1] -eq 'item-add' }).Count 'Omitted extraViews still adds the action record to the Project'
+
         $global:PluginTestBackend.PublicProject = $true
         $writes = $global:PluginTestBackend.Writes.Count
         Assert-Throws { & (Join-Path $scripts 'Sync-ActionProject.ps1') -TargetPath $target -Repository 'example/ledger' -Apply } 'Project is public'

@@ -4,10 +4,10 @@
 
 These walkthroughs explain the intended behaviour through fictional scenarios. Requests and result excerpts are illustrative, not executed runs, complete record templates or evidence of a live deployment. Names, paths and issue numbers are placeholders.
 
+- [From an existing project to the standard structure](#from-an-existing-project-to-the-standard-structure)
 - [From meeting evidence to reusable context](#from-meeting-evidence-to-reusable-context)
 - [From new evidence to an updated stakeholder profile](#from-new-evidence-to-an-updated-stakeholder-profile)
 - [From a captured action to a human-agent handoff](#from-a-captured-action-to-a-human-agent-handoff)
-- [From an existing project to the standard structure](#from-an-existing-project-to-the-standard-structure)
 
 ## From an existing project to the standard structure
 
