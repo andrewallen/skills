@@ -53,6 +53,13 @@ it does not create a Project or change its visibility/access. Current Project
 configuration remains required for that operation; the Proposed
 Projects-optional ADR is not implemented by packaging.
 
+`Sync-ActionProject.ps1` maintains the All actions view, the eight configured
+attention views and any entries in the optional `extraViews` array of
+`.github/work-actions.json`. Omit `extraViews`, or set it to `[]`, when no
+further views are needed. Each entry is an object with a `name` and an optional
+`label`: a `label` limits that view to open issues carrying it; without one it
+shows every issue in the repository.
+
 A ledger repository's own root commands, if any, select that checkout
 explicitly and forward to an implementation. Do not invoke them as an
 installed skill or assume they exist in another target.

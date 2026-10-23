@@ -9,7 +9,7 @@ For the human introduction, use the [collection and documentation map](README.md
 | Boundary | Current implementation |
 |---|---|
 | Repository | Installation instructions, contributor guidance, ADRs and validation tooling. It is not a workspace for the skills to govern. |
-| Copilot marketplace | `.github/plugin/marketplace.json` names the catalogue and points to `./plugins/work-context`. It does not duplicate the plugin version. |
+| Copilot marketplace | `.github/plugin/marketplace.json` names the catalogue and points to `./plugins/work-context` and `./plugins/work-actions`. It does not duplicate plugin versions. |
 | Portable plugin | `plugins/work-context/plugin.json` is the package manifest and version source. Common Architecture, skills, references and assets are bundled inside this boundary. Repository docs and scripts are not plugin components. |
 | Skill | Each immediate child of `plugins/work-context/skills` has a `SKILL.md`; its `references` and `assets` supply task-specific instructions and templates. No configurable skill path is declared. |
 | Runtime and target | The client supplies filesystem access and suitable authorised retrieval tools. The user supplies the target workspace or collection; skills never derive it from their installed location. |

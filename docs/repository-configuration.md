@@ -89,4 +89,4 @@ Update intended policy and its ADR when deliberately changing the approach; reco
 
 Run the [repository checks](validation.md) for documentation links and ADR consistency. They do not query GitHub or prove live enforcement. Record settings reads separately from runtime tests, test-PR outcomes and applied changes. A missing required status check or empty PR check list must never be reported as passed validation.
 
-This documentation implementation changed no GitHub settings, package behaviour or user workspace files. No plugin, skill, Common Architecture or template version bump is needed. Adoption by another repository, live configuration changes and runtime enforcement tests remain separate authorised work.
+This guide does not change GitHub settings, package behaviour or user workspace files, and repository-only configuration documentation needs no plugin, skill, Common Architecture or template version bump ([Governance](../GOVERNANCE.md#github-repository-configuration)). Adoption by another repository, live configuration changes and runtime enforcement tests remain separate authorised work.

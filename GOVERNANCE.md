@@ -33,6 +33,8 @@ Before a change is ready for review:
 | `architecture_version` in Common Architecture | When shared folder structure, routing or ownership rules change. Update its effective date and every skill's `metadata.architecture` reference together. |
 | Governed-file `template` version | When the generated file's schema or required structure changes. Keep it separate from skill, architecture and plugin versions. |
 
+Bump each version once per release, against the version last published on `main`: several incompatible changes in one unreleased branch take a single major bump, and version numbers are not skipped.
+
 Metadata-only updates to an architecture reference do not themselves require a skill version bump. Repository-only documentation or process changes outside a plugin do not require a plugin bump. Evaluate each skill if a shared reference changes its behaviour.
 
 Do not add duplicate plugin versions to the marketplace catalogue; the plugin manifest is the version source. Do not change `created_by` in existing governed files, or migrate user workspaces merely because a version advanced. Static workspace signposts are versioned deployments, not rolling project summaries; ordinary project activity does not require refreshing them. A future authorised governance operation may assess their recorded template and skill provenance and decide whether a material upgrade is useful. Preserve user additions and obtain approval before rewriting existing signpost content. A folder rename must explain the treatment of existing workspaces and obtain approval before moving established content.

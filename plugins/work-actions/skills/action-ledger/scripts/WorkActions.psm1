@@ -39,6 +39,8 @@ function Get-ActionConfiguration {
         $config.validationLabel -ne 'automation:needs-fix') {
         throw 'Configure the eight distinct attention views and the validation label.'
     }
+    # Optional: an absent or null extraViews means none, never a null view entry.
+    if ($null -eq $config['extraViews']) { $config['extraViews'] = @() }
     return $config
 }
 
