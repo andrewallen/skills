@@ -6,7 +6,7 @@ Every governed record has a context file. Start from this complete template rath
 
 ```yaml
 document_role: meeting-context
-template: meeting-context@2.0
+template: meeting-context@2.1
 created_by: meetings-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: meetings-governance@<CURRENT_SKILL_VERSION>
 meeting_date:
@@ -16,7 +16,7 @@ occurrence_type:        # scheduled | ad-hoc | imported-historical
 start_time:
 end_time:
 time_zone:
-organizer:
+organiser:
 audience:               # internal | external
 matched_principles: []  # stable IDs from the Archive Guide
 source_identity: {}     # YAML mapping, never a block scalar

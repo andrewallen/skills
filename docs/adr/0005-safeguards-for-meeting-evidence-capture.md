@@ -19,4 +19,4 @@ The owner did not adopt this proposal as written. Its proposed handling policy i
 
 ## Consequences
 
-Had it been accepted, capture could have been partial where full retention was not authorised. ADR-0012 instead governs the current capture behavior.
+Had it been accepted, capture could have been partial where full retention was not authorised. ADR-0012 instead governs the current capture behaviour.

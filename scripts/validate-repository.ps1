@@ -101,7 +101,9 @@ foreach ($file in $markdown.Keys) {
     }
 }
 
-$catalogue = Read-Json (Join-Path $root '.github\plugin\marketplace.json')
+$github = Join-Path $root '.github'
+$pluginCatalogue = Join-Path (Join-Path $github 'plugin') 'marketplace.json'
+$catalogue = Read-Json $pluginCatalogue
 $sources = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
 $pluginNames = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
 $number = '(?:0|[1-9]\d*)'
@@ -121,6 +123,7 @@ if ($null -ne $catalogue) {
         $name = $entry['name']
         $source = $entry['source']
         Assert-Repository ($name -is [string] -and $name -cmatch '^[a-z0-9]+(?:-[a-z0-9]+)*$') 'Catalogue: invalid plugin name.'
+        Assert-Repository ($entry['description'] -is [string] -and $entry['description']) "Catalogue: '$name' needs a description."
         Assert-Repository ($pluginNames.Add([string] $name)) "Catalogue: duplicate plugin name '$name'."
         Assert-Repository (-not $entry.Contains('version') -and
             -not ($entry['metadata'] -is [System.Collections.IDictionary] -and $entry['metadata'].Contains('version'))) "Catalogue: '$name' duplicates the manifest version."
@@ -137,7 +140,9 @@ if ($null -ne $catalogue) {
         Assert-Repository ($manifest['$schema'] -ceq 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json') "${source}: unexpected portable manifest schema."
         Assert-Repository ($manifest['version'] -is [string] -and $manifest['version'] -cmatch $semver) "${source}: invalid plugin version."
         Assert-Repository ($manifest['description'] -is [string] -and $manifest['description']) "${source}: missing description."
+        Assert-Repository ($entry['description'] -ceq $manifest['description']) "${source}: catalogue and manifest descriptions differ."
         Assert-Repository ($manifest['author'] -is [System.Collections.IDictionary] -and $manifest['author']['name']) "${source}: missing author name."
+        Assert-Repository ($manifest['license'] -ceq 'MIT') "${source}: repository licence must be declared as MIT."
         Assert-Repository (-not $manifest.Contains('skills')) "${source}: configurable skill paths are not supported."
         $architecturePath = Join-Path $pluginPath 'Common Architecture.md'
         $architecture = if (Test-Path -LiteralPath $architecturePath) { Get-Content -LiteralPath $architecturePath -Raw } else { '' }
@@ -211,6 +216,7 @@ $index = $markdown[$indexPath]
 $rows = @([regex]::Matches($index, '(?m)^\| \[(\d{4})\]\(([^)]+)\) \| (.+?) \| (.+?) \|$'))
 $adrFiles = @($files | Where-Object { $_ -cmatch '^docs/adr/\d{4}-[^/]+\.md$' })
 Assert-Repository ($rows.Count -eq $adrFiles.Count) 'ADR index: row count differs from numbered records.'
+$adrRecords = @{}
 foreach ($file in $adrFiles) {
     $record = Get-Content -LiteralPath (Join-Path $root $file) -Raw
     $id = (Split-Path $file -Leaf).Substring(0, 4)
@@ -222,6 +228,17 @@ foreach ($file in $adrFiles) {
     $title = [regex]::Match($record, "^# ADR-${id}: ([^\r\n]+)").Groups[1].Value
     Assert-Repository ($status -cmatch '^(Proposed|Accepted|Rejected|Superseded by ADR-\d{4})$') "${file}: invalid ADR status."
     Assert-Repository ($row.Groups[2].Value -ceq (Split-Path $file -Leaf) -and $row.Groups[3].Value -ceq $title -and $row.Groups[4].Value -ceq $status) "${file}: ADR index path, title or status differs."
+    $adrRecords[$id] = @{ File = $file; Status = $status; Text = $record }
+}
+foreach ($id in $adrRecords.Keys) {
+    $record = $adrRecords[$id]
+    if ($record.Status -cmatch '^Superseded by ADR-(\d{4})$') {
+        $targetId = $Matches[1]
+        Assert-Repository ($adrRecords.ContainsKey($targetId)) "$($record.File): superseding ADR-$targetId does not exist."
+        if ($adrRecords.ContainsKey($targetId)) {
+            Assert-Repository ($adrRecords[$targetId].Text -match "(?is)(?:\bADR-$id\b.{0,250}\bsupersed|\bsupersed.{0,250}\bADR-$id\b)") "$($record.File): ADR-$targetId must identify this superseded record."
+        }
+    }
 }
 
 # Parse source only: never import or execute migration/action helpers.
@@ -231,11 +248,13 @@ foreach ($file in $files | Where-Object { $_ -match '\.(ps1|psm1)$' }) {
     [void] [System.Management.Automation.Language.Parser]::ParseFile((Join-Path $root $file), [ref] $tokens, [ref] $errors)
     foreach ($error in $errors) { $failures.Add("${file}: PowerShell syntax: $($error.Message)") }
 }
-$common = Get-Content -LiteralPath (Join-Path $root 'plugins\work-context\Common Architecture.md') -Raw
+$workContext = Join-Path (Join-Path $root 'plugins') 'work-context'
+$common = Get-Content -LiteralPath (Join-Path $workContext 'Common Architecture.md') -Raw
 $core = @('00 Start Here', '10 Issued Outputs', '20 Working', '30 Sources', '40 Meetings', '50 Stakeholders', '99 Archive')
 $tree = [regex]::Match($common, '(?s)```text\r?\n(.*?)```').Groups[1].Value.Trim() -split '\r?\n'
 Assert-Repository (($tree -join '|') -ceq ($core -join '|')) 'Common Architecture: expected exact seven-root baseline.'
-$workspaceAssets = Join-Path $root 'plugins\work-context\skills\workspace-governance\assets'
+$workspaceGovernance = Join-Path (Join-Path $workContext 'skills') 'workspace-governance'
+$workspaceAssets = Join-Path $workspaceGovernance 'assets'
 $startHereAsset = Get-Content -LiteralPath (Join-Path $workspaceAssets 'start-here.md') -Raw
 $agentsAsset = Get-Content -LiteralPath (Join-Path $workspaceAssets 'agents.md') -Raw
 Assert-Repository ((Get-Scalar $startHereAsset 'template') -ceq 'workspace-start-here@3.0') 'Start Here asset: unexpected template version.'
@@ -243,7 +262,9 @@ Assert-Repository ((Get-Scalar $agentsAsset 'template') -ceq 'workspace-agent-gu
 Assert-Repository ($startHereAsset -match '(?is)Do not include current position or status, file inventories.*evidence cutoffs, review dates') 'Start Here asset: dynamic project content is not explicitly excluded.'
 Assert-Repository ($agentsAsset -match '(?is)inspect the relevant current project files.*do not treat this file or Start Here as a project summary') 'AGENTS.md asset: current information must come from workspace contents.'
 Assert-Repository ($common -match '(?is)Start Here and root `AGENTS\.md` are stable structural signposts, not project summaries') 'Common Architecture: stable signpost invariant is missing.'
-$helper = Get-Content -LiteralPath (Join-Path $root 'plugins\work-context\skills\workspace-governance\scripts\Invoke-WorkspaceMigration.ps1') -Raw
+$workspaceScripts = Join-Path $workspaceGovernance 'scripts'
+$helperPath = Join-Path $workspaceScripts 'Invoke-WorkspaceMigration.ps1'
+$helper = Get-Content -LiteralPath $helperPath -Raw
 $helperRoots = @([regex]::Matches($helper, "'(\d{2} [^']+)'") | ForEach-Object { $_.Groups[1].Value } | Select-Object -Unique)
 Assert-Repository (@(Compare-Object $core $helperRoots -CaseSensitive).Count -eq 0) 'Migration helper: core roots differ from architecture.'
 foreach ($file in $files | Where-Object { $_ -like 'plugins/work-context/*.md' }) {

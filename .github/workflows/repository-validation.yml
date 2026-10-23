@@ -1,0 +1,54 @@
+name: Repository validation
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Repository validation
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out pull request
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Verify runner prerequisites
+        shell: pwsh
+        run: |
+          if ($PSVersionTable.PSVersion -lt [version]'7.2') {
+            throw "PowerShell 7.2 or later is required; found $($PSVersionTable.PSVersion)."
+          }
+          git --version
+          if ($LASTEXITCODE -ne 0) { throw 'Git is unavailable.' }
+
+      - name: Validate repository consistency
+        shell: pwsh
+        run: pwsh -NoProfile -File .\scripts\validate-repository.ps1
+
+      - name: Test isolated migration helper
+        shell: pwsh
+        run: pwsh -NoProfile -File .\scripts\test-workspace-migration-helper.ps1
+
+      - name: Test isolated Work Actions helpers
+        shell: pwsh
+        run: pwsh -NoProfile -File .\scripts\test-work-actions-plugin.ps1
+
+      - name: Check pull request whitespace
+        shell: pwsh
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git diff --check "$env:BASE_SHA...HEAD"
+          if ($LASTEXITCODE -ne 0) { throw 'Pull request whitespace check failed.' }

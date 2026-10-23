@@ -1,4 +1,4 @@
-# Andrew Allen's Agent skills
+# Andrew Allen's agent skills
 
 **Practical agent skills, built in the flow of work.**
 
@@ -82,6 +82,10 @@ Follow the [update instructions](docs/installation.md#updating-an-installed-plug
 [How I build these workflows](docs/how-i-build.md) explains the approach. For the technical detail, use the [maintainer reading path](docs/README.md#maintaining-and-extending): governance, architecture, skill authoring, validation and ADRs.
 
 The repo is the primary place to explore the collection; there is no separate documentation site.
+
+## Security
+
+Report a suspected vulnerability privately, following the [security policy](SECURITY.md). Do not open a public issue for it.
 
 ## Licensing
 

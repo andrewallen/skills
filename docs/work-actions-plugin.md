@@ -24,7 +24,7 @@ Recording an action does not authorise its execution. A finished draft or pull r
 
 ## Prerequisites and limits
 
-The client needs approved GitHub access. Bundled helpers additionally require PowerShell 7.2+ and authenticated `gh` for github.com. The target ledger must have its own approved configuration and operating policy; installation does not adopt that policy on another repository's behalf.
+The client needs approved GitHub access. Bundled helpers additionally require PowerShell 7.2+ and authenticated `gh` for github.com. Their view-refresh helper inspects every open non-pull-request issue and flags records without valid action or parent-Project metadata, so use the helpers only with a dedicated action ledger, not a general-purpose issue tracker. The skill may still handle one explicitly named action issue without a full refresh. The target ledger must have its own approved configuration and operating policy; installation does not adopt that policy on another repository's behalf.
 
 The current pilot requires its configured GitHub Project for the capture flow. Project access and permissions are prerequisites, not something the plugin supplies. Missing authority or a conflicting execution blocks the affected operation.
 
@@ -72,4 +72,4 @@ pwsh -NoProfile -File .\scripts\test-work-actions-plugin.ps1
 pwsh -NoProfile -File .\scripts\validate-repository.ps1
 ```
 
-The first copies the package alone, fakes `gh`, and checks target safety, preview-by-default, idempotence, no file mutation, an omitted optional `extraViews` key and honest failures against synthetic fixtures in `scripts\fixtures\work-actions`. It does not prove client discovery, installation, live GitHub behaviour or Project permissions.
+The first copies the package alone and fakes `gh`. Against synthetic fixtures in `scripts\fixtures\work-actions` it checks target safety, preview-by-default, idempotence, no file mutation and honest failures. It also exercises the attention-view rules and time-zone handling, label reconciliation with its conflict checks and validation notices, label setup, Project view maintenance and the optional `extraViews` key, both omitted and malformed. It does not prove client discovery, installation, live GitHub behaviour or Project permissions.

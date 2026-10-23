@@ -6,7 +6,7 @@
 
 ## Context
 
-The repository is public, and the owner has confirmed that the original repository content may be licensed for reuse. A single, permissive licence keeps reuse terms straightforward across the skills and supporting documentation.
+The repository is public, and the owner has confirmed that the original repository content may be licensed for reuse. A single, permissive licence keeps reuse terms straightforward across the skills and supporting documentation. This decision supersedes the unlicensed status recorded in ADR-0004.
 
 ## Decision
 

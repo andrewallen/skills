@@ -28,6 +28,6 @@ This proposal does not change current skill behaviour until accepted and impleme
 
 ## Consequences
 
-Consistent retrieval semantics can improve agent answers without requiring a new storage platform. The guidance must remain compatible with source-handling rules, and should distinguish a useful navigation representation from evidence sufficient to support a conclusion.
+Consistent retrieval semantics can improve agent answers without requiring a new storage platform. The guidance must remain compatible with source-handling rules, and should distinguish a useful navigation representation from evidence sufficient to support a conclusion. Current position: points 1, 2, 3 and 5 already appear in Common Architecture and the specialist evidence references. Point 4 is only partly stated and point 6 is not. No shared retrieval reference exists. This proposal remains Proposed.
 
 Acceptance will require aligning the shared guidance with each skill's existing evidence and source-use instructions. Any resulting behavioural change must be versioned and validated under repository governance.

@@ -67,7 +67,7 @@ foreach ($number in $numbers) {
             ''
             ($result.Errors | ForEach-Object { "- $_" })
             ''
-            "Fix the source fields or labels using the [working method](https://github.com/$($config.repository)/blob/main/docs/working-method.md)."
+            "Follow this ledger repository's approved operating instructions to correct the source fields or labels."
             'The next refresh will remove the validation flag. No horizon, date, or execution state has been changed.'
         ) -join "`n"
         $lastReport = $null

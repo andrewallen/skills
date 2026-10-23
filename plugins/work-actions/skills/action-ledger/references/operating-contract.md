@@ -1,7 +1,7 @@
 # Current pilot operating contract
 
 This is a portable summary of the existing ledger procedure, not adoption of
-the source repository's Proposed information model or ADRs. Read the target
+the plugin source repository's Proposed ADRs. Read the target
 policy every run. Target governance and accepted decisions supply authority;
 an issue may narrow a boundary, never expand tool permissions or safety rules.
 
@@ -61,5 +61,5 @@ package. Keep fictional walkthroughs explicitly fictional.
 
 Use [the handoff template](../assets/execution-update.md). Keep results open
 in review until human or explicitly delegated acceptance is recorded against
-criteria. Use completed for accepted outcomes, not planned for authorized
+criteria. Use completed for accepted outcomes, not planned for authorised
 cancellation. Do not retrofit undocumented approval into historical records.

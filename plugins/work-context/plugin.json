@@ -1,8 +1,9 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "work-context",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Consistent project folders, approved migration, meeting evidence and stakeholder profiles.",
+  "license": "MIT",
   "author": {
     "name": "andrewallen"
   },

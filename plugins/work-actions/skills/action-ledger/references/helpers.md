@@ -14,6 +14,19 @@ available. Use approved existing access to github.com. These helpers do not
 install dependencies or acquire permissions. They reject a different `GH_HOST`
 rather than silently sending requests to another host.
 
+`Sync-ActionViews.ps1` and `Sync-ActionProject.ps1` use `gh api --paginate
+--slurp`; use a GitHub CLI release that supports both flags. Project
+initialisation and synchronisation also require the `project` authentication
+scope and access to the configured private Project. Check `gh auth status` and
+the target's Project permissions before applying changes. No helper adds
+scopes, grants access or creates the Project.
+
+The view-refresh helper inspects every open non-pull-request issue and flags
+records without valid action or parent-Project metadata. Its target repository
+must therefore be a dedicated action ledger, not a general-purpose issue
+tracker. The interactive skill can still operate on one explicitly named
+action issue without running a repository-wide refresh.
+
 For every bundled entry point, supply both an **absolute** `-TargetPath` and
 `-Repository owner/name`. The path must be an existing ledger checkout outside
 the installed plugin directory. It must contain `.github/work-actions.json`
@@ -50,15 +63,52 @@ All preview by default. `-Apply` permits writes but does not supply user
 authority. Setup/Project maintenance are not routine execution or permission
 changes. Project sync stops if the configured Project is inaccessible/public;
 it does not create a Project or change its visibility/access. Current Project
-configuration remains required for that operation; the Proposed
-Projects-optional ADR is not implemented by packaging.
+configuration remains required for that operation; no Projects-optional mode
+is implemented.
 
 `Sync-ActionProject.ps1` maintains the All actions view, the eight configured
 attention views and any entries in the optional `extraViews` array of
 `.github/work-actions.json`. Omit `extraViews`, or set it to `[]`, when no
-further views are needed. Each entry is an object with a `name` and an optional
-`label`: a `label` limits that view to open issues carrying it; without one it
-shows every issue in the repository.
+further views are needed. Each entry has only a non-empty `name` and optional
+non-empty `label`: a `label` limits that view to open issues carrying it;
+without one it shows every issue in the repository. Do not set an `id` on an
+extra view; `id` is reserved for the configured All actions view.
+
+Every entry point validates `extraViews` before any GitHub request and stops on
+a malformed value. It must be an array of objects. Each `name` must be a
+non-empty string and each `label`, if present, a non-empty string without
+quotes or control characters. Names must be unique, ignoring case, across
+`All actions`, the eight configured views and the other entries, because the
+Project script matches existing views by name. `Sync-ActionViews.ps1` derives
+only the configured attention labels and the validation label, so an extra
+view should filter on a label that people or agents apply, such as
+`state:review`.
+
+## Target configuration
+
+The ledger owns both files below; the fixtures in this repository are
+synthetic examples, not defaults to copy with their repository or Project IDs.
+
+`.github/work-actions.json` is a JSON object with:
+
+| Field | Shape and purpose |
+|---|---|
+| `repository` | `owner/name`, matching the explicitly selected ledger. |
+| `timeZone` | A system time-zone ID used for calendar-date boundaries. |
+| `project` | Object with `owner`, numeric `number`, GraphQL `id`, `url`, and `allActionsViewId`. Keep the configured Project private and verify access before use. |
+| `validationLabel` | The exact managed validation label `automation:needs-fix`. |
+| `views` | The eight required entries; each has a `key`, display `name` and unique `view:*` `label`. |
+| `extraViews` | Optional array of objects with unique `name` and optional `label`; omit it or use `[]` when not needed. |
+
+`.github/labels.json` is an array of label definitions, each with a `name`,
+six-character hexadecimal `color` (without `#`) and `description`. Setup
+creates missing labels and repairs matching definitions; it does not delete
+labels.
+
+Use this order: review the target policy and configuration, initialise labels,
+preview and apply issue-view reconciliation as authorised, then preview and
+apply Project view/link/membership maintenance as separately authorised.
+These operations are not a bootstrap or permission grant.
 
 A ledger repository's own root commands, if any, select that checkout
 explicitly and forward to an implementation. Do not invoke them as an

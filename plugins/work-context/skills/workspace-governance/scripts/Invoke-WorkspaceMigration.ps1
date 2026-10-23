@@ -39,7 +39,7 @@ if ($root -eq [IO.Path]::GetPathRoot($root) -or $root.StartsWith('\\')) {
 }
 AssertLocal $root
 if (-not (Test-Path -LiteralPath $root -PathType Container)) { throw 'Target directory does not exist.' }
-$package = FullPath (Join-Path $PSScriptRoot '..\..\..')
+$package = FullPath (Join-Path $PSScriptRoot '..' '..' '..')
 if ((IsWithin $root $package) -or (IsWithin $package $root)) {
     throw 'The plugin package or its parent is not a migration target.'
 }
@@ -82,7 +82,7 @@ foreach ($key in 'operations', 'unresolved', 'retiredRoots') {
 }
 if ($Apply -and $ApprovedPlanHash -ine $planHash) { throw 'Apply requires approval of the exact plan SHA-256.' }
 
-$journalPath = RelativePath "Governance\Migration\$planHash.json"
+$journalPath = RelativePath (Join-Path 'Governance' 'Migration' "$planHash.json")
 $state = @{
     schema = 'workspace-migration-progress@1.0'
     planHash = $planHash
@@ -125,7 +125,14 @@ $destinations = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ord
 $operations = @()
 foreach ($operation in $plan.operations) {
     foreach ($key in 'source', 'destination', 'sha256', 'lastWriteTimeUtc') {
-        if (-not $operation.ContainsKey($key) -or $operation[$key] -isnot [string]) { throw "Invalid operation field: $key" }
+        if (-not $operation.ContainsKey($key)) { throw "Invalid operation field: $key" }
+        if ($key -ceq 'lastWriteTimeUtc' -and $operation[$key] -is [datetime]) {
+            if ($operation[$key].Kind -ne [DateTimeKind]::Utc) {
+                throw 'An observed SHA-256 and UTC timestamp are required.'
+            }
+            $operation[$key] = $operation[$key].ToString('o', [Globalization.CultureInfo]::InvariantCulture)
+        }
+        if ($operation[$key] -isnot [string]) { throw "Invalid operation field: $key" }
     }
     if ($operation.sha256 -notmatch '^[0-9a-fA-F]{64}$' -or $operation.lastWriteTimeUtc -notmatch 'Z$') {
         throw 'An observed SHA-256 and UTC timestamp are required.'

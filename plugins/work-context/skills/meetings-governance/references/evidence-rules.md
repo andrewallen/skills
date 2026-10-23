@@ -4,19 +4,19 @@ These rules belong to Meetings Governance. Stakeholder Governance has its own sh
 
 ## Key guidance: local-first meeting capture and online review
 
-Owner decisions, 23 and 28 September 2026, established the earlier guidance. ADR-0012 supersedes that guidance where it conflicts on local capture, platform labels or online review; all other applicable rules remain in force.
+Earlier local-first handling guidance is superseded where it conflicts with accepted [ADR-0012](../../../../../docs/adr/0012-local-first-meeting-evidence-capture.md) on local capture, platform labels or online review; all other applicable rules remain in force.
 
 1. **The workspace's OneDrive folders are secure by default.** They are the approved store for in-scope workspace material. Do not assess, question or wait for destination protection before saving.
 2. **Attempt local capture first.** For in-scope meeting communications (transcripts, meeting and follow-up chats, tied emails, notes, minutes and recaps), attempt a faithful Markdown companion in the governed folder. For recordings and reusable resources, attempt to retain the original file locally and record its identity and source link. Online reading is not local retention.
    **Resources are not rendered.** Presented or shared documents, decks, spreadsheets, PDFs, Loop pages and web pages (customer, internal or AI-generated) stay as their original files or links. Do not convert them to Markdown.
 3. **Use platform labels as metadata only.** Record classification labels applied by the source platform, exactly as exposed. Do not infer or interpret classification from words, banners, filenames or markings in source content. A platform label alone is not a reason to withhold local capture, online review, quotation or synthesis. Preserve source content faithfully; downstream outputs still use only material relevant to their purpose.
-4. **If local retention fails, review online when authorized.** Record the canonical source link, attempted route, observed error and time. If the source remains readable through normal, authorized platform access, review it online and include it in the synthesis alongside locally retained sources. Link it from the context and record online review separately from local retention in the evidence-coverage table.
+4. **If local retention fails, review online when authorised.** Record the canonical source link, attempted route, observed error and time. If the source remains readable through normal, authorised platform access, review it online and include it in the synthesis alongside locally retained sources. Link it from the context and record online review separately from local retention in the evidence-coverage table.
 5. **Do not bypass access or technical controls.** If online reading also fails, record the exact source and actual limitation in the evidence-coverage table, add it to the Remaining-work queue and list it first in the run report under **Not captured**. Do not decrypt or unpack synced copies, change sharing, or use an unapproved route. Never imply an unreadable source was considered.
 6. **Prove the distinct outcomes before finishing.** Track local retrieval, online retrieval, semantic review and local retention separately for every in-scope source. A source missing from the local archive remains **Not captured locally** even when reviewed online. State any source that could not be reviewed at all as a coverage gap; do not describe the local archive as complete while any in-scope source is not retained.
 
 ## Contents
 
-0. Key guidance: capture all meeting evidence, in Markdown
+0. Key guidance: local-first capture and online review
 1. Ownership and handoff
 2. Information-provenance taxonomy
 3. Applying the taxonomy
@@ -59,11 +59,11 @@ The five types describe the information and its transformation, not its sensitiv
 
 | Type | Meaning |
 | --- | --- |
-| **Captured** | Original communication or a recording/transcript of an interaction; the capture itself may contain errors. |
+| **Captured** | Original communication, recording or retained source; the source may contain errors. |
 | **Extracted** | A selected quotation, discrete fact or close attributed paraphrase with no additional conclusion. |
 | **Synthesised** | Statements organised, condensed or connected within or across sources. |
 | **Inferred** | Interpretation extending beyond an explicit statement. |
-| **Proposed** | Our suggested action or application. |
+| **Proposed** | A recommendation or application suggested by the author or agent. |
 
 Keep these axes separate:
 
@@ -119,12 +119,12 @@ Keep these axes separate:
 ## 5. Output limits and retention
 
 - Tool hosts may retain oversized responses automatically. Minimise payloads; do not promise zero retention. Record runtime retention separately from deliberate archive output.
-- Source continuation and host-output truncation are different conditions. Read only authorised bounded results and never count unseen truncated content as reviewed or retained; re-read in smaller bounded pages until the whole source is saved locally where possible. If local saving fails, use the authorized online-review fallback in Key guidance 4 and report any remaining gap.
-- Distinguish what was retrieved locally, retrieved online, **semantically reviewed** and retained locally. If local retention fails but authorized online review succeeds, mark the source Not captured locally and still use it in the synthesis. If online review also fails, report the actual gap (Key guidance 5).
+- Source continuation and host-output truncation are different conditions. Read only authorised bounded results and never count unseen truncated content as reviewed or retained; re-read in smaller bounded pages until the whole source is saved locally where possible. If local saving fails, use the authorised online-review fallback in Key guidance 4 and report any remaining gap.
+- Distinguish what was retrieved locally, retrieved online, **semantically reviewed** and retained locally. If local retention fails but authorised online review succeeds, mark the source Not captured locally and still use it in the synthesis. If online review also fails, report the actual gap (Key guidance 5).
 
 ## 6. Protected and cloud-hosted sources
 
-- Read cloud-hosted Office files through authorised Microsoft 365 grounding or supported source access when a meeting-evidence companion (for example a transcript exported to Word) needs saving as Markdown; edit through supported cloud editing. If local saving fails, use the canonical source link through normal authorized platform access for online review when possible. Resource documents are not rendered (Key guidance 2).
+- Read cloud-hosted Office files through authorised Microsoft 365 grounding or supported source access when a meeting-evidence companion (for example a transcript exported to Word) needs saving as Markdown; edit through supported cloud editing. If local saving fails, use the canonical source link through normal authorised platform access for online review when possible. Resource documents are not rendered (Key guidance 2).
 - Do not unzip, decrypt or parse a synced local copy to bypass failed cloud access or encryption. A source that cannot be read online is Not captured; a local-save failure alone is not a failed read if the original remains readable online.
 - Record platform-applied classification labels exactly as metadata when exposed. Do not infer classification from source-content markings or interpret those markings as handling instructions (Key guidance 3).
 - Never change platform labels, unlock containers, change sharing or send notifications as part of maintenance.

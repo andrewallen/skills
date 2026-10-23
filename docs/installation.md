@@ -8,7 +8,7 @@ The documented client is GitHub Copilot CLI. The packages use Agent Plugins 1.0,
 
 Choose the plugin for the work you want to do. Work Context provides three workspace/evidence skills; Work Actions provides Action Ledger and manual helpers. Neither requires the other.
 
-Work Context needs direct filesystem or shell access for workspace operations and suitable authorised client tools for remote retrieval. Basic file operations do not use Computer Use. Its optional ordinary-local-file migration helper additionally requires PowerShell 7.2+, but not `gh`; it previews by default and does not migrate directories or cloud storage. Folder operations do not require this helper.
+Work Context needs direct filesystem or shell access for workspace operations and suitable authorised client tools for remote retrieval. The current package documents Windows path conventions; Linux and macOS runtime behaviour is not verified. Basic file operations do not use Computer Use. Its optional ordinary-local-file migration helper additionally requires PowerShell 7.2+, but not `gh`; it previews by default and does not migrate directories or cloud storage. Folder operations do not require this helper.
 
 Work Actions needs approved GitHub access; its helpers additionally require PowerShell 7.2+ and authenticated `gh` for github.com, plus an explicitly named, configured ledger checkout. The current action-ledger pilot's capture flow also requires its configured GitHub Project and appropriate permissions.
 
