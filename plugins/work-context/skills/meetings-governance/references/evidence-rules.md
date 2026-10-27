@@ -53,19 +53,11 @@ Meetings governance checks existing capture first and fetches only missing or st
 
 ## 2. Information-provenance taxonomy
 
-The five types describe the information and its transformation, not its sensitivity, reliability or approval.
-
-| Type | Meaning |
-| --- | --- |
-| **Captured** | Original communication, recording or retained source; the source may contain errors. |
-| **Extracted** | A selected quotation, discrete fact or close attributed paraphrase with no additional conclusion. |
-| **Synthesised** | Statements organised, condensed or connected within or across sources. |
-| **Inferred** | Interpretation extending beyond an explicit statement. |
-| **Proposed** | A recommendation or application suggested by the author or agent. |
+Use the five information types (Captured, Extracted, Synthesised, Inferred, Proposed) exactly as defined in [Common Architecture](../../../Common%20Architecture.md#information-and-lifecycle). They describe the information and its transformation, not its sensitivity, reliability or approval.
 
 Keep these axes separate:
 
-- **Type:** one of the five above.
+- **Type:** one of the five.
 - **Attribution:** direct, reported or unresolved; preserve every reporting intermediary. "Reported" qualifies attribution; it is not a sixth type.
 - **Decision status:** question, request, proposal, suggestion, position, claim, concern, disagreement, working-session agreement, formal approval or evidenced completion.
 - **Coverage:** defined by each skill and recorded separately from information types; meeting contexts report it per source rather than as one aggregate capture status.
@@ -105,8 +97,8 @@ Keep these axes separate:
 
 ## 4. Retrieval playbook
 
-- Apply the [bounded discovery, capture preflight and recovery sequence](capture.md#0-retrieval-preflight-and-automatic-recovery) to all source types. Search results are leads, not collection inventories or negative evidence. Continue through available authorised alternatives in the same run, distinguishing a tool/transport limitation from source denial; no generic reprompt is needed to try another already-permitted route. Exhaust applicable non-interactive routes before opening or automating a browser; Browser Use and Computer Use are last resorts and must yield to active user input.
-- Prefer dedicated entity tools for exact reads and pagination. Semantic search supplies leads, not substitute identities or negative findings.
+- Apply the [bounded discovery, capture preflight and recovery sequence](capture.md#0-retrieval-preflight-and-automatic-recovery) to all source types. It covers route recovery and browser last resorts.
+- Prefer dedicated entity tools for exact reads and pagination. Semantic search supplies leads, not collection inventories, substitute identities or negative findings.
 - Prove one small request before repeating it across sources.
 - Copy paired identifiers from the same resolved record. Compare opaque IDs case-sensitively and ordinally, including in PowerShell (`-ceq`, not `-eq`). Never lowercase, rebuild or repair IDs or cursors. Decode URL query encoding only when the tool's token parameter requires it, without changing the value.
 - Use supported filters with matching ordering. If a tool accepts only `gt`/`lt`, use the supported upper bound with client-side lower-bound stopping rather than guessing `ge`. Keep endpoint, filter/order and continuation together, and follow short pages while a next cursor exists.
@@ -118,15 +110,15 @@ Keep these axes separate:
 ## 5. Output limits and retention
 
 - Tool hosts may retain oversized responses automatically. Minimise payloads; do not promise zero retention. Record runtime retention separately from deliberate archive output.
-- Source continuation and host-output truncation are different conditions. Read only authorised bounded results and never count unseen truncated content as reviewed or retained; re-read in smaller bounded pages until the whole source is saved locally where possible. If local saving fails, use the authorised online-review fallback in Key guidance 4 and report any remaining gap.
+- Source continuation and host-output truncation are different conditions. Read only authorised bounded results and never count unseen truncated content as reviewed or retained; re-read in smaller bounded pages until the whole source is saved locally where possible, otherwise apply Key guidance 4 and 5.
 - Recover a complete host-retained output or structured payload before repeating the source call. For binary originals beyond inline limits, use the capture reference's original-file routes; pagination or a preview/conversion is not original-file retention. Never reconstruct an original from truncated base64.
-- Distinguish what was retrieved locally, retrieved online, **semantically reviewed** and retained locally. If local retention fails but authorised online review succeeds, mark the source Not captured locally and still use it in the synthesis. If online review also fails, report the actual gap (Key guidance 5).
+- Distinguish what was retrieved locally, retrieved online, **semantically reviewed** and retained locally (Key guidance 6).
 
 ## 6. Protected and cloud-hosted sources
 
-- Read cloud-hosted Office files through authorised Microsoft 365 grounding or supported source access when a meeting-evidence companion (for example a transcript exported to Word) needs saving as Markdown; edit through supported cloud editing. If local saving fails, use the canonical source link through normal authorised platform access for online review when possible. Resource documents are not rendered (Key guidance 2).
+- Read cloud-hosted Office files through authorised Microsoft 365 grounding or supported source access when a meeting-evidence companion (for example a transcript exported to Word) needs saving as Markdown; edit through supported cloud editing. Resource documents are not rendered (Key guidance 2).
 - Do not unzip, decrypt or parse a synced local copy to bypass failed cloud access or encryption. A source that cannot be read online is Not captured; a local-save failure alone is not a failed read if the original remains readable online.
-- Record platform-applied classification labels exactly as metadata when exposed. Do not infer classification from source-content markings or interpret those markings as handling instructions (Key guidance 3).
+- Platform labels are metadata only (Key guidance 3); never treat source-content markings as handling instructions.
 - Never change platform labels, unlock containers, change sharing or send notifications as part of maintenance.
 - Treat protection rewrapping or hash changes as a provenance event, not automatic corruption.
 - Never downgrade or erase good prior evidence because current access is worse.

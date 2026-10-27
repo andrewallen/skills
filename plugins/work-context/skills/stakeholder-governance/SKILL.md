@@ -13,6 +13,17 @@ A stakeholder is a relevant person or organisation other than the workspace owne
 
 The normal operation is to refresh only the profiles affected by new evidence.
 
+## Invariants
+
+These hold in every operation. If an action would break one, stop that item and report it.
+
+- Resolve the target from the user's input, never from this skill's location: the installed package is not a workspace.
+- Never profile the owner organisation or its employees (see [Eligibility](#eligibility)): the profiles exist to understand counterparts.
+- Read the content before citing it, and name what was not read: a title or pointer is not evidence.
+- One person's statement is not their organisation's position without evidenced authority: misattributed positions mislead the work.
+- Research beyond the project's own files only when separately authorised for a stated question: profiling must stay proportionate.
+- Consume meeting evidence; never recollect it: Meetings Governance owns capture.
+
 ## Dependencies
 
 Use direct filesystem or shell access for the project's local files, supplied evidence and profiles. Read relevant documents, reports and presentations with the local readers available; disclose content that cannot be read rather than omitting it, and do not add a dependency without approval.
@@ -121,7 +132,7 @@ Use the person or organisation asset and keep the profile proportionate to the e
 A person profile covers:
 
 1. perspective;
-2. voice and working style;
+2. voice and observed working practice;
 3. contribution timeline;
 4. implications for the work.
 

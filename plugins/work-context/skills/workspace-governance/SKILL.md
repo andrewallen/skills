@@ -11,6 +11,17 @@ metadata:
 
 Own structure, stable human and agent signposts, the Issued Outputs Index and structural migration. Do not collect meetings, write profiles or become a task system.
 
+## Invariants
+
+These hold in every operation. If an action would break one, stop that item and report it.
+
+- Resolve the target from the user's input, never from this skill's location: the installed package is not a workspace.
+- Move, rename, archive, overwrite or delete only within an explicitly approved mapping: users cannot easily recover lost structure or versions.
+- Remove only approved, verified-empty old folders, non-recursively and never through a reparse point: recursive deletion destroys unseen content.
+- Use filesystem tools or PowerShell, never GUI or Explorer automation: GUI operations cannot be verified or resumed safely.
+- Keep Start Here and `AGENTS.md` static: project facts in signposts go stale and mislead.
+- Never write another skill's records: each collection has one owner.
+
 Use direct filesystem tools or PowerShell for basic file and folder operations, never Computer Use or Explorer automation. The bundled helper is optional, not the gateway to migration. Follow Common Architecture's file-operation rules, including for sync-client paths.
 
 No MCP server is required for local structure work. If cloud preservation requires a provider operation, check that an authorised tool supports that exact action; WorkIQ MCP search/read access does not by itself establish move or rename support. The client supplies external tools and credentials separately.

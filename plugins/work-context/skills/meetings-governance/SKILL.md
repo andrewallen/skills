@@ -11,11 +11,24 @@ metadata:
 
 Maintain the governed meeting evidence under `40 Meetings`. The normal operation is a latest-meeting refresh, not a full historical review.
 
+## Invariants
+
+These hold in every operation. If an action would break one, stop that item and report it.
+
+- Resolve the target from the user's input, never from this skill's location: writing into the installed package corrupts it.
+- Never overwrite or delete evidence or owner notes: the archive is only trustworthy if earlier captures survive.
+- A speaker is the source's own label, never a guess: misattribution is the error a reader is least able to detect.
+- Report a source you could not read as Not captured, never as none found: later decisions rely on absence claims.
+- Keep local retention, online review and semantic review separate: each supports a different claim.
+- Exhaust non-interactive retrieval routes before any browser route: the browser can interrupt the user.
+
 ## Dependencies
 
-Use direct filesystem or shell access for local evidence and output files. Live Microsoft 365 calendar, meeting, transcript, chat, email and shared-resource access requires WorkIQ MCP or equivalent authorised tools, configured separately by the client. Local-only work on supplied evidence does not require WorkIQ. Check the required exact reads, pagination and downloads before claiming coverage; a connected server or search summary does not establish those capabilities. Report missing access per source and continue independent authorised work; do not substitute GUI file operations or claim inaccessible sources were absent.
-
-Discovery, content review and original-file download are separate capabilities. Follow the [capture recovery sequence](references/capture.md#0-retrieval-preflight-and-automatic-recovery) in the same run: a wrapper size or output limit is not a source permission denial. Discover and try available authorised non-interactive alternatives, including source-specific mail attachment and SharePoint/OneDrive tools through a configured on-demand registry, without waiting for a generic "try another route" prompt. Exhaust applicable provider tools, direct download URLs and configured file-scoped APIs/CLIs before any browser use. Opening a URL in the user's browser, Browser Use and Computer Use are last resorts because they can interrupt the user. Do not install tools, grant permissions, sign in, switch accounts or request access by implication. Ask once for a specific missing authority or approval as soon as the need is established, naming the affected sources, or about a genuinely ambiguous source.
+- **Local work** uses direct filesystem or shell access for evidence and output files. Work on supplied evidence alone needs nothing else. Never substitute GUI file operations.
+- **Live Microsoft 365 access** (calendar, meetings, transcripts, chats, email and shared resources) needs WorkIQ MCP or equivalent authorised tools, configured separately by the client. A connected server or search summary does not prove that exact reads, pagination or downloads work; check those before claiming coverage.
+- **Missing access** is reported per source while independent authorised work continues. Inaccessible sources are never reported as absent.
+- **Retrieval failures** are handled by the [capture recovery sequence](references/capture.md#0-retrieval-preflight-and-automatic-recovery) in the same run. Discovery, content review and original-file download are separate capabilities, and a wrapper's size or output limit is not a source permission denial. Try the available authorised non-interactive alternatives, including source-specific mail and SharePoint/OneDrive tools, before any browser route.
+- **Authority** is never acquired by implication: do not install tools, grant permissions, sign in, switch accounts or request access. Ask once, as soon as the need is clear, for a specific missing authority or approval, naming the affected sources, or about a genuinely ambiguous source.
 
 ## Files
 
@@ -117,13 +130,7 @@ For each occurrence, account for the relevant transcript and recording objects, 
 
 ## Classify and index
 
-Describe information transformation only after reviewing the primary evidence. Keep it distinct from source-platform classification labels and lifecycle:
-
-- Captured: original communication, recording or retained source; the source may contain errors.
-- Extracted: a selected quotation, discrete fact or close attributed paraphrase with no additional conclusion.
-- Synthesised: statements organised, condensed or connected within or across sources.
-- Inferred: interpretation extending beyond an explicit statement.
-- Proposed: a recommendation or application suggested by the author or agent.
+Assign the five information types from Common Architecture only after reviewing the primary evidence. Keep them distinct from platform classification labels and lifecycle.
 
 Update the Meetings Index once after the affected records are complete. A targeted intake leaves archive-wide inventory status `provisional`.
 

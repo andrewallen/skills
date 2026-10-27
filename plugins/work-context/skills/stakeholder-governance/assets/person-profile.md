@@ -31,10 +31,10 @@ _Full form. Default: Synthesised, with Extracted statements; inferred priorities
 
 <Dated role/remit; expressed outcomes, criteria, constraints and boundaries, with inline citations. Lead with what bears on the project's purpose; keep wider relationship context distinct and do not present it as a project requirement.>
 
-## 2. Their voice and working style
+## 2. Their voice and observed working practice
 _Full form. Default: Extracted examples; patterns are Inferred / Interpretation._
 
-<Selected verified wording or attributed paraphrases with dates; bounded interpretations and counterexamples. Our advice goes in section 4.>
+<Selected verified wording or attributed paraphrases with dates; bounded interpretations and counterexamples. Describe observable behaviour in the evidence, such as how they frame issues, what they ask for and the formats they prefer. Do not characterise personality, motives or temperament. Our advice goes in section 4.>
 
 **Working-style nuance** _(Inferred)_. <When the pattern shows, counterexamples and alternative explanations. Write each interpretation so it would stand if the person read it.>
 

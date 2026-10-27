@@ -13,6 +13,20 @@ a parallel task list in files, a database, another service or session memory.
 The plugin provides instructions and manually invoked helpers, not permission,
 automatic dispatch, hooks, a claim service or a new information-model schema.
 
+## Invariants
+
+These hold in every operation. If an action would break one, stop it and report.
+
+- Resolve the target from the user's input, never from the installed skill,
+  working directory or account: writing to the wrong repository leaks records.
+- Capture is not delegation: an action runs only under an explicit assignment
+  and a concrete Execution boundary.
+- Labels, timestamps and assignees are not locks: re-read before every edit and
+  stop on a conflict rather than overwrite a human's change.
+- Close only with attributable human acceptance, explicit delegated acceptance
+  or authorised cancellation: a finished PR or idle agent is not acceptance.
+- Never report computed views as refreshed unless an approved refresh succeeded.
+
 ## Files
 
 | Load | When |
