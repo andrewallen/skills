@@ -15,6 +15,8 @@ The script is read-only, uses no downloaded modules or services, and resolves th
 
 ## Automated scope
 
+The pull-request workflow in [repository-validation.yml](../.github/workflows/repository-validation.yml) runs the repository validator, both isolated helper tests and a whitespace comparison against the PR base on Windows. The GitHub Actions job `Repository validation` is required by the `main` ruleset as observed on 27 October 2026; see the [configuration record](repository-configuration.md#observed-configuration-on-27-october-2026). This does not replace owner review, public-content review or runtime checks outside the workflow's scope.
+
 | Check | Coverage |
 |---|---|
 | JSON and package discovery | Parse catalogue and plugin JSON; check required identity and MIT licence fields, plugin semantic versions, matching catalogue/manifest descriptions, unique catalogue names/sources, in-repository sources, manifest/name agreement and catalogue coverage of plugin manifests. Reject duplicate version declarations in catalogue plugin entries and configurable skill paths. |
