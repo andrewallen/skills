@@ -2,7 +2,7 @@
 name: meetings-governance
 description: Get the latest meetings, capture named meetings, initialise a meeting archive or repair incomplete meeting evidence. Preserve exact occurrence identity, source provenance and history without becoming a task or approval system.
 metadata:
-  version: "6.4"
+  version: "6.5"
   architecture: common-workspace-architecture v2.4
   runtime-dependencies: Direct filesystem or shell access using Windows path conventions; WorkIQ MCP or equivalent authorised Microsoft 365 tools for live discovery and retrieval; an authorised original-file transfer route (provider download tool, returned download URL or configured file-scoped API/CLI; signed-in browser only as a last resort)
 ---
@@ -34,9 +34,9 @@ Unless the user asks for initial backfill, named intake, repair or recalibration
 
 1. Resolve the meeting root and read the Archive Guide and Meetings Index when present.
 2. Use the last completed reconciliation as the starting point; otherwise use a bounded recent window and state it.
-3. Find meetings and meeting sources added or changed in that window.
+3. Find meetings and meeting sources added or changed in that window. Use an occurrence-scoped inventory of relevant source surfaces and linked assets; a semantic search result is a lead, not proof that a collection is complete or empty.
 4. Reuse unchanged complete local captures. For sources previously reviewed online but not retained locally, retry local retention within the authorised scope.
-5. Capture new or changed evidence, automatically recover through available authorised routes when a retrieval route fails, review authorised online sources when local retention remains unavailable, update affected contexts and update the index once.
+5. Capture new or changed evidence, including known inline or hosted media. Automatically recover through available authorised routes when retrieval fails; review authorised online sources when local retention remains unavailable; update affected contexts and update the index once.
 6. Report anything not captured, then what changed.
 
 Do not reopen historical scope, regenerate every profile or run classification review during a routine refresh.
@@ -113,6 +113,8 @@ For each in-scope meeting:
 
 Use the local capture reference for source-specific retrieval and pagination rules.
 
+For each occurrence, account for the relevant transcript and recording objects, meeting and follow-up chats, tied email, attendance, notes and recaps, shared resources, attachments, and inline or hosted media. Record the bounded surfaces and collections checked, their pagination/change limits, and the outcome for each known source. Distinguish references from unique source objects, verified local originals and content reviewed. A link, metadata record or chat export alone does not close an asset; do not broaden beyond the approved occurrence, dates and storage boundary.
+
 ## Classify and index
 
 Describe information transformation only after reviewing the primary evidence. Keep it distinct from source-platform classification labels and lifecycle:
@@ -141,6 +143,7 @@ Check that:
 
 - each requested occurrence has one identity and context;
 - every in-scope source had a local-retention attempt;
+- the bounded discovery scope and relevant collection/page outcomes are recorded, and every known in-scope asset reference has a disposition; references, unique objects, local originals and reviewed content are not conflated;
 - available authorised recovery routes were tried or have a concrete reason they could not be used; a known transport limit did not end the run or trigger a generic request to continue;
 - any browser or computer use followed exhaustion of applicable non-interactive MCP/API/download routes, with the reasons recorded and active user input respected;
 - online-readable sources that could not be retained locally are linked, identified as online-only review, and considered in the synthesis;

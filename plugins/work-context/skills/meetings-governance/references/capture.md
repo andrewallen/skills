@@ -16,6 +16,14 @@ Load when capturing or reconciling an occurrence's evidence. Frontmatter schemas
 
 Apply this sequence to every source type below, within the approved occurrence, date range and storage boundary. It implements the existing local-first capture and online-review rules; it does not expand access or research scope.
 
+### Bound discovery and close known assets
+
+- Start with the exact occurrence identities, approved date/change window, known source IDs, relevant containers and storage boundary. Inventory the occurrence-related surfaces: calendar/meeting identity, every transcript and recording object, meeting and follow-up chats or channels and replies, tied email, attendance, notes and recaps, shared resources, attachments, and supplied evidence. Include inline images and hosted media referenced in message bodies or hosted-content relationships; an empty attachment collection does not establish that a message has no images.
+- Use exact entity reads and enumerate supported collections through their continuation pages. Record the collection or surface, filter/window, page or continuation outcome, available total, and known limit. Semantic search and path discovery identify candidates; neither proves exhaustive enumeration or absence. A search miss conflicting with known evidence requires an exact in-scope read, not a broader tenant or filesystem search.
+- In a refresh, use the bounded change window to discover candidates, and compare known in-scope source identities/versions—including exact older objects where available—to detect relevant edits and replaced assets. A creation-date boundary or latest-message timestamp alone does not prove that older content was unchanged. Use source change markers or exact reads when supported; otherwise state the change-detection limit.
+- Resolve each reference to an authoritative source identity and version where available. Deduplicate identical source objects for storage, while retaining every occurrence/message relationship. Keep counts of references distinct from counts of unique source objects and retained originals.
+- Give each known reference an outcome: verified local original, already-retained equivalent, online-only review, unresolved identity, or a specific not-captured limitation. Do not leave an already-authorized, accessible asset as a link-only observation when an applicable route can retrieve its payload. Continue independent sources when one is blocked.
+
 ### Establish the available routes once
 
 - Inspect the actual tool schemas for discovery, exact entity/metadata reads, full-text retrieval and pagination, original-byte download, local file writing and online viewing. Discover unknown paths before calling them. Prove a small supported request before applying it across sources; do not repeatedly rediscover the same schema or transport limitation.
@@ -89,6 +97,7 @@ Recognise official Teams transcript objects, recording-backed transcripts, custo
 - On later runs, re-enumerate the whole occurrence window so edits and replaced attachments are found. `latest_message_at` alone does not prove nothing changed. A creation-date boundary does not review edits or deletions to older messages; state the actual scope.
 - Preserve deletion/tombstone metadata where relevant without reconstructing absent wording.
 - If no total count is available, say so. Exhausted pagination proves the returned query's coverage only (see the retrieval playbook's known-change check).
+- Inspect the complete supported message body and hosted-content relationships as well as attachment metadata. An empty attachment array is not evidence that inline or hosted images are absent. Resolve the exact hosted-content identity and use only a supported authorised byte route; metadata or an HTML image reference is not image retention. If bytes cannot be retrieved, preserve the canonical reference and actual limitation, and keep that image as an open asset outcome.
 - Create a chat file whenever the exact occurrence chat has substantive content or lifecycle identity, using the chat schema in [evidence-frontmatter.md](../assets/evidence-frontmatter.md); attempt to save every substantive message locally in full. If local saving fails but the chat remains readable through normal authorised platform access, link and review it online for the context synthesis, and mark it Not captured locally. When an exact read finds nothing worth keeping, record `none-found` in the context instead of an empty file.
 
 ## 3. Attendance and meeting details
@@ -159,7 +168,11 @@ For each resource:
 6. Link each meeting that used or referenced it.
 7. Record a Not-captured item when capture is blocked or unresolved.
 
+Treat attachments, linked files, inline images and platform-hosted media as distinct payload classes even when they originate in one message. For hosted images, distinguish the message reference, hosted-content metadata and retrieved image bytes; metadata or an HTML link is not the payload. A platform-hosted rendition may differ from the original camera file, resolution or metadata, so do not claim original-camera provenance without evidence. If the image or scan needs content review, use supported visual inspection or OCR as appropriate, record the pages and material limitations, and label OCR as a derived review aid. Retain the source resource in its original form; do not create a Markdown rendering of it.
+
 Keep local access, online review and local retention separate, and reconcile resource dispositions before finishing.
+
+For the resource table, preserve per-occurrence references even when identical payloads are deduplicated. Where hosted media is present, state the number of references and distinct resolved objects separately when those counts are available. Distinguish bytes retained from metadata/links preserved and from visual or semantic review; record unknown totals and unresolved overlaps explicitly rather than implying completeness.
 
 Retry local retention for `inaccessible`, `pending-source` and `not-uniquely-resolved` during every reconciliation. When a source remains online-readable, use its canonical link for authorised review rather than treating the local-save failure as proof that its content is unavailable.
 
