@@ -11,12 +11,32 @@ This guide records the intended operating baseline for this personal repository 
 | Protected branch | Active ruleset covering `main`: require a PR, block deletion and non-fast-forward updates, no configured bypass actors. | Resolve the actual protected branches, inherited organisation rules and any narrowly justified bypass authority. |
 | Review authority | Owner review and authorisation remain process requirements; zero required approving reviews suits the single-owner baseline. | Decide whether independent approvals, code owners, stale-review dismissal, last-push approval and resolved conversations are required. PR-only is not independent review. |
 | Merge history | Repository-level squash-only merging and automatic deletion of merged head branches keep PR changes and short-lived branches manageable. | Choose a history strategy and branch-retention policy appropriate to release or long-lived branches. |
-| Merge automation | Available auto-merge is a capability, not authority to enable it or accept a result. | Decide whether to allow it, which gates it must wait for and who may enable it. |
-| Validation | The 22 October snapshot predates the ADR-0022 implementation. As of 23 October, the accepted workflow is present in unmerged changes; no live run, observed check name or required-status rule is verified. Run checks manually until those adoption steps are complete. | For required CI, first establish reliable workflows, check names and trigger coverage, then require the chosen checks. |
+| Merge automation | Auto-merge is disabled; the owner deliberately merges reviewed changes. Copilot scheduled/event-triggered automations are disabled, without disabling on-demand agent work. | Decide which automation is needed and what gates and authority it must respect. |
+| Validation | Require the GitHub Actions `Repository validation` check on `main`, following ADR-0022 and the 27 October configuration below. Contributor validation and content review remain necessary. | For required CI, first establish reliable workflows, check names and trigger coverage, then require the chosen checks. |
 | Workflow authority | Read-only default `GITHUB_TOKEN`; PR approval through that token's workflow setting disabled. | Review each workflow's actual permissions, third-party actions, other credentials and trust boundary before granting more authority. |
+| Workflow supply chain | Selected actions: `actions/checkout@*` plus owner actions; full-length SHA pinning required; approval for all external contributors' fork workflows. | Inventory actual workflows and agent requirements before selecting an allowlist; do not enable broad allowances without need. |
+| Dependency maintenance | Dependabot alerts and security updates enabled; weekly grouped GitHub Actions version updates are configured by `.github/dependabot.yml` after its merge. No automatic merging. | Choose ecosystems, update frequency, grouping and publication authority for the target. |
 | Secret protection | Retain supported secret scanning and push protection. | Check availability, organisation requirements, alert handling and the limits of enabled detectors; this does not replace content review. |
 
-The broader action allowlist, action pinning, dependency-update settings, enabled collaboration features and squash-message defaults below are observations, not universal recommendations. They have no established historical rationale in this record.
+The 22 October observations below are retained as history, not universal recommendations. [ADR-0025](adr/0025-simplify-and-harden-public-repository-management.md) records the later owner-approved choices and their rationale.
+
+## Observed configuration on 27 October 2026
+
+The owner approved the recommended public-repository settings changes in chat. Authenticated GitHub settings pages were inspected before changes, then reloaded to verify persistence. The internal repository was not inspected or changed. This records settings evidence, not a deliberately failing enforcement test.
+
+| Surface | Before | Verified result |
+|---|---|---|
+| Required status check | None | `Protect main` requires `Repository validation` from GitHub Actions. Its name was confirmed from successful run [39959086500](https://github.com/andrewallen/skills/actions/runs/39959086500), job `Repository validation`, on a pull request before configuration. |
+| Actions allowlist | All actions and reusable workflows | Selected actions; `actions/checkout@*` and owner actions permitted. Broad GitHub-created and Marketplace-verified allowances remain off. |
+| Action references | Full-length SHA pinning not required | Full-length SHA pinning required. |
+| Fork workflow approval | First-time contributors | All external contributors. |
+| Merge automation | Auto-merge available | Auto-merge disabled. |
+| Squash message | Default title/commit messages | PR title and description. |
+| Copilot automations | Enabled | Disabled; workflow approvals and on-demand validation-tool settings preserved. |
+| Dependabot | Alerts and security updates off | Alerts and security updates on. Weekly grouped GitHub Actions version updates await the configuration PR's merge. |
+| Preserved boundaries | PR required; deletion/force-push blocks; zero approvals; no bypass; read-only workflow token | Preserved. Installed-app access unchanged because unused integrations have not been identified. |
+
+No deliberately failing test PR, Copilot cloud/review session or Dependabot update run was exercised. The source change is prepared on a branch for owner review, not merged or published by the settings operation. No package versions change. Future action additions must be reviewed against the allowlist; do not broaden it silently if an agent reports a policy error.
 
 ## Observed configuration on 22 October 2026
 
