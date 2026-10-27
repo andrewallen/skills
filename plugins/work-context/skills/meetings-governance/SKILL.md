@@ -1,6 +1,6 @@
 ---
 name: meetings-governance
-description: Get the latest meetings, capture named meetings, initialise a meeting archive or repair incomplete meeting evidence. Preserve exact occurrence identity, source provenance and history without becoming a task or approval system.
+description: Capture and maintain the governed meeting evidence archive under 40 Meetings (Teams transcripts, meeting chats, recordings, tied email, notes and shared resources), with an anchored context for each meeting. Use to refresh the latest meetings, capture named meetings, or initialise or repair a meeting archive. Not for calendar look-ups, scheduling or a quick one-off meeting summary.
 metadata:
   version: "6.5"
   architecture: common-workspace-architecture v2.4

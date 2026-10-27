@@ -75,7 +75,7 @@ Skip unavailable routes with a concrete capability reason. Prefer a direct non-i
 Recognise official Teams transcript objects, recording-backed transcripts, customer-supplied transcript documents, indexed transcript renderings, local exports and transcripts derived from audio.
 
 - Prefer authoritative transcript text. Derive from audio when none exists and tooling permits. An audio-derived transcript is **Captured** with an identified derivation method, not a word-perfect record: mark uncertain words and unresolved speakers. Summarising it is **Synthesised**; filling gaps by reasoning is **Inferred** and never inserted as speech.
-- Attempt to save every transcript read in full as a local Markdown `[Transcript]` companion using the transcript schema in [evidence-frontmatter.md](../assets/evidence-frontmatter.md). If local saving fails, retain the canonical source link and error, then read through normal authorised platform access if available. Use an online-reviewed transcript in the context synthesis, but mark it Not captured locally; reading remotely is not local capture.
+- Attempt to save every transcript read in full as a local Markdown transcript companion (`Transcript.md`, see [filenames](../assets/context-record.md#ids-and-filenames)) using the transcript schema in [evidence-frontmatter.md](../assets/evidence-frontmatter.md). If local saving fails, retain the canonical source link and error, then read through normal authorised platform access if available. Use an online-reviewed transcript in the context synthesis, but mark it Not captured locally; reading remotely is not local capture.
 - Enumerate all transcript objects; the first may be incomplete. Record object ID, call ID, source, segment counts, time bounds, pagination state and retrieval time.
 - Detect restarts, repeated cursors, non-advancing pages and overlaps. Keep objects separate unless ordering and overlap are proven.
 - Cross-check the occurrence's chat/call lifecycle IDs against the transcript collection before declaring occurrence-level completeness. A fully read object may cover only one call; another call or restart under the same occurrence stays an explicit gap until resolved.
@@ -110,14 +110,14 @@ Attendance evidence comes from transcript attribution, attendance reports and ca
 
 Classify media from inspected duration, streams and audio before naming or relying on it:
 
-| Media class | Meaning | Suffix |
+| Media class | Meaning | Filename |
 | --- | --- | --- |
-| `full-recording` | Meeting audio/video recording | `[Recording]` |
-| `recording-continuation` | Proven later part of the same occurrence | `[Recording Part N]` |
-| `silent-recording` | No recoverable substantive audio | `[Silent Recording]` |
-| `transcript-rendering` | Video rendering of transcript text, often silent | `[Transcript Rendering]` |
-| `related-demo` | Separate demonstration referenced by the meeting | `[Related Demo Recording]` |
-| `recap-pointer` | Recap or summary source | `[Recap]` |
+| `full-recording` | Meeting audio/video recording | `Recording.<ext>` |
+| `recording-continuation` | Proven later part of the same occurrence | `Recording Part N.<ext>` |
+| `silent-recording` | No recoverable substantive audio | `Silent Recording.<ext>` |
+| `transcript-rendering` | Video rendering of transcript text, often silent | `Transcript Rendering.<ext>` |
+| `related-demo` | Separate demonstration referenced by the meeting | `Related Demo Recording.<ext>` |
+| `recap-pointer` | Recap or summary media source | `Recap Recording.<ext>` |
 
 - A rendering, silent capture or placeholder is not a full recording, and never substitutes for a distinct full recording.
 - Attempt to retain accessible media locally under the meeting descriptor, with an authoritative pointer when a URL exists. Use the recording schema in [evidence-frontmatter.md](../assets/evidence-frontmatter.md) for any Markdown recording companion. If download is blocked, keep the pointer and record owner, tenant, object and error; if the source remains readable online through normal authorised access, review it for synthesis and mark it Not captured locally.
@@ -126,16 +126,16 @@ Classify media from inspected duration, streams and audio before naming or relyi
 
 Communication is tied to an occurrence only through a thread, meeting or call ID, join URL, named artefact, explicit meeting reference or otherwise unambiguous context. Participant or keyword proximity is insufficient. The window may extend after the meeting while the same thread discusses its outputs; recheck such threads during reconciliation.
 
-Attempt to create typed local companions for every tied communication that materially supports the meeting, saving the full text in Markdown. Use the matching schema in [evidence-frontmatter.md](../assets/evidence-frontmatter.md):
+Attempt to create typed local companions for every tied communication that materially supports the meeting, saving the full text in Markdown. Use the matching filename and schema in [evidence-frontmatter.md](../assets/evidence-frontmatter.md):
 
-| Companion | Schema |
+| Companion filename | Schema |
 |---|---|
-| `[Email]` | `meeting-email-companion` |
-| `[Follow-up Email]` | `meeting-follow-up-email-companion` |
-| `[Follow-up Chat]` | `meeting-follow-up-chat-companion` |
-| `[Recap]` | `meeting-recap-companion` |
-| `[Notes]` | `meeting-notes-companion` |
-| `[Attendance]` | `meeting-attendance-companion` |
+| `Email.md` | `meeting-email-companion` |
+| `Follow-up Email.md` | `meeting-follow-up-email-companion` |
+| `Follow-up Chat.md` | `meeting-follow-up-chat-companion` |
+| `Recap.md` | `meeting-recap-companion` |
+| `Notes.md` | `meeting-notes-companion` |
+| `Attendance.md` | `meeting-attendance-companion` |
 
 If local saving fails but the source remains readable online through normal authorised access, link and review it for synthesis, and state that it was not retained locally. If online review also fails, record the source and actual limitation.
 

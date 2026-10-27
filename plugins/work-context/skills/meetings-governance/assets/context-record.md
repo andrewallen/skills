@@ -6,7 +6,7 @@ Every governed record has a context file. Start from this complete template rath
 
 ```yaml
 document_role: meeting-context
-template: meeting-context@2.2
+template: meeting-context@2.3
 created_by: meetings-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: meetings-governance@<CURRENT_SKILL_VERSION>
 meeting_date:
@@ -48,14 +48,28 @@ Value rules:
 YYYY-MM-DD - Descriptor
     Context.md
     Transcript.md
-    Transcript Part N.md
     Chat.md
     Recording.mp4
 ```
 
+This table is the only definition of occurrence-folder filenames; the capture reference uses the same names.
+
+| Role | Filename |
+| --- | --- |
+| Context record | `Context.md` |
+| Transcript, or a proven part of one | `Transcript.md`, `Transcript Part N.md` |
+| Meeting chat | `Chat.md` |
+| Tied email, follow-up email | `Email.md`, `Follow-up Email.md` |
+| Follow-up chat | `Follow-up Chat.md` |
+| Recap, notes, attendance companions | `Recap.md`, `Notes.md`, `Attendance.md` |
+| Recording, or a proven continuation | `Recording.<ext>`, `Recording Part N.<ext>` |
+| Silent recording, transcript rendering, related demo, recap media | `Silent Recording.<ext>`, `Transcript Rendering.<ext>`, `Related Demo Recording.<ext>`, `Recap Recording.<ext>` |
+
+A second distinct object of the same role takes a short qualifier, such as `Email 2.md` or `Email 1430.md`; keep the qualifier stable across runs. Reusable resources are not stored here; they follow the [resource rules](../references/capture.md#6-reusable-resources) for location and naming.
+
 For a rescheduled or misdated occurrence, name and index the exact occurrence time and preserve the series title and conflict in context.
 
-Add a short time or stable identity qualifier for same-day namesakes. Use these role names where capture references specify typed suffixes. Keep distinct source objects distinguishable. Existing stems, paths and names remain unchanged until an approved migration; preserve identity and repair approved links when moving them.
+Add a short time or stable identity qualifier to the folder name for same-day namesakes. Keep distinct source objects distinguishable. Existing stems, paths and names remain unchanged until an approved migration; preserve identity and repair approved links when moving them.
 
 ## Body sections
 

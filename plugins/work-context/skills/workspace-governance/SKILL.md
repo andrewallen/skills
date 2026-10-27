@@ -1,6 +1,6 @@
 ---
 name: workspace-governance
-description: Create, assess, repair or migrate projects into the seven-folder structure. Plan unfamiliar layouts before approved moves; register issued outputs and review duplicates. Not required for ordinary reading or drafting.
+description: Set up, assess, repair or migrate a project folder into the standard seven-folder structure (Start Here, Issued Outputs, Working, Sources, Meetings, Stakeholders, Archive). Use when organising or tidying a project, deciding where a file belongs, registering an issued output or reviewing duplicates. Not needed for ordinary reading or drafting.
 metadata:
   version: "4.1"
   architecture: common-workspace-architecture v2.4

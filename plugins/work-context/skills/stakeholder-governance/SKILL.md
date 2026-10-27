@@ -1,6 +1,6 @@
 ---
 name: stakeholder-governance
-description: Create or refresh evidence-backed profiles of relevant people and organisations from the project's own files. Use after new meeting or source evidence, for named profile creation, bounded stakeholder discovery or evidence-based content review. Do not profile Microsoft or Microsoft employees. Do not create a CRM, personality model, account plan or second meeting archive.
+description: Create or refresh evidence-backed profiles of relevant people and organisations from the project's own files. Use when new evidence affects a profile, for named profile creation, bounded stakeholder discovery or reviewing a draft against recorded positions. Not a CRM, personality model, account plan or meeting archive.
 metadata:
   version: "6.2"
   architecture: common-workspace-architecture v2.4
