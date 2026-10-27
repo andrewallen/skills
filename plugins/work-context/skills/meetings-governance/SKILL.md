@@ -154,4 +154,4 @@ Check that:
 - no stakeholder profile or unrelated workspace structure was created;
 - repeating the same refresh without new evidence creates no new files.
 
-Report Not captured items first, then meetings added or updated, then any bounded next step.
+Report Not captured items and any destination flag first, then meetings added or updated, then any bounded next step.

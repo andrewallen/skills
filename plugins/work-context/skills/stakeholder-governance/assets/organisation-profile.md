@@ -2,12 +2,12 @@
 
 Use for `<Organisation Name> - Organisation Profile.md`. Replace every placeholder before handoff. Where evidence is absent, state the specific gap rather than fabricating a position or relationship.
 
-Use the **compact provisional form** when evidence is thin: keep the header, the relationship summary and section 5, and omit sections 1-4 until evidence supports them. Do not pad it with empty sections or a statement of limitation in every section; record material gaps in the Coverage line. Expand to the **full form** as evidence accumulates and update the Form field. Do not use this template for Microsoft.
+Use the **compact provisional form** when evidence is thin: keep the header, the relationship summary and section 5, and omit sections 1-4 until evidence supports them. Do not pad it with empty sections or a statement of limitation in every section; record material gaps in the Coverage line. Expand to the **full form** as evidence accumulates and update the Form field. Do not use this template for the owner organisation.
 
 ```markdown
 ---
 document_role: organisation-profile
-template: organisation-profile@2.0
+template: organisation-profile@2.1
 created_by: stakeholder-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: stakeholder-governance@<CURRENT_SKILL_VERSION>
 ---
@@ -44,7 +44,7 @@ _Full form. Default: Extracted and Synthesised; qualifications shown._
 ## 4. People and roles connected to this workspace
 _Full form. Default: Extracted identity and role evidence; no inferred endorsement._
 
-<Person; dated role; evidenced relationship to the workspace; relevant profile link where one exists. Microsoft employees are not listed as profile subjects.>
+<Person; dated role; evidenced relationship to the workspace; relevant profile link where one exists. Owner-organisation employees are not listed as profile subjects.>
 
 ## 5. Implications for our work
 _Default: Proposed / Recommendation._

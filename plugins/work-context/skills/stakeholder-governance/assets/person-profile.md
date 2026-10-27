@@ -2,12 +2,12 @@
 
 Use for `<Full Name> - Person Profile.md`, or adapt the same structure in Word. Replace every placeholder before handoff; where evidence is absent, state the specific gap rather than fabricating content. Keep depth proportionate to evidence.
 
-Use the **compact provisional form** when evidence is thin: keep the header, the perspective summary and section 4, and omit sections 1-3 until evidence supports them. Do not pad it with empty sections, an inferred working style or a statement of limitation in every section; record material gaps in the Coverage line. Expand to the **full form** as evidence accumulates and update the Form field. Do not use this template for Microsoft or a Microsoft employee.
+Use the **compact provisional form** when evidence is thin: keep the header, the perspective summary and section 4, and omit sections 1-3 until evidence supports them. Do not pad it with empty sections, an inferred working style or a statement of limitation in every section; record material gaps in the Coverage line. Expand to the **full form** as evidence accumulates and update the Form field. Do not use this template for an employee of the owner organisation.
 
 ```markdown
 ---
 document_role: person-profile
-template: person-profile@2.0
+template: person-profile@2.1
 created_by: stakeholder-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: stakeholder-governance@<CURRENT_SKILL_VERSION>
 ---

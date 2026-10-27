@@ -9,7 +9,7 @@ metadata:
 
 # Stakeholder Governance
 
-A stakeholder is a relevant person or organisation other than Microsoft and its employees. Store both entity types directly under `50 Stakeholders`, with one canonical profile per entity.
+A stakeholder is a relevant person or organisation other than the workspace owner's own organisation (the *owner organisation*, resolved under [Eligibility](#eligibility)) and its employees. Store both entity types directly under `50 Stakeholders`, with one canonical profile per entity.
 
 The normal operation is to refresh only the profiles affected by new evidence.
 
@@ -65,8 +65,9 @@ Work from the project's own files and supplied material: `30 Sources`, `40 Meeti
 
 ## Eligibility
 
-Do not create profiles for Microsoft or Microsoft employees. This applies equally to the workspace owner and colleagues when they work for Microsoft.
+Do not create profiles for the owner organisation or its employees. This applies equally to the workspace owner and their colleagues.
 
+- Resolve the owner organisation once per run, before creating or refreshing any profile, in this order: the user's request or the target's own instructions; the `owner_organisation` field of the workspace's meeting Archive Guide, when one exists and is not a placeholder; otherwise ask one focused question. If the owner says there is none, no organisation is excluded. State the value used in the report; do not write it to a new file.
 - Check the project evidence for affiliation before creating or refreshing a profile, for example a stated organisation, signature or email domain. If it is unclear, report it or ask one focused question; do not infer it from a name or title.
 - Keep their attributed contributions in source evidence, and use them where relevant to analyse a counterpart.
 - If an excluded entity already has a profile, flag the conflict in the report. Do not delete, move, archive or rewrite it without approval.
@@ -154,7 +155,7 @@ Say that the draft addresses or conflicts with recorded evidence. Do not predict
 Check that:
 
 - each requested entity has the correct type and one canonical profile, or an explicit partial outcome;
-- no profile was created for Microsoft or a Microsoft employee, and any existing one was flagged rather than changed;
+- the owner organisation was resolved and reported, no profile was created for it or its employees, and any existing one was flagged rather than changed;
 - relevant available document content was read, or each material unread source is named with its reason, and no partial review is described as complete;
 - material claims have source anchors and attribution limits;
 - organisation claims are not inferred from one unauthorised person;

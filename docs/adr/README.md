@@ -32,3 +32,5 @@ Statuses: Proposed, Accepted, Superseded by ADR-NNNN, Rejected.
 | [0024](0024-prefer-non-interactive-retrieval-before-browser-fallbacks.md) | Prefer non-interactive retrieval before browser fallbacks | Accepted |
 | [0025](0025-simplify-and-harden-public-repository-management.md) | Simplify and harden public repository management | Accepted |
 | [0026](0026-bound-occurrence-discovery-and-close-known-assets.md) | Bound occurrence discovery and close known assets | Accepted |
+| [0027](0027-parameterise-the-stakeholder-exclusion-by-owner-organisation.md) | Parameterise the stakeholder exclusion by owner organisation | Accepted |
+| [0028](0028-record-unblocked-capture-with-destination-flags.md) | Capture to the meeting folder without a protection check, and flag unexpected destinations | Accepted |

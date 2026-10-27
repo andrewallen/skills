@@ -66,7 +66,7 @@ Retrieval does not stop at the first tool-size or wrapper failure. The skill dis
 
 ### Stakeholder Governance
 
-Use this to create or refresh evidence-backed profiles of relevant people and organisations from the project's own files, or review a draft against their recorded positions. Microsoft and Microsoft employees are not profiled.
+Use this to create or refresh evidence-backed profiles of relevant people and organisations from the project's own files, or review a draft against their recorded positions. The workspace owner's own organisation and its employees are not profiled; the skill resolves that organisation from your request, workspace instructions or the meeting Archive Guide, and asks once if none is given.
 
 **Reads:** the project's own files, including the relevant content of documents and presentations, existing profiles and relevant primary passages linked from an archive when one exists. **Produces:** supported profile updates, compact provisional profiles where evidence is thin, or an explicit evidence gap, with attribution, dates and source links.
 
