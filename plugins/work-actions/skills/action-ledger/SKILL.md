@@ -70,7 +70,7 @@ human; do not choose the least restrictive interpretation.
 | Operation | Result and boundary |
 |---|---|
 | Capture | Create the requested record using the target issue template and approved content. |
-| Clarify | Agree Next action, Done when, human owner and Execution boundary; select at most one horizon and remove Inbox. |
+| Clarify | Agree Next action, Done when, human owner and Execution boundary; select at most one horizon, remove Inbox and add `state:ready`. |
 | Select/review | Read source labels and dates, surface deadlines, decisions and dependencies; do not turn selection into execution. |
 | Delegate/execute | Act only on this particular explicitly assigned execution and its boundary. |
 | Handoff | Leave an evidence-backed update and one concrete next step on the same issue. |
@@ -84,8 +84,11 @@ approved GitHub tool. Read the target template first, preserve every heading
 and section (blank or N/A when appropriate), and do not create duplicate issues
 when an add-to-Project step fails.
 
-In this pilot an API-created action starts with `kind:action`, `Inbox`,
-`state:ready`; a parent outcome uses `Project`, not both kinds. Keep related
+In this pilot an API-created action starts with `kind:action` and `Inbox`
+and no execution state; a parent outcome uses `Project`, not both kinds.
+Clarification adds `state:ready`, so only clarified actions are offered
+for selection. Older records captured with both `Inbox` and `state:ready`
+are not migrated; treat them as unclarified until clarified. Keep related
 work as links/sub-issues, not copies. The current capture flow includes the
 configured private Project: add the same API-created issue using
 the target configuration's Project owner/number and canonical issue URL.

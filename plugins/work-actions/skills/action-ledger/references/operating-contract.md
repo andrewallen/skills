@@ -21,7 +21,7 @@ an issue may narrow a boundary, never expand tool permissions or safety rules.
 
 | State | Meaning |
 |---|---|
-| `state:ready` | Available for selection, not permission to execute |
+| `state:ready` | Clarified and available for selection, not permission to execute; never set at capture |
 | `state:running` | An explicitly assigned execution is active |
 | `6-Waiting` | Paused on a named dependency/decision; retain horizon, maintain Waiting for and Review on. An execution state that sorts after the horizons in label lists; it is never a horizon |
 | `state:review` | A result/proposal needs human acceptance |
