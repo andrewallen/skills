@@ -2,7 +2,7 @@
 name: workspace-governance
 description: Set up, assess, repair or migrate a project folder into the standard seven-folder structure (Start Here, Issued Outputs, Working, Sources, Meetings, Stakeholders, Archive). Use when organising or tidying a project, deciding where a file belongs, registering an issued output or reviewing duplicates. Not needed for ordinary reading or drafting.
 metadata:
-  version: "4.1"
+  version: "4.2"
   architecture: common-workspace-architecture v2.4
   runtime-dependencies: Direct filesystem or shell access; Windows path conventions; PowerShell 7.2+ for the optional local migration helper; authorised provider tools when cloud preservation requires them
 ---

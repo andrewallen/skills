@@ -2,7 +2,7 @@
 name: stakeholder-governance
 description: Create or refresh evidence-backed profiles of relevant people and organisations from the project's own files. Use when new evidence affects a profile, for named profile creation, bounded stakeholder discovery or reviewing a draft against recorded positions. Not a CRM, personality model, account plan or meeting archive.
 metadata:
-  version: "6.2"
+  version: "6.3"
   architecture: common-workspace-architecture v2.4
   runtime-dependencies: Direct filesystem or shell access using Windows path conventions; any local readers available for the document formats in scope; WorkIQ MCP or equivalent authorised Microsoft 365 tools only for separately authorised live research
 ---

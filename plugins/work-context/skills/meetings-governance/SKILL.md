@@ -2,7 +2,7 @@
 name: meetings-governance
 description: Capture and maintain the governed meeting evidence archive under 40 Meetings (Teams transcripts, meeting chats, recordings, tied email, notes and shared resources), with an anchored context for each meeting. Use to refresh the latest meetings, capture named meetings, or initialise or repair a meeting archive. Not for calendar look-ups, scheduling or a quick one-off meeting summary.
 metadata:
-  version: "6.5"
+  version: "6.6"
   architecture: common-workspace-architecture v2.4
   runtime-dependencies: Direct filesystem or shell access using Windows path conventions; WorkIQ MCP or equivalent authorised Microsoft 365 tools for live discovery and retrieval; an authorised original-file transfer route (provider download tool, returned download URL or configured file-scoped API/CLI; signed-in browser only as a last resort)
 ---
