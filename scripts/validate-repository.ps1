@@ -91,6 +91,11 @@ foreach ($file in $markdown.Keys) {
             $failures.Add("${file}: broken or out-of-repository link '$target'.")
             continue
         }
+        if ($file -cmatch '^plugins/([^/]+)/') {
+            # Installed plugins are copied alone, so their links must stay inside the plugin.
+            $pluginRoot = "plugins/$($Matches[1])/"
+            Assert-Repository ($relative.StartsWith($pluginRoot, [StringComparison]::Ordinal)) "${file}: link '$target' leaves the plugin directory."
+        }
         if (Test-Path -LiteralPath $path -PathType Leaf) {
             Assert-Repository ($fileSet.Contains($relative)) "${file}: link '$target' has incorrect case or targets an ignored file."
         }
@@ -172,7 +177,11 @@ if ($null -ne $catalogue) {
             $skillName = Get-Scalar $metadata 'name'
             $skillNames += $skillName
             Assert-Repository ($skillName -ceq $directory.Name) "${skillPath}: name differs from directory."
-            Assert-Repository ([bool] (Get-Scalar $metadata 'description')) "${skillName}: missing description."
+            $description = Get-Scalar $metadata 'description'
+            Assert-Repository ([bool] $description) "${skillName}: missing description."
+            # Advisory only: long descriptions dilute triggering, and a not-for clause limits misfires.
+            if ($description.Length -gt 600) { Write-Warning "${skillName}: description exceeds 600 characters." }
+            if ($description -notmatch '\bnot (for|needed|required|a)\b') { Write-Warning "${skillName}: description has no 'not for' clause." }
             Assert-Repository ($metadata -match '(?m)^metadata:\s*$' -and (Get-Scalar $metadata 'version' 2) -match '^\d+\.\d+$') "${skillName}: invalid skill metadata/version."
             $runtime = Get-Scalar $metadata 'runtime-dependencies' 2
             Assert-Repository ([bool] $runtime) "${skillName}: runtime-dependencies metadata is required."
@@ -253,6 +262,14 @@ $common = Get-Content -LiteralPath (Join-Path $workContext 'Common Architecture.
 $core = @('00 Start Here', '10 Issued Outputs', '20 Working', '30 Sources', '40 Meetings', '50 Stakeholders', '99 Archive')
 $tree = [regex]::Match($common, '(?s)```text\r?\n(.*?)```').Groups[1].Value.Trim() -split '\r?\n'
 Assert-Repository (($tree -join '|') -ceq ($core -join '|')) 'Common Architecture: expected exact seven-root baseline.'
+$typeDefinitions = @([regex]::Matches($common, '(?m)^\| \*\*(Captured|Extracted|Synthesised|Inferred|Proposed)\*\* \| ([^|\r\n]+?)\.? \|\s*$'))
+Assert-Repository ($typeDefinitions.Count -eq 5) 'Common Architecture: expected five information-type definitions.'
+foreach ($restated in 'plugins/work-context/skills/stakeholder-governance/references/evidence-guidance.md', 'plugins/work-context/skills/stakeholder-governance/assets/research-map.md') {
+    $restatedText = Get-Content -LiteralPath (Join-Path $root $restated) -Raw
+    foreach ($definition in $typeDefinitions) {
+        Assert-Repository ($restatedText -match [regex]::Escape($definition.Groups[2].Value)) "${restated}: $($definition.Groups[1].Value) definition differs from Common Architecture."
+    }
+}
 $workspaceGovernance = Join-Path (Join-Path $workContext 'skills') 'workspace-governance'
 $workspaceAssets = Join-Path $workspaceGovernance 'assets'
 $startHereAsset = Get-Content -LiteralPath (Join-Path $workspaceAssets 'start-here.md') -Raw
