@@ -23,7 +23,7 @@ an issue may narrow a boundary, never expand tool permissions or safety rules.
 |---|---|
 | `state:ready` | Available for selection, not permission to execute |
 | `state:running` | An explicitly assigned execution is active |
-| `6-Waiting` | Paused on a named dependency/decision; retain horizon, maintain Waiting for and Review on |
+| `6-Waiting` | Paused on a named dependency/decision; retain horizon, maintain Waiting for and Review on. An execution state that sorts after the horizons in label lists; it is never a horizon |
 | `state:review` | A result/proposal needs human acceptance |
 | `state:failed` | Execution stopped unsuccessfully; leave actual error and recovery step |
 
