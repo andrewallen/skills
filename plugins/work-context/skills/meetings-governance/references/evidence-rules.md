@@ -4,8 +4,6 @@ These rules belong to Meetings Governance. Stakeholder Governance has its own sh
 
 ## Key guidance: local-first meeting capture and online review
 
-Earlier local-first handling guidance is superseded where it conflicts with accepted [ADR-0012](../../../../../docs/adr/0012-local-first-meeting-evidence-capture.md) on local capture, platform labels or online review; all other applicable rules remain in force.
-
 1. **The workspace's OneDrive folders are secure by default.** They are the approved store for in-scope workspace material. Do not assess, question or wait for destination protection before saving.
 2. **Attempt local capture first.** For in-scope meeting communications (transcripts, meeting and follow-up chats, tied emails, notes, minutes and recaps), attempt a faithful Markdown companion in the governed folder. For recordings and reusable resources, attempt to retain the original file locally and record its identity and source link. Online reading is not local retention.
    **Resources are not rendered.** Presented or shared documents, decks, spreadsheets, PDFs, Loop pages and web pages (customer, internal or AI-generated) stay as their original files or links. Do not convert them to Markdown.
@@ -107,7 +105,7 @@ Keep these axes separate:
 
 ## 4. Retrieval playbook
 
-- Apply the [bounded discovery, capture preflight and recovery sequence](capture.md#0-retrieval-preflight-and-automatic-recovery) (accepted [ADR-0024](../../../../../docs/adr/0024-prefer-non-interactive-retrieval-before-browser-fallbacks.md) and [ADR-0026](../../../../../docs/adr/0026-bound-occurrence-discovery-and-close-known-assets.md)) to all source types. Search results are leads, not collection inventories or negative evidence. Continue through available authorised alternatives in the same run, distinguishing a tool/transport limitation from source denial; no generic reprompt is needed to try another already-permitted route. Exhaust applicable non-interactive routes before opening or automating a browser; Browser Use and Computer Use are last resorts and must yield to active user input.
+- Apply the [bounded discovery, capture preflight and recovery sequence](capture.md#0-retrieval-preflight-and-automatic-recovery) to all source types. Search results are leads, not collection inventories or negative evidence. Continue through available authorised alternatives in the same run, distinguishing a tool/transport limitation from source denial; no generic reprompt is needed to try another already-permitted route. Exhaust applicable non-interactive routes before opening or automating a browser; Browser Use and Computer Use are last resorts and must yield to active user input.
 - Prefer dedicated entity tools for exact reads and pagination. Semantic search supplies leads, not substitute identities or negative findings.
 - Prove one small request before repeating it across sources.
 - Copy paired identifiers from the same resolved record. Compare opaque IDs case-sensitively and ordinally, including in PowerShell (`-ceq`, not `-eq`). Never lowercase, rebuild or repair IDs or cursors. Decode URL query encoding only when the tool's token parameter requires it, without changing the value.

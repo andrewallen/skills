@@ -1,6 +1,6 @@
 # Source coverage
 
-Load for bootstrap, full-profile research, document review or refresh. For targeted work, use only the sources needed to establish the requested contribution and its context.
+Load for `discover`, `targeted-create`, `refresh-affected` and `content-review` when they need source research or document review, and for separately authorised supplementary research. For a narrowly targeted change, use only the sources needed to establish the requested contribution and its context.
 
 ## Contents
 

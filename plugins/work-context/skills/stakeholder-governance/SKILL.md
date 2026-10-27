@@ -25,7 +25,7 @@ Live Microsoft 365, directory or public research is a separate operation that ne
 |---|---|
 | [../../Common Architecture.md](../../Common%20Architecture.md) | Every run: shared structure, provenance, navigation and migration boundaries. |
 | [references/evidence-guidance.md](references/evidence-guidance.md) | Every profile creation, refresh or content review. |
-| [references/sources.md](references/sources.md) | Discovery, full-profile research, document review or authorised supplementary research. |
+| [references/sources.md](references/sources.md) | Discovery, full-profile research, refresh source review, document review or authorised supplementary research. |
 | [assets/person-profile.md](assets/person-profile.md) | Creating or repairing a person profile. |
 | [assets/organisation-profile.md](assets/organisation-profile.md) | Creating or repairing an organisation profile. |
 | [assets/research-map.md](assets/research-map.md) | Only when a separate source map adds navigation value. |

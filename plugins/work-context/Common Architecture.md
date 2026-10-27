@@ -77,9 +77,8 @@ Use the five information types consistently across the skills:
 | **Inferred** | Interpretation extending beyond an explicit statement. |
 | **Proposed** | A recommendation or application suggested by the author or agent. |
 
-Specialist references may add examples, but do not redefine these types. Keep them separate from:
+Specialist references may add examples, but do not redefine these types. Keep information type separate from:
 
-- information type: Captured, Extracted, Synthesised, Inferred or Proposed;
 - provenance and attribution;
 - audience;
 - lifecycle: working, review-required, approved, issued, superseded, withdrawn or archived;

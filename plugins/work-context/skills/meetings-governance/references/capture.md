@@ -96,7 +96,7 @@ Recognise official Teams transcript objects, recording-backed transcripts, custo
 - For recurring threads, isolate the occurrence using lifecycle markers and time boundaries. A shared series or chat ID is a source, not an occurrence key; never mix adjacent occurrences.
 - On later runs, re-enumerate the whole occurrence window so edits and replaced attachments are found. `latest_message_at` alone does not prove nothing changed. A creation-date boundary does not review edits or deletions to older messages; state the actual scope.
 - Preserve deletion/tombstone metadata where relevant without reconstructing absent wording.
-- If no total count is available, say so. Exhausted pagination proves the returned query's coverage only (see the retrieval playbook's known-change check).
+- If no total count is available, say so. Exhausted pagination proves the returned query's coverage only (see the known-change check in the [retrieval playbook](evidence-rules.md#4-retrieval-playbook)).
 - Inspect the complete supported message body and hosted-content relationships as well as attachment metadata. An empty attachment array is not evidence that inline or hosted images are absent. Resolve the exact hosted-content identity and use only a supported authorised byte route; metadata or an HTML image reference is not image retention. If bytes cannot be retrieved, preserve the canonical reference and actual limitation, and keep that image as an open asset outcome.
 - Create a chat file whenever the exact occurrence chat has substantive content or lifecycle identity, using the chat schema in [evidence-frontmatter.md](../assets/evidence-frontmatter.md); attempt to save every substantive message locally in full. If local saving fails but the chat remains readable through normal authorised platform access, link and review it online for the context synthesis, and mark it Not captured locally. When an exact read finds nothing worth keeping, record `none-found` in the context instead of an empty file.
 
@@ -149,7 +149,7 @@ Classify every URL and attachment encountered in approved occurrences once. Reso
 
 | Disposition | Meaning |
 | --- | --- |
-| `captured` | The original file (where one is available) and the source pointer are saved in the resource folder, with stable identity. The default for every accessible in-scope resource. No Markdown rendering is made. (A storage outcome: its contents are not thereby all **Captured** information.) |
+| `captured` | The original file (where one is available) and the source pointer are saved under `sources_root` (step 3 below), with stable identity. The default for every accessible in-scope resource. No Markdown rendering is made. (A storage outcome: its contents are not thereby all **Captured** information.) |
 | `existing` | The same source or payload already exists in the resource corpus |
 | `incidental` | Navigation, sign-in, reaction, media placeholder or other non-resource URL |
 | `inaccessible` | The original could not be saved locally or its identity resolved; pointer, route and error retained. A Not-captured-locally item. If it remains readable online through normal authorised platform access, review it for synthesis and record that separately. |

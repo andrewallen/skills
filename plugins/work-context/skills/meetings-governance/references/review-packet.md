@@ -7,7 +7,7 @@ Load only when the user explicitly requests a project-scope or workspace-princip
 - This is a proposal-and-approval process, not an automatic discovery expansion.
 - Use the Archive Guide's purpose, inclusion rules, exclusions and stable principle IDs to assess project relevance.
 - Do not assign meeting classes, baseline impacts or class-based routes. Legacy values and classification reports are historical data; preserve them, but do not use them to omit an in-scope source or alter local capture.
-- Follow the local-first capture and authorised online-review rules in the skill's evidence guidance; distinguish online review from local retention.
+- Follow the local-first capture and authorised online-review rules in [evidence-rules.md](evidence-rules.md#key-guidance-local-first-meeting-capture-and-online-review); distinguish online review from local retention.
 - Do not move, rename, delete or bulk-edit established content without the required explicit approval.
 
 ## Review an explicit scope change

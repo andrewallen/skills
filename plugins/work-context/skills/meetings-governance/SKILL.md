@@ -135,7 +135,7 @@ Meeting evidence can support stakeholder profiles, but Stakeholder Governance is
 
 - `initial-backfill`: freeze the confirmed range, inventory plausible candidates, resolve exact occurrences and state any coverage gap.
 - `repair`: preserve existing evidence and IDs; repair only the missing control, link or provenance field.
-- `recalibrate`: use the scope-review reference, require owner approval for scope changes and preserve evidence history. Do not remove captured evidence.
+- `recalibrate`: use [references/review-packet.md](references/review-packet.md), require owner approval for scope changes and preserve evidence history. Do not remove captured evidence.
 
 ## Completion
 
