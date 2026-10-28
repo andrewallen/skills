@@ -28,7 +28,7 @@ Keep information type separate from attribution, lifecycle, approval, sensitivit
 
 - Work from the project's own files and supplied material. Prefer existing governed meeting evidence, then read the relevant primary content of documents, reports and presentations. A title, metadata, search snippet or retained pointer is not review.
 - Lead with evidence relevant to the project's purpose. Include wider relationship context found in the project at lower prominence, and do not present an adjacent contribution as a project requirement.
-- Microsoft and Microsoft employees do not receive profiles. Keep their attributed statements as source evidence, and use them to analyse a counterpart where relevant.
+- The owner organisation (resolved under the skill's Eligibility rules) and its employees do not receive profiles. Keep their attributed statements as source evidence, and use them to analyse a counterpart where relevant.
 - Treat links and pointers to material outside the project as leads. Use directory information, public first-party evidence or other external research only when separately authorised for a stated question; then use directory information for identity and role, not opinions or influence.
 - Do not mine unrelated personal material or create broad biographies.
 - Record the source range, review cutoff and any access, reading or attribution gap.

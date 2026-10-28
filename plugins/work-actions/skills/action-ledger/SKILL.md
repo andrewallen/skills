@@ -2,7 +2,7 @@
 name: action-ledger
 description: Capture, clarify, select, delegate, execute, review or hand off actions in an explicitly named GitHub issue ledger. Keep human attention, accountability, execution and acceptance separate. Use for daily or weekly action reviews and safe manual view refresh; not for an application backlog, automatic dispatch or general coding without a ledger action.
 metadata:
-  version: "1.2"
+  version: "1.3"
   runtime-dependencies: Approved GitHub access; PowerShell 7.2+ and authenticated gh for bundled helpers
 ---
 
@@ -12,6 +12,20 @@ Use one GitHub issue per action and the same issue across agents. Do not create
 a parallel task list in files, a database, another service or session memory.
 The plugin provides instructions and manually invoked helpers, not permission,
 automatic dispatch, hooks, a claim service or a new information-model schema.
+
+## Invariants
+
+These hold in every operation. If an action would break one, stop it and report.
+
+- Resolve the target from the user's input, never from the installed skill,
+  working directory or account: writing to the wrong repository leaks records.
+- Capture is not delegation: an action runs only under an explicit assignment
+  and a concrete Execution boundary.
+- Labels, timestamps and assignees are not locks: re-read before every edit and
+  stop on a conflict rather than overwrite a human's change.
+- Close only with attributable human acceptance, explicit delegated acceptance
+  or authorised cancellation: a finished PR or idle agent is not acceptance.
+- Never report computed views as refreshed unless an approved refresh succeeded.
 
 ## Files
 
@@ -56,7 +70,7 @@ human; do not choose the least restrictive interpretation.
 | Operation | Result and boundary |
 |---|---|
 | Capture | Create the requested record using the target issue template and approved content. |
-| Clarify | Agree Next action, Done when, human owner and Execution boundary; select at most one horizon and remove Inbox. |
+| Clarify | Agree Next action, Done when, human owner and Execution boundary; select at most one horizon, remove Inbox and add `state:ready`. |
 | Select/review | Read source labels and dates, surface deadlines, decisions and dependencies; do not turn selection into execution. |
 | Delegate/execute | Act only on this particular explicitly assigned execution and its boundary. |
 | Handoff | Leave an evidence-backed update and one concrete next step on the same issue. |
@@ -70,8 +84,11 @@ approved GitHub tool. Read the target template first, preserve every heading
 and section (blank or N/A when appropriate), and do not create duplicate issues
 when an add-to-Project step fails.
 
-In this pilot an API-created action starts with `kind:action`, `Inbox`,
-`state:ready`; a parent outcome uses `Project`, not both kinds. Keep related
+In this pilot an API-created action starts with `kind:action` and `Inbox`
+and no execution state; a parent outcome uses `Project`, not both kinds.
+Clarification adds `state:ready`, so only clarified actions are offered
+for selection. Older records captured with both `Inbox` and `state:ready`
+are not migrated; treat them as unclarified until clarified. Keep related
 work as links/sub-issues, not copies. The current capture flow includes the
 configured private Project: add the same API-created issue using
 the target configuration's Project owner/number and canonical issue URL.

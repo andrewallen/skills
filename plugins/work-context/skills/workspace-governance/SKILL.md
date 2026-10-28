@@ -1,8 +1,8 @@
 ---
 name: workspace-governance
-description: Create, assess, repair or migrate projects into the seven-folder structure. Plan unfamiliar layouts before approved moves; register issued outputs and review duplicates. Not required for ordinary reading or drafting.
+description: Set up, assess, repair or migrate a project folder into the standard seven-folder structure (Start Here, Issued Outputs, Working, Sources, Meetings, Stakeholders, Archive). Use when organising or tidying a project, deciding where a file belongs, registering an issued output or reviewing duplicates. Not needed for ordinary reading or drafting.
 metadata:
-  version: "4.1"
+  version: "4.2"
   architecture: common-workspace-architecture v2.4
   runtime-dependencies: Direct filesystem or shell access; Windows path conventions; PowerShell 7.2+ for the optional local migration helper; authorised provider tools when cloud preservation requires them
 ---
@@ -10,6 +10,17 @@ metadata:
 # Workspace Governance
 
 Own structure, stable human and agent signposts, the Issued Outputs Index and structural migration. Do not collect meetings, write profiles or become a task system.
+
+## Invariants
+
+These hold in every operation. If an action would break one, stop that item and report it.
+
+- Resolve the target from the user's input, never from this skill's location: the installed package is not a workspace.
+- Move, rename, archive, overwrite or delete only within an explicitly approved mapping: users cannot easily recover lost structure or versions.
+- Remove only approved, verified-empty old folders, non-recursively and never through a reparse point: recursive deletion destroys unseen content.
+- Use filesystem tools or PowerShell, never GUI or Explorer automation: GUI operations cannot be verified or resumed safely.
+- Keep Start Here and `AGENTS.md` static: project facts in signposts go stale and mislead.
+- Never write another skill's records: each collection has one owner.
 
 Use direct filesystem tools or PowerShell for basic file and folder operations, never Computer Use or Explorer automation. The bundled helper is optional, not the gateway to migration. Follow Common Architecture's file-operation rules, including for sync-client paths.
 

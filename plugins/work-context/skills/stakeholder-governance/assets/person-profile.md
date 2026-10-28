@@ -2,12 +2,12 @@
 
 Use for `<Full Name> - Person Profile.md`, or adapt the same structure in Word. Replace every placeholder before handoff; where evidence is absent, state the specific gap rather than fabricating content. Keep depth proportionate to evidence.
 
-Use the **compact provisional form** when evidence is thin: keep the header, the perspective summary and section 4, and omit sections 1-3 until evidence supports them. Do not pad it with empty sections, an inferred working style or a statement of limitation in every section; record material gaps in the Coverage line. Expand to the **full form** as evidence accumulates and update the Form field. Do not use this template for Microsoft or a Microsoft employee.
+Use the **compact provisional form** when evidence is thin: keep the header, the perspective summary and section 4, and omit sections 1-3 until evidence supports them. Do not pad it with empty sections, an inferred working style or a statement of limitation in every section; record material gaps in the Coverage line. Expand to the **full form** as evidence accumulates and update the Form field. Do not use this template for an employee of the owner organisation.
 
 ```markdown
 ---
 document_role: person-profile
-template: person-profile@2.0
+template: person-profile@2.1
 created_by: stakeholder-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: stakeholder-governance@<CURRENT_SKILL_VERSION>
 ---
@@ -31,10 +31,10 @@ _Full form. Default: Synthesised, with Extracted statements; inferred priorities
 
 <Dated role/remit; expressed outcomes, criteria, constraints and boundaries, with inline citations. Lead with what bears on the project's purpose; keep wider relationship context distinct and do not present it as a project requirement.>
 
-## 2. Their voice and working style
+## 2. Their voice and observed working practice
 _Full form. Default: Extracted examples; patterns are Inferred / Interpretation._
 
-<Selected verified wording or attributed paraphrases with dates; bounded interpretations and counterexamples. Our advice goes in section 4.>
+<Selected verified wording or attributed paraphrases with dates; bounded interpretations and counterexamples. Describe observable behaviour in the evidence, such as how they frame issues, what they ask for and the formats they prefer. Do not characterise personality, motives or temperament. Our advice goes in section 4.>
 
 **Working-style nuance** _(Inferred)_. <When the pattern shows, counterexamples and alternative explanations. Write each interpretation so it would stand if the person read it.>
 

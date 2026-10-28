@@ -73,4 +73,4 @@ inventory_status: provisional
 
 Replace `<CURRENT_SKILL_VERSION>` when creating the guide. Preserve `created_by`. Update `last_governed_by` only after a material update or validation. A later skill version does not by itself require migration.
 
-Template 3.1 corrects the root metadata to include `start_here_root` and makes optional `governance_root` explicit. Do not rewrite an existing guide solely because its template version is older.
+Do not rewrite an existing guide solely because its template version is older.

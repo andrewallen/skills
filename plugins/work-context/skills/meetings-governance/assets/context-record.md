@@ -1,12 +1,12 @@
 # Context record template
 
-Every governed record has a context file. Start from this complete template rather than writing frontmatter from memory: every key must be present, and validation fails if any is missing, including empty relationship keys.
+Every governed record has a context file. Start from this complete template rather than writing frontmatter from memory: every key must be present, including empty relationship keys, because downstream readers and later runs rely on each one.
 
 ## Frontmatter
 
 ```yaml
 document_role: meeting-context
-template: meeting-context@2.2
+template: meeting-context@2.3
 created_by: meetings-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: meetings-governance@<CURRENT_SKILL_VERSION>
 meeting_date:
@@ -48,14 +48,28 @@ Value rules:
 YYYY-MM-DD - Descriptor
     Context.md
     Transcript.md
-    Transcript Part N.md
     Chat.md
     Recording.mp4
 ```
 
+This table is the only definition of occurrence-folder filenames; the capture reference uses the same names.
+
+| Role | Filename |
+| --- | --- |
+| Context record | `Context.md` |
+| Transcript, or a proven part of one | `Transcript.md`, `Transcript Part N.md` |
+| Meeting chat | `Chat.md` |
+| Tied email, follow-up email | `Email.md`, `Follow-up Email.md` |
+| Follow-up chat | `Follow-up Chat.md` |
+| Recap, notes, attendance companions | `Recap.md`, `Notes.md`, `Attendance.md` |
+| Recording, or a proven continuation | `Recording.<ext>`, `Recording Part N.<ext>` |
+| Silent recording, transcript rendering, related demo, recap media | `Silent Recording.<ext>`, `Transcript Rendering.<ext>`, `Related Demo Recording.<ext>`, `Recap Recording.<ext>` |
+
+A second distinct object of the same role takes a short qualifier, such as `Email 2.md` or `Email 1430.md`; keep the qualifier stable across runs. Reusable resources are not stored here; they follow the [resource rules](../references/capture.md#6-reusable-resources) for location and naming.
+
 For a rescheduled or misdated occurrence, name and index the exact occurrence time and preserve the series title and conflict in context.
 
-Add a short time or stable identity qualifier for same-day namesakes. Use these role names where capture references specify typed suffixes. Keep distinct source objects distinguishable. Existing stems, paths and names remain unchanged until an approved migration; preserve identity and repair approved links when moving them.
+Add a short time or stable identity qualifier to the folder name for same-day namesakes. Keep distinct source objects distinguishable. Existing stems, paths and names remain unchanged until an approved migration; preserve identity and repair approved links when moving them.
 
 ## Body sections
 
@@ -79,7 +93,7 @@ Include all thirteen, in this order; use a concise `none-found`, `not-applicable
    | ID | Speaker | Anchor | Point (close paraphrase or short verified quote) | Status |
    | --- | --- | --- | --- | --- |
 
-   - **Speaker** follows the attribution level (evidence-rules §3): the name at level 1; `Label: Name (room device)` at level 2; `Speaker 1` at level 3; `unattributed` at level 4. Never inferred from content. At levels 2–5, quote from the body of a turn, not its first or last few words (evidence-rules §3, turn edges); a very short turn wedged inside another speaker's sentence is treated as part of that sentence with an uncertain boundary, not as a separate point. A follow-up addressed to a named person ("Participant B, can you send…") records the addressee in **Stated owner**, which is extracted, not a guess at the speaker.
+   - **Speaker** follows the attribution level (evidence-rules §3): the name at level 1; `Label: Name (room device)` at level 2; `Speaker 1` at level 3; `unattributed` at level 4. Never inferred from content. At levels 2–5, quote from the body of a turn, not its first or last few words (evidence-rules §3, turn edges); a very short turn wedged inside another speaker's sentence is treated as part of that sentence with an uncertain boundary, not as a separate point. A follow-up addressed to a named person ("Participant B, can you send…") is also recorded in section 8 with the addressee as **Stated owner**; that is extracted, not a guess at the speaker.
    - **Anchor** is the transcript timestamp (plus part) or chat/email message ID and time. No anchor, no key point.
    - **Status** uses the shared decision-status vocabulary: `question`, `request`, `proposal`, `suggestion`, `position`, `claim`, `concern`, `disagreement`, `working-session agreement`, `formal approval` or `evidenced completion`. Keep conditional or situational advice conditional; never restate it as a rule. Where a point depends on reading a garbled or ambiguous passage, say so in the row.
    - **Selection is rule-based, not AI judgement:** include every explicit proposal, request, question to be answered, agreement, disagreement or concern, follow-up commitment, figure or statistic, factual claim, and statement bearing on the Archive Guide's working principles. If in doubt, include it.

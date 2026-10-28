@@ -47,7 +47,7 @@ Prefer non-interactive retrieval in this order: a provider download tool, a retu
 
 A signed-in browser carries the transfer only. It cannot download what the user cannot open: tenant consent, source permissions, download blocks and sensitivity-label protection still apply, and a protected file is retained as downloaded, never decrypted. Do not expose credentials or pre-authenticated download URLs in archive pointers or logs.
 
-Meetings Governance applies this [recovery sequence](../plugins/work-context/skills/meetings-governance/references/capture.md#0-retrieval-preflight-and-automatic-recovery) in the same run, asks once for any specific sign-in or approval it still needs after authorised alternatives, and records anything it could not retrieve as a gap. The plugin installs no server or SDK, adds no permissions, and does not sign in, switch accounts or request access.
+The skill keeps these observations in a dated [known tool behaviour](../plugins/work-context/skills/meetings-governance/references/known-tool-behaviour.md) note, separate from its rules. Meetings Governance applies this [recovery sequence](../plugins/work-context/skills/meetings-governance/references/capture.md#0-retrieval-preflight-and-automatic-recovery) in the same run, asks once for any specific sign-in or approval it still needs after authorised alternatives, and records anything it could not retrieve as a gap. The plugin installs no server or SDK, adds no permissions, and does not sign in, switch accounts or request access.
 
 ## GitHub installation
 

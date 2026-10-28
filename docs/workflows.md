@@ -96,7 +96,7 @@ A person or organisation has a profile, but new evidence has arrived, including 
 
 ### What the agent does
 
-It resolves the entity and checks that it is eligible for a profile, because Microsoft and Microsoft employees are not profiled. It reads the affected profile and the relevant primary passages, including the content of the changed presentation, and updates only supported sections. Evidence that bears on the project's purpose leads; wider relationship context found in the project sits lower down. An existing meeting index and context help locate passages; they are not independent corroboration of the underlying source.
+It resolves the entity and checks that it is eligible for a profile, because the workspace owner's own organisation and its employees are not profiled. It reads the affected profile and the relevant primary passages, including the content of the changed presentation, and updates only supported sections. Evidence that bears on the project's purpose leads; wider relationship context found in the project sits lower down. An existing meeting index and context help locate passages; they are not independent corroboration of the underlying source.
 
 Where evidence is thin, the profile stays compact and provisional and grows only as evidence supports it. A report that could not be read, or a link to material outside the project, is named as a gap rather than skipped or followed; Microsoft 365 or public research happens only when separately authorised. Profile updates do not require changing the static Start Here or `AGENTS.md` signposts.
 

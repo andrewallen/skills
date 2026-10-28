@@ -5,7 +5,7 @@ Use for `<Entity Name> - Research Map.md` beside a canonical person or organisat
 ```markdown
 ---
 document_role: entity-research-map
-template: entity-research-map@1.0
+template: entity-research-map@1.1
 created_by: stakeholder-governance@<CURRENT_SKILL_VERSION>
 last_governed_by: stakeholder-governance@<CURRENT_SKILL_VERSION>
 ---
@@ -16,7 +16,7 @@ Entity type: <person | organisation>
 Supports: <relative link to the canonical Person Profile or Organisation Profile>, which holds the substantive account.
 Map review scope: <range, cutoff, date>. Profile review scope: <same, or state the difference>.
 
-Taxonomy: **Captured** original communication, recording or retained source; **Extracted** a selected quotation, discrete fact or close attributed paraphrase with no additional conclusion; **Synthesised** statements organised, condensed or connected within or across sources; **Inferred** interpretation extending beyond an explicit statement; **Proposed** a recommendation or application suggested by the author or agent.
+Taxonomy: **Captured** original communication, recording or retained source; the source may contain errors. **Extracted** a selected quotation, discrete fact or close attributed paraphrase with no additional conclusion. **Synthesised** statements organised, condensed or connected within or across sources. **Inferred** interpretation extending beyond an explicit statement. **Proposed** a recommendation or application suggested by the author or agent.
 
 ## Coverage
 

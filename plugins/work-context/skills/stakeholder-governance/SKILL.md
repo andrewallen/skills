@@ -1,17 +1,28 @@
 ---
 name: stakeholder-governance
-description: Create or refresh evidence-backed profiles of relevant people and organisations from the project's own files. Use after new meeting or source evidence, for named profile creation, bounded stakeholder discovery or evidence-based content review. Do not profile Microsoft or Microsoft employees. Do not create a CRM, personality model, account plan or second meeting archive.
+description: Create or refresh evidence-backed profiles of relevant people and organisations from the project's own files. Use when new evidence affects a profile, for named profile creation, bounded stakeholder discovery or reviewing a draft against recorded positions. Not a CRM, personality model, account plan or meeting archive.
 metadata:
-  version: "6.2"
+  version: "6.3"
   architecture: common-workspace-architecture v2.4
   runtime-dependencies: Direct filesystem or shell access using Windows path conventions; any local readers available for the document formats in scope; WorkIQ MCP or equivalent authorised Microsoft 365 tools only for separately authorised live research
 ---
 
 # Stakeholder Governance
 
-A stakeholder is a relevant person or organisation other than Microsoft and its employees. Store both entity types directly under `50 Stakeholders`, with one canonical profile per entity.
+A stakeholder is a relevant person or organisation other than the workspace owner's own organisation (the *owner organisation*, resolved under [Eligibility](#eligibility)) and its employees. Store both entity types directly under `50 Stakeholders`, with one canonical profile per entity.
 
 The normal operation is to refresh only the profiles affected by new evidence.
+
+## Invariants
+
+These hold in every operation. If an action would break one, stop that item and report it.
+
+- Resolve the target from the user's input, never from this skill's location: the installed package is not a workspace.
+- Never profile the owner organisation or its employees (see [Eligibility](#eligibility)): the profiles exist to understand counterparts.
+- Read the content before citing it, and name what was not read: a title or pointer is not evidence.
+- One person's statement is not their organisation's position without evidenced authority: misattributed positions mislead the work.
+- Research beyond the project's own files only when separately authorised for a stated question: profiling must stay proportionate.
+- Consume meeting evidence; never recollect it: Meetings Governance owns capture.
 
 ## Dependencies
 
@@ -25,7 +36,7 @@ Live Microsoft 365, directory or public research is a separate operation that ne
 |---|---|
 | [../../Common Architecture.md](../../Common%20Architecture.md) | Every run: shared structure, provenance, navigation and migration boundaries. |
 | [references/evidence-guidance.md](references/evidence-guidance.md) | Every profile creation, refresh or content review. |
-| [references/sources.md](references/sources.md) | Discovery, full-profile research, document review or authorised supplementary research. |
+| [references/sources.md](references/sources.md) | Discovery, full-profile research, refresh source review, document review or authorised supplementary research. |
 | [assets/person-profile.md](assets/person-profile.md) | Creating or repairing a person profile. |
 | [assets/organisation-profile.md](assets/organisation-profile.md) | Creating or repairing an organisation profile. |
 | [assets/research-map.md](assets/research-map.md) | Only when a separate source map adds navigation value. |
@@ -65,8 +76,9 @@ Work from the project's own files and supplied material: `30 Sources`, `40 Meeti
 
 ## Eligibility
 
-Do not create profiles for Microsoft or Microsoft employees. This applies equally to the workspace owner and colleagues when they work for Microsoft.
+Do not create profiles for the owner organisation or its employees. This applies equally to the workspace owner and their colleagues.
 
+- Resolve the owner organisation once per run, before creating or refreshing any profile, in this order: the user's request or the target's own instructions; the `owner_organisation` field of the workspace's meeting Archive Guide, when one exists and is not a placeholder; otherwise ask one focused question. If the owner says there is none, no organisation is excluded. State the value used in the report; do not write it to a new file.
 - Check the project evidence for affiliation before creating or refreshing a profile, for example a stated organisation, signature or email domain. If it is unclear, report it or ask one focused question; do not infer it from a name or title.
 - Keep their attributed contributions in source evidence, and use them where relevant to analyse a counterpart.
 - If an excluded entity already has a profile, flag the conflict in the report. Do not delete, move, archive or rewrite it without approval.
@@ -120,7 +132,7 @@ Use the person or organisation asset and keep the profile proportionate to the e
 A person profile covers:
 
 1. perspective;
-2. voice and working style;
+2. voice and observed working practice;
 3. contribution timeline;
 4. implications for the work.
 
@@ -154,7 +166,7 @@ Say that the draft addresses or conflicts with recorded evidence. Do not predict
 Check that:
 
 - each requested entity has the correct type and one canonical profile, or an explicit partial outcome;
-- no profile was created for Microsoft or a Microsoft employee, and any existing one was flagged rather than changed;
+- the owner organisation was resolved and reported, no profile was created for it or its employees, and any existing one was flagged rather than changed;
 - relevant available document content was read, or each material unread source is named with its reason, and no partial review is described as complete;
 - material claims have source anchors and attribution limits;
 - organisation claims are not inferred from one unauthorised person;
